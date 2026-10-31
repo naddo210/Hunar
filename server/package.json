@@ -1,0 +1,26 @@
+{
+  "name": "hunar-server",
+  "version": "1.0.0",
+  "description": "HUNAR Creative Studio - Node/Express Backend API & Lead Management",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node tests/e2e-test.js",
+    "seed:admin": "node seeds/seedAdmin.js"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "csv-writer": "^1.6.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-rate-limit": "^7.2.0",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.4.0",
+    "validator": "^13.12.0"
+  }
+}

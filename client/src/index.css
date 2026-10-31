@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background-color: #F3EDE1;
+    color: #20231F;
+    font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  body {
+    background-color: #F3EDE1;
+    color: #20231F;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Cormorant Garamond', 'Playfair Display', Georgia, serif;
+    color: #174D3A;
+    letter-spacing: -0.015em;
+  }
+}
+
+/* Editorial styling accents */
+.editorial-eyebrow {
+  @apply text-xs uppercase tracking-widest text-olive font-semibold inline-flex items-center gap-2;
+  font-family: 'Outfit', sans-serif;
+}
+
+.editorial-divider {
+  @apply h-[1px] w-full bg-beige/60 border-0 my-8;
+}
+
+/* Custom editorial scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F3EDE1;
+}
+::-webkit-scrollbar-thumb {
+  background: #D8C8AE;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #174D3A;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Accessible focus states matching Deep Emerald brand color */
+*:focus-visible {
+  outline: 2px solid #174D3A;
+  outline-offset: 3px;
+}
