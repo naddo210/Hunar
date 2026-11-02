@@ -8,12 +8,10 @@ import { SUB_SERVICES } from '../../data/servicesCatalogue';
 import { ArrowUpRight } from 'lucide-react';
 
 const SUB_KEYS = [
+  'resin-art',
   'original-paintings',
   'art-prints',
-  'mini-canvas-art',
-  'handmade-bookmarks',
-  'sculptures-installations',
-  'resin-art-products',
+  'sculptures-handmade-art',
   'home-office-art',
   'seasonal-art-gifts',
 ];

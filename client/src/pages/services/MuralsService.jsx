@@ -8,13 +8,13 @@ import { SUB_SERVICES } from '../../data/servicesCatalogue';
 import { ArrowUpRight } from 'lucide-react';
 
 const SUB_KEYS = [
-  'wall-murals',
   'commercial-glass-painting',
-  'event-tattoos-face-painting',
   'theatrical-stage-design',
+  'wall-murals',
+  'resin-sculptural-installations',
+  'event-tattoos-face-painting',
   'office-art-installations',
   'interior-art-styling',
-  'resin-sculptural-installations',
   'branded-wall-art',
   'event-backdrops-live-art',
   'corporate-art-gifting',
