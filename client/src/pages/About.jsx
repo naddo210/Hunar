@@ -44,8 +44,10 @@ export default function About() {
             <div className="lg:col-span-5">
               <div className="relative rounded overflow-hidden shadow-card border border-beige aspect-[4/3] bg-cream-dark">
                 <img
-                  src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1200&q=80"
-                  alt="HUNAR Studio Atelier Artists at Work"
+                  src="/portfolio/portraits/bearded-man-studio-easel-portrait.webp"
+                  alt="Fine art oil portrait painting on easel in HUNAR studio atelier"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>

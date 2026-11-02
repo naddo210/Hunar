@@ -5,7 +5,7 @@ import Breadcrumbs from '../../components/Breadcrumbs';
 import EnquiryForm from '../../components/EnquiryForm';
 import ProjectGallery from '../../components/ProjectGallery';
 import { SUB_SERVICES } from '../../data/servicesCatalogue';
-import { Check, ArrowUpRight, Palette } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 
 const SUB_KEYS = [
   'custom-portraits',
@@ -22,9 +22,42 @@ const SUB_KEYS = [
 ];
 
 const GALLERY = [
-  { url: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80', caption: 'Atmospheric Earth Pigments on Belgian Linen', tag: 'Fine Art' },
-  { url: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80', caption: 'Portrait Oil Study on Canvas', tag: 'Portrait' },
-  { url: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80', caption: 'Tonal Charcoal on 300gsm Fabriano Paper', tag: 'Drawing' },
+  {
+    url: '/portfolio/portraits/vibrant-crimson-woman-oil-portrait.webp',
+    caption: 'Luminescence in Crimson — Oil on Belgian Linen Canvas',
+    tag: 'Fine Art Oil',
+    alt: 'Fine art oil portrait painting of a woman in yellow dress against deep crimson background on canvas'
+  },
+  {
+    url: '/portfolio/portraits/monochrome-charcoal-woman-montage.webp',
+    caption: 'Soul in Monochrome — Charcoal & Graphite Montage on 300gsm Paper',
+    tag: 'Charcoal',
+    alt: 'Detailed charcoal and graphite drawing montage of a woman with floral accents on archival paper'
+  },
+  {
+    url: '/portfolio/calligraphy/gulzar-poetry-spiral-devanagari-calligraphy.webp',
+    caption: 'Gulzar: "Waqt" Devanagari Spiral Calligraphy on Cotton Paper',
+    tag: 'Calligraphy',
+    alt: 'Circular Devanagari calligraphy artwork of Gulzar poetry written in a continuous yin-yang spiral in red ink'
+  },
+  {
+    url: '/portfolio/calligraphy/koshish-harivansh-rai-bachchan-calligraphy.webp',
+    caption: 'Harivansh Rai Bachchan: "Koshish" Illustrated Calligraphy Sheet',
+    tag: 'Devanagari Art',
+    alt: 'Devanagari calligraphy of poem Koshish by Harivansh Rai Bachchan with illustrated mountain climber'
+  },
+  {
+    url: '/portfolio/caricature/live-family-caricature-portrait.webp',
+    caption: 'Family in Harmony: Live Event Watercolor Caricature',
+    tag: 'Live Caricature',
+    alt: 'Family holding their live custom watercolor caricature portrait painted on-site by HUNAR studio artist'
+  },
+  {
+    url: '/portfolio/caricature/young-girl-live-watercolor-portrait-booth.webp',
+    caption: 'Radiant Smiles: Live Caricature Booth Guest Showcase',
+    tag: 'Live Art',
+    alt: 'Young girl holding her finished live watercolor caricature portrait in front of studio exhibition booth'
+  },
 ];
 
 export default function CustomArtService() {
@@ -92,8 +125,10 @@ export default function CustomArtService() {
             <div className="lg:col-span-5">
               <div className="relative rounded overflow-hidden shadow-card border border-beige aspect-[4/3] bg-cream-dark">
                 <img
-                  src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1200&q=80"
-                  alt="Custom Art Studio Painting"
+                  src="/portfolio/portraits/elderly-couple-traditional-oil-portrait.webp"
+                  alt="Hand-painted oil portrait of an Indian couple in traditional attire on primed canvas"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -102,16 +137,16 @@ export default function CustomArtService() {
         </div>
       </section>
 
-      {/* Sub-Services Directory */}
+      {/* Offerings Directory */}
       <section id="offerings" className="py-20 bg-sage/15 border-y border-beige/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
-            <span className="editorial-eyebrow">Individual Offerings</span>
+            <span className="editorial-eyebrow">Atelier Formats</span>
             <h2 className="font-serif text-3xl sm:text-4xl text-emerald font-medium mt-2">
-              Explore Commission Disciplines
+              Commission Disciplines
             </h2>
             <p className="mt-2 text-xs sm:text-sm text-charcoal/70 font-light">
-              Select a specialized offering below to examine dedicated portfolio studies, medium specifications, and pricing context.
+              From traditional oil portraits on Belgian linen to charcoal studies and Devanagari calligraphy.
             </p>
           </div>
 
@@ -127,6 +162,7 @@ export default function CustomArtService() {
                       src={sub.heroImage}
                       alt={sub.title}
                       loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
@@ -137,12 +173,12 @@ export default function CustomArtService() {
                     {sub.summary}
                   </p>
                 </div>
-                <div className="mt-6 pt-3 border-t border-beige/40 flex items-center justify-between">
+                <div className="mt-6 pt-3 border-t border-beige/40">
                   <Link
                     to={`/services/custom-art/${sub.slug}`}
                     className="text-xs uppercase tracking-wider font-semibold text-emerald inline-flex items-center gap-1 hover:text-olive"
                   >
-                    View Details & Inquire <ArrowUpRight className="w-3.5 h-3.5 text-olive" />
+                    View Specs & Inquire <ArrowUpRight className="w-3.5 h-3.5 text-olive" />
                   </Link>
                 </div>
               </article>
@@ -152,7 +188,7 @@ export default function CustomArtService() {
       </section>
 
       {/* Gallery */}
-      <ProjectGallery images={GALLERY} title="Custom Art & Commissions Showcase" />
+      <ProjectGallery images={GALLERY} title="Realized Commissions & Atelier Studies" />
 
       {/* Enquiry Form */}
       <section id="inquiry" className="py-24 bg-cream border-t border-beige/40">
@@ -161,7 +197,7 @@ export default function CustomArtService() {
             defaultService="custom-art"
             formId="form_service_custom_art"
             title="Commission a Custom Artwork"
-            subtitle="Describe your preferred style, dimensions, and subject matter to our creative directors."
+            subtitle="Describe your preferred medium, dimensions, and subject matter."
           />
         </div>
       </section>

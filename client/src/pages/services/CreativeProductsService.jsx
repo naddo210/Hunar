@@ -8,20 +8,35 @@ import { SUB_SERVICES } from '../../data/servicesCatalogue';
 import { ArrowUpRight } from 'lucide-react';
 
 const SUB_KEYS = [
-  'custom-merchandise',
-  'branded-tote-bags-notebooks',
-  'digital-invitations-planners',
-  'presentation-templates',
-  'social-media-templates',
-  'downloadable-art',
-  'packaging-illustration',
-  'licensed-digital-assets',
+  'tote-bags-apparel',
+  'mugs-bottles-drinkware',
+  'stickers-badges',
+  'calendars-planners',
+  'presentation-pitch-decks',
+  'ebook-lead-magnets',
+  'licensed-digital-art',
+  'creative-printables',
 ];
 
 const GALLERY = [
-  { url: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80', caption: 'Handmade Stoneware Ceramic Objects', tag: 'Product' },
-  { url: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=800&q=80', caption: 'Linen Bound Notebooks & Raw Canvas Totes', tag: 'Merchandise' },
-  { url: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=800&q=80', caption: 'Handcrafted Packaging Illustration Wraps', tag: 'Packaging' },
+  {
+    url: '/portfolio/installations/creative-tree-of-knowledge-sculpture.webp',
+    caption: 'Creative Tree of Knowledge Sculptural Object',
+    tag: 'Art Object',
+    alt: 'Colorful artistic tree sculpture featuring branches with camera, typography letters, and art tools'
+  },
+  {
+    url: '/portfolio/installations/flight-of-peace-paper-doves-sculpture.webp',
+    caption: 'Flight of Peace Hand-Formed Paper Doves on Handmade Substrate',
+    tag: 'Art Product',
+    alt: '3D paper craft sculpture of white doves perched on branches mounted on textured orange paper'
+  },
+  {
+    url: '/portfolio/installations/tree-of-knowledge-blueprint-drawing.webp',
+    caption: 'Tree of Knowledge Architectural Blueprint & Structural Module Study',
+    tag: 'Technical Plan',
+    alt: 'Colored technical blueprint drawing of the Tree of Knowledge sculpture with dimension measurements'
+  },
 ];
 
 export default function CreativeProductsService() {
@@ -35,7 +50,7 @@ export default function CreativeProductsService() {
       url: 'https://hunarstudio.com',
     },
     areaServed: 'Worldwide',
-    description: 'Custom-designed physical products and downloadable resources for personal or commercial use.',
+    description: 'Custom-designed physical products, artisanal merchandise, and downloadable resources for personal or commercial use.',
   };
 
   const subServiceItems = SUB_KEYS.map((k) => SUB_SERVICES[k]).filter(Boolean);
@@ -43,8 +58,8 @@ export default function CreativeProductsService() {
   return (
     <>
       <SEO
-        title="Creative Products & Digital Assets — Artisanal Goods & Downloads | HUNAR"
-        description="Bespoke studio merchandise, branded tote bags, presentation templates, downloadable art, and licensed creative assets by HUNAR Creative Studio."
+        title="Creative Products & Digital Assets — Merchandise, Templates & Goods | HUNAR"
+        description="Bespoke physical products, custom printed tote bags, ceramic deskware, pitch decks, and licensed digital artwork curated by HUNAR Creative Studio."
         canonicalUrl="/services/creative-products"
         schema={serviceSchema}
       />
@@ -67,14 +82,14 @@ export default function CreativeProductsService() {
                 Creative Products & Digital Assets
               </h1>
               <p className="mt-6 text-base sm:text-lg text-charcoal/80 leading-relaxed font-light max-w-2xl">
-                For entrepreneurs, creators, businesses and consumers. Custom-designed physical products and downloadable resources for personal or commercial use, curated with material authenticity and digital craft.
+                For entrepreneurs, creators, businesses and consumers. Custom-designed physical products, artisanal merchandise, and downloadable resources for personal or commercial use.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
                   href="#offerings"
                   className="px-6 py-3 bg-emerald hover:bg-emerald-dark text-cream text-xs uppercase tracking-widest font-semibold rounded transition shadow-sm hover:shadow-emerald inline-flex items-center gap-2"
                 >
-                  Explore Offerings
+                  Explore Product Lines
                   <ArrowUpRight className="w-3.5 h-3.5 text-beige" />
                 </a>
                 <a
@@ -89,8 +104,10 @@ export default function CreativeProductsService() {
             <div className="lg:col-span-5">
               <div className="relative rounded overflow-hidden shadow-card border border-beige aspect-[4/3] bg-cream-dark">
                 <img
-                  src="https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1200&q=80"
-                  alt="Creative Products and Merchandise"
+                  src="/portfolio/installations/creative-tree-of-knowledge-sculpture.webp"
+                  alt="Colorful artistic tree sculpture featuring branches with camera, typography letters, and art tools"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -124,6 +141,7 @@ export default function CreativeProductsService() {
                       src={sub.heroImage}
                       alt={sub.title}
                       loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
@@ -137,9 +155,9 @@ export default function CreativeProductsService() {
                 <div className="mt-4 pt-3 border-t border-beige/40">
                   <Link
                     to={`/services/creative-products/${sub.slug}`}
-                    className="text-[11px] uppercase tracking-wider font-semibold text-emerald inline-flex items-center gap-1 hover:text-olive"
+                    className="text-xs uppercase tracking-wider font-semibold text-emerald inline-flex items-center gap-1 hover:text-olive"
                   >
-                    View Product Details <ArrowUpRight className="w-3 h-3 text-olive" />
+                    Specs <ArrowUpRight className="w-3 h-3 text-olive" />
                   </Link>
                 </div>
               </article>
@@ -149,7 +167,7 @@ export default function CreativeProductsService() {
       </section>
 
       {/* Gallery */}
-      <ProjectGallery images={GALLERY} title="Curated Products & Design Assets" />
+      <ProjectGallery images={GALLERY} title="Product Prototyping & Edition Samples" />
 
       {/* Enquiry Form */}
       <section id="inquiry" className="py-24 bg-cream border-t border-beige/40">
@@ -157,8 +175,8 @@ export default function CreativeProductsService() {
           <EnquiryForm
             defaultService="creative-products"
             formId="form_service_creative_products"
-            title="Inquire on Products & Custom Merchandise"
-            subtitle="Describe your product requirements, volume needs, and target delivery timeframe."
+            title="Inquire on Creative Products"
+            subtitle="Tell us about your merchandising quantities, event timeline, or licensing scope."
           />
         </div>
       </section>

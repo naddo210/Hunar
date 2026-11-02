@@ -8,74 +8,84 @@ const DISCIPLINES = [
     title: 'Custom Art & Commissions',
     slug: '/services/custom-art',
     description: 'Bespoke portraits, original oil paintings, charcoal drawings, and commemorative pieces for private patrons.',
-    image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80',
+    image: '/portfolio/portraits/elderly-couple-traditional-oil-portrait.webp',
+    alt: 'Hand-painted oil portrait of an Indian couple in traditional attire on primed canvas',
     accent: '01',
   },
   {
     title: 'Original Art & Products',
     slug: '/services/art-products',
     description: 'Curated ready-to-buy paintings, museum-grade limited prints on 310gsm cotton rag, and handmade sculptures.',
-    image: 'https://images.unsplash.com/photo-1582561424760-0321d75e81fa?auto=format&fit=crop&w=800&q=80',
+    image: '/portfolio/installations/flight-of-peace-paper-doves-sculpture.webp',
+    alt: '3D paper craft sculpture of white doves perched on branches mounted on textured orange paper',
     accent: '02',
   },
   {
     title: 'Branding & Visual Identity',
     slug: '/services/branding-design',
-    description: 'Bespoke logo systems, editorial brand guidelines, custom typography, stationery, and packaging design.',
-    image: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=800&q=80',
+    description: 'Bespoke logo systems, editorial brand guidelines, custom calligraphy, stationery, and packaging design.',
+    image: '/portfolio/calligraphy/koshish-harivansh-rai-bachchan-calligraphy.webp',
+    alt: 'Devanagari calligraphy of poem Koshish by Harivansh Rai Bachchan with mountaineer illustration',
     accent: '03',
   },
   {
     title: 'Website Design & Development',
     slug: '/services/website-development',
     description: 'Full-stack MERN digital flagships engineered with editorial layouts, sub-second speed, and 100/100 Core Web Vitals.',
-    image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80',
+    image: '/portfolio/web-design/shikha-singh-luxury-model-portfolio.webp',
+    alt: 'Luxury model portfolio website design for Shikha Singh featuring runway photography',
     accent: '04',
   },
   {
     title: 'Digital Content & Motion',
     slug: '/services/digital-content',
     description: 'Art-directed logo animation, animated social motion vignettes, and campaign visual storytelling systems.',
-    image: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80',
+    image: '/portfolio/web-design/greek-automata-techfest-website.webp',
+    alt: 'Greek Automata interactive tech festival platform with glowing circuit graphics',
     accent: '05',
   },
   {
     title: 'Murals & Commercial Projects',
     slug: '/services/murals-commercial-art',
-    description: 'Monumental hand-painted architectural wall murals, commercial art installations, and spatial art features.',
-    image: 'https://images.unsplash.com/photo-1561055657-b9e0bf0fa360?auto=format&fit=crop&w=800&q=80',
+    description: 'Monumental hand-painted architectural wall murals, glass art, stage designs, and spatial art features.',
+    image: '/portfolio/murals/staircase-monstera-botanical-mural.webp',
+    alt: 'Interior wall mural painting of tropical monstera leaves along a wooden staircase',
     accent: '06',
   },
   {
     title: 'Creative Products & Digital Assets',
     slug: '/services/creative-products',
-    description: 'Artisanal merchandise, custom tote bags, presentation templates, and licensed digital artwork collections.',
-    image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80',
+    description: 'Artisanal merchandise, dimensional kinetic sculptures, presentation templates, and licensed artwork collections.',
+    image: '/portfolio/installations/creative-tree-of-knowledge-sculpture.webp',
+    alt: 'Freestanding colorful artistic tree sculpture featuring branches with camera and art tools',
     accent: '07',
   },
 ];
 
 const SELECTED_WORKS = [
   {
-    title: 'Aura of Terra',
-    category: 'Fine Art Commission',
-    year: '2025',
-    image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80',
-    summary: 'A 7-foot triptych in raw pigment, limestone wash, and Belgian linen created for an architectural Bengaluru residence.',
-  },
-  {
-    title: 'Atelier Kanso',
-    category: 'Branding & Digital Platform',
-    year: '2025',
-    image: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=800&q=80',
-    summary: 'Complete visual identity, custom typography, and headless web development for a minimalist architectural studio.',
-  },
-  {
-    title: 'Echoes of the Deccan',
-    category: 'Commercial Mural Installation',
+    title: 'Botanical Ascent Staircase Mural',
+    category: 'Architectural Wall Mural',
     year: '2026',
-    image: 'https://images.unsplash.com/photo-1561055657-b9e0bf0fa360?auto=format&fit=crop&w=800&q=80',
-    summary: 'A 45-foot hand-painted mural celebrating regional basalt motifs inside a luxury heritage hospitality pavilion.',
+    image: '/portfolio/murals/staircase-monstera-botanical-mural.webp',
+    alt: 'Interior wall mural painting of tropical monstera leaves and warm terracotta shapes along a wooden staircase',
+    summary: 'A 20-foot hand-painted botanical mural featuring monstera leaves and earthy mineral pigments along an architectural residence staircase.',
+  },
+  {
+    title: 'Shikha Singh — High-Fashion Luxury Portfolio',
+    category: 'Editorial Digital Flagship',
+    year: '2026',
+    image: '/portfolio/web-design/shikha-singh-luxury-model-portfolio.webp',
+    alt: 'Luxury model portfolio website design for Shikha Singh featuring runway fashion photography and gold typography',
+    summary: 'Bespoke editorial digital portfolio engineered with runway video hero, golden typography, and 100/100 Core Web Vitals.',
+  },
+  {
+    title: 'Elders in Heritage Splendor',
+    category: 'Custom Canvas Portrait',
+    year: '2025',
+    image: '/portfolio/portraits/elderly-couple-traditional-oil-portrait.webp',
+    alt: 'Hand-painted oil portrait of an Indian couple in traditional attire and saree on primed Belgian linen canvas',
+    summary: 'Traditional hand-painted heirloom oil portrait celebrating familial heritage, lifelong companionship, and rich textural drapery.',
   },
 ];
 
@@ -127,7 +137,7 @@ export default function Home() {
                   to="/portfolio"
                   className="inline-flex items-center gap-2 px-7 py-3.5 border border-charcoal/30 hover:border-emerald text-charcoal hover:text-emerald text-xs uppercase tracking-widest font-semibold rounded transition"
                 >
-                  View Selected Works
+                  View Selected Works (60+)
                 </Link>
               </div>
             </div>
@@ -135,13 +145,15 @@ export default function Home() {
             <div className="lg:col-span-5">
               <div className="relative rounded overflow-hidden shadow-card border border-beige aspect-[4/5] bg-cream-dark">
                 <img
-                  src="https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1200&q=80"
-                  alt="HUNAR Creative Atelier Artwork Showcase"
+                  src="/portfolio/portraits/vibrant-crimson-woman-oil-portrait.webp"
+                  alt="Fine art oil portrait painting of a woman in yellow dress against a deep crimson background on Belgian linen canvas"
+                  fetchPriority="high"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute bottom-4 left-4 right-4 p-4 bg-white/95 backdrop-blur-md rounded border border-beige/60 text-xs shadow-subtle">
-                  <p className="font-serif text-sm text-emerald font-medium">Fine Art Study No. 07</p>
-                  <p className="text-[11px] text-olive font-mono mt-0.5">Raw Mineral Pigments on Belgian Linen</p>
+                  <p className="font-serif text-sm text-emerald font-medium">Luminescence in Crimson</p>
+                  <p className="text-[11px] text-olive font-mono mt-0.5">Original Fine Art Oil on Stretched Linen Canvas</p>
                 </div>
               </div>
             </div>
@@ -164,7 +176,7 @@ export default function Home() {
                 At HUNAR, we reject repetitive layouts, synthetic shortcuts, and disposable aesthetics. Every brushstroke on our canvas, every letterform in our branding, and every line of code in our digital builds is composed with profound artistic intent.
               </p>
               <p>
-                Whether designing a bespoke brand identity or hand-painting an architectural mural across forty feet of lime plaster, we bring together tactile sensibilities and modern technological rigor.
+                Whether designing a bespoke brand identity or hand-painting an architectural mural across forty feet of wall space, we bring together tactile sensibilities and modern technological rigor.
               </p>
               <div className="pt-2">
                 <Link
@@ -180,7 +192,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Catalogue Divisions Grid with Dummy Imagery */}
+      {/* Catalogue Divisions Grid with Genuine Atelier Imagery */}
       <section className="py-24 bg-cream">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-beige/50">
@@ -208,8 +220,9 @@ export default function Home() {
                   <div className="aspect-[16/10] bg-cream-dark overflow-hidden relative">
                     <img
                       src={item.image}
-                      alt={item.title}
+                      alt={item.alt}
                       loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <span className="absolute top-3 right-3 font-mono text-xs px-2 py-0.5 bg-white/95 rounded text-emerald font-semibold border border-beige/60">
@@ -242,7 +255,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Selected Works Showcase with Visual Cards */}
+      {/* Selected Works Showcase with Genuine Visual Cards */}
       <section className="py-24 bg-cream-pure border-t border-beige/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 pb-6 border-b border-beige/50">
@@ -270,8 +283,9 @@ export default function Home() {
                   <div className="aspect-[4/3] bg-cream-dark overflow-hidden">
                     <img
                       src={work.image}
-                      alt={work.title}
+                      alt={work.alt}
                       loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
@@ -294,7 +308,7 @@ export default function Home() {
                     to="/portfolio"
                     className="inline-flex items-center gap-1 text-xs uppercase tracking-wider font-semibold text-emerald hover:text-olive transition"
                   >
-                    View Project Details
+                    View Project in Archive
                     <ArrowUpRight className="w-3.5 h-3.5 text-olive" />
                   </Link>
                 </div>

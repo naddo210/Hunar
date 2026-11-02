@@ -29,8 +29,9 @@ export default function ProjectGallery({ images = [], title = 'Selected Work & C
               <div className="relative aspect-[4/3] bg-cream overflow-hidden">
                 <img
                   src={img.url}
-                  alt={img.caption || 'Artistic commission work'}
+                  alt={img.alt || img.caption || 'Artistic commission work'}
                   loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                 />
                 <div className="absolute inset-0 bg-emerald/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
@@ -74,7 +75,8 @@ export default function ProjectGallery({ images = [], title = 'Selected Work & C
             <div className="flex-1 overflow-auto flex items-center justify-center bg-charcoal">
               <img
                 src={activeImage.url}
-                alt={activeImage.caption}
+                alt={activeImage.alt || activeImage.caption || 'Expanded project view'}
+                decoding="async"
                 className="max-h-[80vh] w-auto object-contain"
               />
             </div>

@@ -114,6 +114,8 @@ export default function SubServiceTemplate() {
                 <img
                   src={serviceData.heroImage}
                   alt={`${serviceData.title} demonstration work`}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>

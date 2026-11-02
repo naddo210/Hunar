@@ -12,7 +12,7 @@ export const DIVISIONS = {
     tagline: 'For individuals, gift buyers and collectors',
     description: 'Made-to-order artwork created around a customer’s idea, reference, occasion or preferred style. Traditional craftsmanship on museum substrates.',
     path: '/services/custom-art',
-    heroImage: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/portraits/elderly-couple-traditional-oil-portrait.webp',
     accent: '01',
   },
   'art-products': {
@@ -21,7 +21,7 @@ export const DIVISIONS = {
     tagline: 'For art lovers, homeowners and gift shops',
     description: 'A curated selection of original and made-for-sale creative pieces, fine art prints, sculptures, and resin objects.',
     path: '/services/art-products',
-    heroImage: 'https://images.unsplash.com/photo-1582561424760-0321d75e81fa?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/installations/flight-of-peace-paper-doves-sculpture.webp',
     accent: '02',
   },
   'branding-design': {
@@ -30,7 +30,7 @@ export const DIVISIONS = {
     tagline: 'For startups, freelancers, small businesses and established companies',
     description: 'Visual systems that help a business present itself consistently across digital and physical touchpoints with typographic rigor.',
     path: '/services/branding-design',
-    heroImage: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/calligraphy/koshish-harivansh-rai-bachchan-calligraphy.webp',
     accent: '03',
   },
   'website-development': {
@@ -39,7 +39,7 @@ export const DIVISIONS = {
     tagline: 'For businesses, professionals, creators and online sellers',
     description: 'Web experiences designed to present services, build trust and help customers take action, engineered on high-performance full-stack architectures.',
     path: '/services/website-development',
-    heroImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/web-design/shikha-singh-luxury-model-portfolio.webp',
     accent: '04',
   },
   'digital-content': {
@@ -48,7 +48,7 @@ export const DIVISIONS = {
     tagline: 'For brands, creators and marketing teams',
     description: 'Digital creative assets and motion design that help brands communicate clearly and consistently across online channels.',
     path: '/services/digital-content',
-    heroImage: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/web-design/greek-automata-techfest-website.webp',
     accent: '05',
   },
   'murals-commercial-art': {
@@ -57,7 +57,7 @@ export const DIVISIONS = {
     tagline: 'For homeowners, cafes, offices, restaurants, hotels and designers',
     description: 'Artwork and creative installations designed for physical spaces, hospitality environments, corporate offices and cultural events.',
     path: '/services/murals-commercial-art',
-    heroImage: 'https://images.unsplash.com/photo-1561055657-b9e0bf0fa360?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/murals/staircase-monstera-botanical-mural.webp',
     accent: '06',
   },
   'creative-products': {
@@ -66,7 +66,7 @@ export const DIVISIONS = {
     tagline: 'For entrepreneurs, creators, businesses and consumers',
     description: 'Custom-designed physical products, artisanal merchandise, and downloadable resources for personal or commercial use.',
     path: '/services/creative-products',
-    heroImage: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/installations/creative-tree-of-knowledge-sculpture.webp',
     accent: '07',
   },
 };
@@ -81,11 +81,23 @@ export const SUB_SERVICES = {
     metaTitle: 'Custom Fine Art Portraits — Commissioned Oil & Charcoal Artwork | HUNAR',
     metaDescription: 'Commission an original, hand-painted portrait by HUNAR Creative Studio. Handcrafted in oil, charcoal, or graphite on archival Belgian linen.',
     summary: 'Handcrafted fine art portraits created from reference photographs or live sitting sessions, composed with emotional depth and archival longevity.',
-    heroImage: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/portraits/vibrant-crimson-woman-oil-portrait.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80', caption: 'Individual Charcoal Portrait on Archival Cotton', tag: 'Charcoal' },
-      { url: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=80', caption: 'Oil on Belgian Linen Commission', tag: 'Oil Canvas' },
-      { url: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=800&q=80', caption: 'Monochrome Graphite Study', tag: 'Graphite' },
+          {
+                "url": "/portfolio/portraits/vibrant-crimson-woman-oil-portrait.webp",
+                "caption": "Luminescence in Crimson — Oil on Belgian Linen",
+                "tag": "Fine Art Oil"
+          },
+          {
+                "url": "/portfolio/portraits/bearded-man-studio-easel-portrait.webp",
+                "caption": "Contemplation on Easel — Studio Oil Portrait",
+                "tag": "Studio Oil"
+          },
+          {
+                "url": "/portfolio/portraits/elder-gentleman-turban-oil-portrait.webp",
+                "caption": "Dignity in Feta — Oil on Primed Canvas Board",
+                "tag": "Traditional Oil"
+          }
     ],
     deliverables: ['Original Hand-Crafted Portrait on Archival Medium', 'Certificate of Authenticity with Atelier Seal', 'Preliminary Tonal Value & Compositional Studies', 'Custom Hardwood Framing Options', 'Insured White-Glove Shipping'],
     faqs: [
@@ -101,10 +113,18 @@ export const SUB_SERVICES = {
     metaTitle: 'Bespoke Couple Portraits — Anniversary & Wedding Fine Art | HUNAR',
     metaDescription: 'Celebrate union and partnership with an original, hand-painted couple portrait crafted by master atelier artists.',
     summary: 'Harmonious dual-subject portraiture celebrating weddings, anniversaries, and partnership through delicate light and timeless artistic media.',
-    heroImage: 'https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/portraits/elderly-couple-traditional-oil-portrait.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=800&q=80', caption: 'Anniversary Oil Painting on Stretched Linen', tag: 'Oil' },
-      { url: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=800&q=80', caption: 'Wedding Vignette in Sepia Ink & Wash', tag: 'Ink Wash' },
+          {
+                "url": "/portfolio/portraits/elderly-couple-traditional-oil-portrait.webp",
+                "caption": "Elders in Heritage Splendor — Oil on Stretched Linen Canvas",
+                "tag": "Oil Canvas"
+          },
+          {
+                "url": "/portfolio/caricature/live-family-caricature-portrait.webp",
+                "caption": "Live Couple & Family Caricature Celebration",
+                "tag": "Live Art"
+          }
     ],
     deliverables: ['Dual-Subject Composition Sketching', 'Custom Linen Canvas Stretch', 'Archival Protective Varnishing', 'Certificate of Provenance'],
     faqs: [
@@ -119,9 +139,18 @@ export const SUB_SERVICES = {
     metaTitle: 'Custom Family Portraits — Heirloom Paintings & Drawings | HUNAR',
     metaDescription: 'Commission an enduring multi-generational family portrait painting designed to serve as a cherished family heirloom.',
     summary: 'Heirloom family paintings capturing generations in balanced, elegant compositions with enduring historical permanence.',
-    heroImage: 'https://images.unsplash.com/photo-1609234656388-0ff363383899?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/caricature/live-family-caricature-portrait.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=800&q=80', caption: 'Tonal Charcoal Family Group Study', tag: 'Charcoal' },
+          {
+                "url": "/portfolio/caricature/live-family-caricature-portrait.webp",
+                "caption": "Family in Harmony: Live Event Caricature Portrait",
+                "tag": "Live Caricature"
+          },
+          {
+                "url": "/portfolio/portraits/elderly-couple-traditional-oil-portrait.webp",
+                "caption": "Heirloom Heritage Family Portrait in Oil",
+                "tag": "Heirloom Oil"
+          }
     ],
     deliverables: ['Comprehensive Group Composition Staging', 'Detailed Facial Expression Studies', 'Large Format Canvas Execution', 'Archival Crating'],
     faqs: [{ q: 'What is the maximum number of subjects you can include?', a: 'We regularly paint family groups of 3 to 12 members across generous horizontal formats (48 inches and above).' }],
@@ -134,9 +163,9 @@ export const SUB_SERVICES = {
     metaTitle: 'Custom Pet Portraits — Fine Art Oil & Charcoal Animal Studies | HUNAR',
     metaDescription: 'Honor your companion with an art-directed, fine art pet portrait hand-rendered with expressive brushwork and personality.',
     summary: 'Expressive fine art studies of canine, feline, and equine companions focusing on anatomical precision and radiant personality.',
-    heroImage: 'https://images.unsplash.com/photo-1543466835-00a7907e9de1?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/portraits/vibrant-crimson-woman-oil-portrait.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1537151625747-768eb6cf92b2?auto=format&fit=crop&w=800&q=80', caption: 'Canine Portrait in Oil & Raw Earth Pigments', tag: 'Oil Canvas' },
+      { url: '/portfolio/portraits/elder-gentleman-turban-oil-portrait.webp', caption: 'Canine Portrait in Oil & Raw Earth Pigments', tag: 'Oil Canvas' },
     ],
     deliverables: ['Eye and Coat Texture Detailing', 'Custom Heavyweight Linen Mount', 'Certificate of Authenticity'],
     faqs: [{ q: 'Do you work from phone snapshots?', a: 'Yes, as long as eye color and fur direction are clearly visible in daylight.' }],
@@ -149,9 +178,18 @@ export const SUB_SERVICES = {
     metaTitle: 'Pencil & Charcoal Drawings — Architectural & Figurative Art | HUNAR',
     metaDescription: 'Monochromatic pencil and vine charcoal master drawings on 300gsm Fabriano paper by HUNAR Creative Studio.',
     summary: 'Masterful tonal studies in vine charcoal, compressed graphite, and carbon pencil on heavyweight Italian rag papers.',
-    heroImage: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/portraits/monochrome-charcoal-woman-montage.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', caption: 'Chiaroscuro Charcoal Elevation', tag: 'Charcoal' },
+          {
+                "url": "/portfolio/portraits/monochrome-charcoal-woman-montage.webp",
+                "caption": "Soul in Monochrome — Charcoal & Graphite Montage on 300gsm Paper",
+                "tag": "Charcoal"
+          },
+          {
+                "url": "/portfolio/portraits/grandmother-graphite-pencil-sketch.webp",
+                "caption": "Veneration Matriarch Sketch — Graphite on Cartridge Paper",
+                "tag": "Graphite Sketch"
+          }
     ],
     deliverables: ['300gsm Acid-Free Cotton Rag Paper', 'Protective Archival Fixative Coating', 'Museum Matting Window'],
     faqs: [{ q: 'Will the charcoal smudge over time?', a: 'We apply professional archival fixative that seals the carbon particles without yellowing or altering tonal contrast.' }],
@@ -164,9 +202,9 @@ export const SUB_SERVICES = {
     metaTitle: 'Ink & Coloured-Pencil Art — Botanical, Heritage & Vignettes | HUNAR',
     metaDescription: 'Delicate technical ink line work and polychromos coloured-pencil artwork for botanical, architectural, and commemorative pieces.',
     summary: 'Intricate dip-pen technical linework layered with lightfast colored pencils, ideal for botanical studies and architectural heritage.',
-    heroImage: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/calligraphy/marathi-devanagari-ganpati-watercolor-calligraphy.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1579783901586-d88db74b4fe4?auto=format&fit=crop&w=800&q=80', caption: 'Botanical Ink Study with Pigment Layering', tag: 'Ink & Pencil' },
+      { url: '/portfolio/calligraphy/marathi-devanagari-ganpati-watercolor-calligraphy.webp', caption: 'Botanical Ink Study with Pigment Layering', tag: 'Ink & Pencil' },
     ],
     deliverables: ['Waterproof Archival Pigment Inks', 'Faber-Castell Polychromos Pigment Layering', 'Mounted on Conservation Board'],
     faqs: [{ q: 'Are coloured pencils archival?', a: 'We use strictly lightfast artist-grade pencils with 100+ year museum color stability ratings.' }],
@@ -179,9 +217,18 @@ export const SUB_SERVICES = {
     metaTitle: 'Custom Canvas Paintings — Large Format Oils & Mixed Media | HUNAR',
     metaDescription: 'Commission large-format original canvas paintings tailored to your room scale, palette, and architectural elevations.',
     summary: 'Monumental and mid-scale canvas artworks created in oil and acrylic mediums, composed specifically for spatial harmony.',
-    heroImage: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/portraits/bearded-man-studio-easel-portrait.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1549887552-cb1071d3e5ca?auto=format&fit=crop&w=800&q=80', caption: 'Textured Linen Canvas with Earthen Pigment', tag: 'Large Scale' },
+          {
+                "url": "/portfolio/portraits/bearded-man-studio-easel-portrait.webp",
+                "caption": "Contemplation on Easel — Studio Oil Study",
+                "tag": "Atelier Oil"
+          },
+          {
+                "url": "/portfolio/portraits/vibrant-crimson-woman-oil-portrait.webp",
+                "caption": "Luminescence in Crimson — Oil on Belgian Linen",
+                "tag": "Fine Art Oil"
+          }
     ],
     deliverables: ['Custom Kiln-Dried Stretcher Bars', 'Hand-Primed Linen Surface', 'Patron Progress Reviews', 'Certificate of Provenance'],
     faqs: [{ q: 'Can we specify a color palette that matches our interior fabric swatches?', a: 'Yes. We review fabric, stone, and wood swatches to calibrate complementary mineral tones.' }],
@@ -194,9 +241,9 @@ export const SUB_SERVICES = {
     metaTitle: 'Bespoke Abstract Art Commissions — Mineral Textures & Form | HUNAR',
     metaDescription: 'Original abstract fine art exploring texture, negative space, and tonal subtlety for contemporary residences and luxury interiors.',
     summary: 'Refined non-representational art focusing on surface tension, textural impasto, mineral washes, and spatial balance.',
-    heroImage: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/calligraphy/circular-marathi-calligraphy-sun-mandala.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80', caption: 'Mineral Abstraction on Raw Linen', tag: 'Abstract' },
+      { url: '/portfolio/calligraphy/circular-marathi-calligraphy-sun-mandala.webp', caption: 'Mineral Abstraction on Raw Linen', tag: 'Abstract' },
     ],
     deliverables: ['Atmospheric Mineral Layering', 'Custom Stretcher Depth (1.5" or 2" gallery profile)', 'Signed Artwork & Provenance Certificate'],
     faqs: [{ q: 'How do we communicate abstract preferences?', a: 'We share a curated tonal matrix and textural reference board to align on mood, density, and kinetic energy.' }],
@@ -209,9 +256,18 @@ export const SUB_SERVICES = {
     metaTitle: 'Personalized Art Gifts — Custom Commemorative Artwork | HUNAR',
     metaDescription: 'Mark milestones, anniversaries, and personal achievements with bespoke commissioned art gifts crafted by HUNAR.',
     summary: 'Bespoke artworks commemorating home dedications, milestone achievements, and life moments crafted with artisanal luxury.',
-    heroImage: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/caricature/young-girl-live-watercolor-portrait-booth.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=800&q=80', caption: 'House Architectural Heritage Study', tag: 'Gift Art' },
+          {
+                "url": "/portfolio/caricature/young-girl-live-watercolor-portrait-booth.webp",
+                "caption": "Radiant Smiles: Live Caricature Booth Showcase",
+                "tag": "Live Art"
+          },
+          {
+                "url": "/portfolio/caricature/pigtail-girl-watercolor-portrait-sketch.webp",
+                "caption": "Innocence: Warm Watercolor Portrait Study",
+                "tag": "Watercolor"
+          }
     ],
     deliverables: ['Custom Inscription & Calligraphy Dedication', 'Atelier Presentation Gift Packaging', 'Archival Framing'],
     faqs: [{ q: 'Can a handwritten note or date be incorporated into the piece?', a: 'Yes, we frequently include subtle, calligraphic micro-inscriptions in archival ink.' }],
@@ -224,9 +280,9 @@ export const SUB_SERVICES = {
     metaTitle: 'Digital Illustration Commissions — Editorial & Book Artwork | HUNAR',
     metaDescription: 'High-resolution digital illustrations for editorial covers, private commissions, and limited editions by HUNAR Creative Studio.',
     summary: 'Hand-drawn digital artwork combining traditional painterly brush textures with vector precision for editorial and private uses.',
-    heroImage: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/web-design/greek-automata-techfest-website.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1634017839464-5c339ebe3cb4?auto=format&fit=crop&w=800&q=80', caption: 'Editorial Narrative Illustration', tag: 'Digital' },
+      { url: '/portfolio/web-design/greek-automata-techfest-website.webp', caption: 'Editorial Narrative Illustration', tag: 'Digital' },
     ],
     deliverables: ['Ultra-High Resolution Master Files (600 DPI)', 'Vector Line Assets where required', 'Fine Art Print Proof Included'],
     faqs: [{ q: 'What software and tools do you use?', a: 'We paint using pressure-sensitive digitizers with custom brush libraries emulating natural pigments and graphite.' }],
@@ -239,9 +295,18 @@ export const SUB_SERVICES = {
     metaTitle: 'Custom Sketches from Photographs — Hand-Drawn Fine Art | HUNAR',
     metaDescription: 'Transform cherished photographs into hand-drawn graphite, charcoal, or ink sketches. Genuine handcraft by real studio artists.',
     summary: 'Transforming photographic memories into hand-drawn sketches with artistic interpretation, removing cluttered backgrounds.',
-    heroImage: 'https://images.unsplash.com/photo-1544717302-de2939b7ef71?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/portraits/grandmother-graphite-pencil-sketch.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=800&q=80', caption: 'Graphite Conversion Study', tag: 'Sketch' },
+          {
+                "url": "/portfolio/portraits/grandmother-graphite-pencil-sketch.webp",
+                "caption": "Veneration Matriarch Sketch — Graphite on Cartridge Paper",
+                "tag": "Graphite Sketch"
+          },
+          {
+                "url": "/portfolio/portraits/monochrome-charcoal-woman-montage.webp",
+                "caption": "Multi-Perspective Graphite & Charcoal Montage",
+                "tag": "Charcoal"
+          }
     ],
     deliverables: ['Hand-Drawn (No AI filters or print conversions)', 'Framing-Ready Window Mount', 'High-Res Digital Scan Included'],
     faqs: [{ q: 'Is this hand-drawn or digital?', a: 'Every piece is 100% hand-drawn on physical paper by our resident artists with traditional pencils.' }],
@@ -256,9 +321,13 @@ export const SUB_SERVICES = {
     metaTitle: 'Original Paintings & Ready-to-Buy Art — HUNAR Creative Studio',
     metaDescription: 'Acquire original one-of-a-kind paintings and curated drawings directly from the HUNAR studio gallery.',
     summary: 'Curated one-of-a-kind original paintings, oil canvases, and framed studio drawings available for immediate acquisition.',
-    heroImage: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/portraits/vibrant-crimson-woman-oil-portrait.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1582561424760-0321d75e81fa?auto=format&fit=crop&w=800&q=80', caption: 'Ochre & Basalt Pigment Composition', tag: 'Available' },
+          {
+                "url": "/portfolio/portraits/vibrant-crimson-woman-oil-portrait.webp",
+                "caption": "Luminescence in Crimson — Oil on Belgian Linen",
+                "tag": "Fine Art Oil"
+          }
     ],
     deliverables: ['Signed Original Artwork', 'Certificate of Authenticity with Studio Stamp', 'Exhibition Provenance Sheet'],
     faqs: [{ q: 'Can I view the original in person before purchasing?', a: 'Studio viewings are available by appointment at our Bengaluru and New Delhi ateliers.' }],
@@ -271,9 +340,9 @@ export const SUB_SERVICES = {
     metaTitle: 'Fine Art Prints & Reproductions — 310gsm Cotton Rag | HUNAR',
     metaDescription: 'Museum-grade limited edition art prints on 310gsm Hahnemühle Photo Rag with 12-color archival pigment inks.',
     summary: 'Strictly limited edition giclée fine art prints reproduced on 310gsm cotton rag with official numbered certificates.',
-    heroImage: 'https://images.unsplash.com/photo-1582561424760-0321d75e81fa?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/portraits/monochrome-charcoal-woman-montage.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80', caption: 'Embossed Archival Giclée Print Edition', tag: 'Limited Run' },
+      { url: '/portfolio/portraits/monochrome-charcoal-woman-montage.webp', caption: 'Embossed Archival Giclée Print Edition', tag: 'Limited Run' },
     ],
     deliverables: ['Hahnemühle 310gsm 100% Cotton Rag', '12-Color Archival Pigment Inks', 'Embossed Seal and Hand-Numbered'],
     faqs: [{ q: 'How many prints are made per edition?', a: 'Editions are strictly capped at 25 to 50 prints. Once sold out, editions are retired permanently.' }],
@@ -286,9 +355,13 @@ export const SUB_SERVICES = {
     metaTitle: 'Resin Art & Decorative Objects — Artisanal Studio Pieces | HUNAR',
     metaDescription: 'Hand-poured resin art panels, decorative trays, and sculptural objects featuring mineral pigment swirls and depth.',
     summary: 'Optical resin decorative objects and panels layered with metallic powders, mineral pigments, and organic inclusions.',
-    heroImage: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/installations/flight-of-peace-paper-doves-sculpture.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80', caption: 'Deep Pour Resin with Terra Mineral Inlay', tag: 'Resin' },
+          {
+                "url": "/portfolio/installations/flight-of-peace-paper-doves-sculpture.webp",
+                "caption": "Flight of Peace: Three-Dimensional Sculpted Paper Doves",
+                "tag": "Dimensional Art"
+          }
     ],
     deliverables: ['Non-Yellowing UV-Resistant Crystal Resin', 'Hand-Polished High Gloss Edges', 'Care and Maintenance Guide'],
     faqs: [{ q: 'Is the resin heat resistant?', a: 'Our decorative objects are cured with high-grade resins resistant to casual tabletop heat.' }],
@@ -301,9 +374,18 @@ export const SUB_SERVICES = {
     metaTitle: 'Sculptures & Handmade Art Pieces — Stoneware & Metal | HUNAR',
     metaDescription: 'Original tactile sculptures, ceramic objects, and cast metal pieces crafted by HUNAR resident artists.',
     summary: 'Tactile three-dimensional art pieces in stoneware ceramic, carved hardwood, cast brass, and sculpted plaster.',
-    heroImage: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/installations/flight-of-peace-paper-doves-sculpture.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=800&q=80', caption: 'Organic Form Ceramic Sculpture', tag: 'Ceramics' },
+          {
+                "url": "/portfolio/installations/flight-of-peace-paper-doves-sculpture.webp",
+                "caption": "Flight of Peace: Three-Dimensional Sculpted Paper Doves",
+                "tag": "Paper Sculpture"
+          },
+          {
+                "url": "/portfolio/installations/creative-tree-of-knowledge-sculpture.webp",
+                "caption": "The Creative Tree of Knowledge Kinetic Mixed Media Sculpture",
+                "tag": "Kinetic Sculpture"
+          }
     ],
     deliverables: ['Kiln-Fired or Hand-Cast Material', 'Weighted Museum Pedestal Mount', 'Certificate of Provenance'],
     faqs: [{ q: 'Can sculptures be commissioned for garden or exterior spaces?', a: 'Yes, we specify weather-resistant stoneware and bronzed metals for outdoor courtyards.' }],
@@ -316,9 +398,13 @@ export const SUB_SERVICES = {
     metaTitle: 'Art for Home & Office Interiors — Curated Suites | HUNAR',
     metaDescription: 'Curated wall art packages for residences, executive offices, and corporate boardrooms by HUNAR Creative Studio.',
     summary: 'Thoughtfully curated wall art collections and cohesive frame suites tailored for home study and professional offices.',
-    heroImage: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/installations/creative-tree-of-knowledge-sculpture.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=800&q=80', caption: 'Cohesive Boardroom Fine Art Suite', tag: 'Office' },
+          {
+                "url": "/portfolio/installations/creative-tree-of-knowledge-sculpture.webp",
+                "caption": "The Creative Tree of Knowledge Kinetic Sculpture",
+                "tag": "Art Object"
+          }
     ],
     deliverables: ['Curated 3 to 6 Piece Wall Suites', 'Uniform Hardwood Gallery Framing', 'Hanging Hardware and Layout Guide'],
     faqs: [{ q: 'Do you offer layout consultation?', a: 'Yes, we provide digital wall elevation renderings showing how the pieces balance with your office furniture.' }],
@@ -331,9 +417,9 @@ export const SUB_SERVICES = {
     metaTitle: 'Seasonal Art Gifts & Limited Collections — HUNAR Atelier',
     metaDescription: 'Seasonal festive and holiday fine art collections, miniature paintings, and curated gift boxes by HUNAR.',
     summary: 'Small-format original works, gold-leaf miniatures, and festive art editions curated for annual gifting seasons.',
-    heroImage: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/glass-painting/holiday-reindeer-christmas-window-painting.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80', caption: 'Gilded Miniature Series with Gift Box', tag: 'Gift Edition' },
+      { url: '/portfolio/glass-painting/christmas-gift-boxes-cafe-window-display.webp', caption: 'Gilded Miniature Series with Gift Box', tag: 'Gift Edition' },
     ],
     deliverables: ['Custom Embossed Gift Box Packaging', 'Handwritten Artist Note Card', 'Miniature Display Easel'],
     faqs: [{ q: 'Can corporate gift orders be customized with brand embossing?', a: 'Yes, on orders of 20 units or more, packaging can feature bespoke blind embossing.' }],
@@ -348,10 +434,18 @@ export const SUB_SERVICES = {
     metaTitle: 'Logo Design & Logo Redesign — Editorial Typographic Marks | HUNAR',
     metaDescription: 'Bespoke logo design and strategic logo redesign. Typographic marks, monograms, and emblems built with mathematical elegance.',
     summary: 'Bespoke typographic marks, monograms, and iconic emblems crafted with timeless balance and vector precision.',
-    heroImage: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/calligraphy/koshish-harivansh-rai-bachchan-calligraphy.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=800&q=80', caption: 'Architectural Typographic Monogram System', tag: 'Identity' },
-      { url: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=800&q=80', caption: 'Blind Deboss Stationery Application', tag: 'Print Spec' },
+          {
+                "url": "/portfolio/calligraphy/koshish-harivansh-rai-bachchan-calligraphy.webp",
+                "caption": "Bespoke Typographic Calligraphy & Letterform Crafting",
+                "tag": "Logotype"
+          },
+          {
+                "url": "/portfolio/calligraphy/gulzar-poetry-spiral-devanagari-calligraphy.webp",
+                "caption": "Gulzar: Waqt Devanagari Spiral Calligraphy Art",
+                "tag": "Devanagari Type"
+          }
     ],
     deliverables: ['Primary Mark, Secondary Lockup & Monogram', 'Full Vector Formats (SVG, EPS, PDF, PNG)', 'Monochrome and Reversed Colorways', 'Logo Clearance and Scalability Grid Rules'],
     faqs: [
@@ -367,9 +461,18 @@ export const SUB_SERVICES = {
     metaTitle: 'Complete Brand Identity Systems & Visual Identity — HUNAR',
     metaDescription: 'Holistic brand identity systems. Strategy, typography, color palettes, and collateral for luxury, architecture, and cultural brands.',
     summary: 'Holistic visual systems uniting strategy, color theory, iconography, and physical collateral for enduring market distinction.',
-    heroImage: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/calligraphy/shakespeare-sonnet-circular-calligraphy.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=800&q=80', caption: 'Integrated Visual Identity System Collateral', tag: 'Branding' },
+          {
+                "url": "/portfolio/calligraphy/shakespeare-sonnet-circular-calligraphy.webp",
+                "caption": "Shakespeare: Time Waste Concentric Calligraphy & Monogram",
+                "tag": "Uncial Type"
+          },
+          {
+                "url": "/portfolio/calligraphy/koshish-harivansh-rai-bachchan-calligraphy.webp",
+                "caption": "Harivansh Rai Bachchan: Koshish Illustrated Calligraphy",
+                "tag": "Typography"
+          }
     ],
     deliverables: ['Brand Story & Strategy Framework', 'Logo Suite & Secondary Marks', 'Material and Color Specifications', 'Digital & Print Asset Library'],
     faqs: [{ q: 'What is the difference between a logo and a brand identity?', a: 'A logo is a signature mark; an identity is the complete visual language—fonts, colors, tactile textures, spacing, and voice.' }],
@@ -382,9 +485,9 @@ export const SUB_SERVICES = {
     metaTitle: 'Brand Colour & Typography Systems — Editorial Type Styling | HUNAR',
     metaDescription: 'Expert typographic hierarchy pairings and bespoke color palettes calibrated for Pantone, CMYK, and digital WCAG AA contrast.',
     summary: 'Meticulously calibrated color palettes and typographic pairings chosen for emotional resonance and digital legibility.',
-    heroImage: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/calligraphy/koshish-harivansh-rai-bachchan-calligraphy.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=800&q=80', caption: 'Type Specimen and Pantone Ink Matching', tag: 'Typography' },
+      { url: '/portfolio/calligraphy/gulzar-bosky-poem-devanagari-calligraphy.webp', caption: 'Type Specimen and Pantone Ink Matching', tag: 'Typography' },
     ],
     deliverables: ['Primary, Secondary & Accent Color Values (HEX, RGB, CMYK, Pantone)', 'Font Hierarchy Scale (Display, Heading, Body, Mono)', 'Web Font Licensing Guidance'],
     faqs: [{ q: 'Do you ensure colors are accessible on screens?', a: 'Yes, all digital color pairings are tested to exceed WCAG AA contrast ratios.' }],
@@ -397,9 +500,9 @@ export const SUB_SERVICES = {
     metaTitle: 'Business Cards, Letterheads & Stationery Design | HUNAR',
     metaDescription: 'Tactile, luxury business stationery. Cotton papers, letterpress, blind debossing, and foil stamping for executive brands.',
     summary: 'Tactile print collateral designed for luxury paper stocks, blind debossing, letterpress, and metallic hot-foil stamping.',
-    heroImage: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/calligraphy/shakespeare-sonnet-circular-calligraphy.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=800&q=80', caption: 'Letterpress Business Cards on 600gsm Cotton', tag: 'Stationery' },
+      { url: '/portfolio/calligraphy/shakespeare-sonnet-circular-calligraphy.webp', caption: 'Letterpress Business Cards on 600gsm Cotton', tag: 'Stationery' },
     ],
     deliverables: ['Business Card Layouts (Standard & Custom Die-Cut)', 'Letterhead (Print Ready & Digital Word/Docs Templates)', 'Envelope Suite & Folder Design', 'Paper Stock & Print Vendor Specifications'],
     faqs: [{ q: 'Can you liaise directly with specialty print houses?', a: 'Yes, we provide print-ready press proofs with exact spot-color and die-line separations.' }],
@@ -412,9 +515,13 @@ export const SUB_SERVICES = {
     metaTitle: 'Packaging & Label Design — Luxury Boxes & Labels | HUNAR',
     metaDescription: 'Artisanal packaging and label design for cosmetics, wine, gourmet food, and luxury retail by HUNAR Creative Studio.',
     summary: 'Elevating consumer physical unboxing through tactile paper choices, custom structural dielines, and elegant label graphics.',
-    heroImage: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/calligraphy/koshish-harivansh-rai-bachchan-calligraphy.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=800&q=80', caption: 'Luxury Bottle Label with Foil Detailing', tag: 'Packaging' },
+          {
+                "url": "/portfolio/calligraphy/koshish-harivansh-rai-bachchan-calligraphy.webp",
+                "caption": "Bespoke Typographic Calligraphy & Letterform Crafting",
+                "tag": "Logotype"
+          }
     ],
     deliverables: ['Structural Box & Label Dieline Layouts', 'Print Finishing Notes (Emboss, UV, Foil)', '3D Photorealistic Packaging Renders'],
     faqs: [{ q: 'Do you create the dielines or use existing templates?', a: 'We can work from your manufacturer’s dielines or create custom structural templates.' }],
@@ -427,9 +534,9 @@ export const SUB_SERVICES = {
     metaTitle: 'Brand Naming & Creative Direction — Memorable Names | HUNAR',
     metaDescription: 'Strategic brand naming, linguistic screening, domain analysis, and evocative creative direction for new ventures.',
     summary: 'Rigorous naming methodologies combining linguistic cadence, cultural depth, trademark clearance, and domain viability.',
-    heroImage: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/calligraphy/koshish-harivansh-rai-bachchan-calligraphy.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80', caption: 'Naming Taxonomy and Archetype Workshop', tag: 'Strategy' },
+      { url: '/portfolio/calligraphy/koshish-harivansh-rai-bachchan-calligraphy.webp', caption: 'Naming Taxonomy and Archetype Workshop', tag: 'Strategy' },
     ],
     deliverables: ['Curated Long-List and Short-List Presentations', 'Linguistic & Pronunciation Analysis', 'Domain & Trademark Preliminary Screening', 'Tagline & Brand Monologue Creation'],
     faqs: [{ q: 'How many name options are presented?', a: 'We present 15 to 20 screened names across four strategic territory buckets.' }],
@@ -442,9 +549,9 @@ export const SUB_SERVICES = {
     metaTitle: 'Brand Guidelines & Logo Usage Kits — Studio Brand Books | HUNAR',
     metaDescription: 'Comprehensive editorial brand manuals ensuring consistent application across internal teams, marketing, and external partners.',
     summary: 'Exhaustive editorial brand manuals documenting logo clearspace, color formulas, co-branding, and tone of voice.',
-    heroImage: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/calligraphy/koshish-harivansh-rai-bachchan-calligraphy.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=800&q=80', caption: 'Hardbound Editorial Brand Manual', tag: 'Guidelines' },
+      { url: '/portfolio/calligraphy/shakespeare-sonnet-circular-calligraphy.webp', caption: 'Hardbound Editorial Brand Manual', tag: 'Guidelines' },
     ],
     deliverables: ['Digital Interactive PDF Brand Book (30–60 pages)', 'Organized Cloud Asset Repository', 'Quick Reference Style Sheet'],
     faqs: [{ q: 'Can the guidelines be shared with third-party vendors?', a: 'Yes, the digital manual includes exact export standards and misuse examples for vendors.' }],
@@ -457,9 +564,9 @@ export const SUB_SERVICES = {
     metaTitle: 'Rebranding & Brand Refresh Projects — Modern Evolution | HUNAR',
     metaDescription: 'Evolve established heritage into contemporary distinction through strategic rebranding and visual refresh by HUNAR.',
     summary: 'Modernizing legacy brands while preserving hard-won customer equity, heritage value, and market recognition.',
-    heroImage: 'https://images.unsplash.com/photo-1626785774573-4b799315345d?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/calligraphy/shakespeare-sonnet-circular-calligraphy.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=800&q=80', caption: 'Heritage Modernization Identity Study', tag: 'Refresh' },
+      { url: '/portfolio/calligraphy/shakespeare-sonnet-circular-calligraphy.webp', caption: 'Heritage Modernization Identity Study', tag: 'Refresh' },
     ],
     deliverables: ['Brand Equity & Heritage Audit', 'Evolutionary vs Revolutionary Design Proposals', 'Transition Roadmaps for Phased Rollout'],
     faqs: [{ q: 'Will rebranding alienate our existing customers?', a: 'Our phased refresh methodology protects core brand recognition while updating typographic and digital maturity.' }],
@@ -474,9 +581,18 @@ export const SUB_SERVICES = {
     metaTitle: 'Custom Business & Company Websites — High Performance | HUNAR',
     metaDescription: 'Bespoke corporate and company websites engineered on React and Node.js. Editorial design with 100/100 Core Web Vitals.',
     summary: 'High-performing digital flagships engineered with editorial layouts, custom full-stack architecture, and zero bloat.',
-    heroImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/web-design/shikha-singh-luxury-model-portfolio.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80', caption: 'Corporate Web Flagship Interface', tag: 'Web' },
+          {
+                "url": "/portfolio/web-design/shikha-singh-luxury-model-portfolio.webp",
+                "caption": "Shikha Singh — High-Fashion Luxury Model Portfolio",
+                "tag": "Luxury Web"
+          },
+          {
+                "url": "/portfolio/web-design/ah-properties-real-estate-portal.webp",
+                "caption": "A.H Properties — Commercial & Residential Real Estate Portal",
+                "tag": "Real Estate"
+          }
     ],
     deliverables: ['Bespoke React/Node Architecture', 'Custom Headless Lead Ingestion', 'Mobile Responsive Verification', 'Technical SEO Schema Setup'],
     faqs: [{ q: 'Do you use WordPress or generic themes?', a: 'No. We custom engineer our platforms with modern MERN/React architectures for superior speed and security.' }],
@@ -489,9 +605,18 @@ export const SUB_SERVICES = {
     metaTitle: 'Creative Portfolio Websites — Architects & Artists | HUNAR',
     metaDescription: 'Award-winning portfolio websites for architects, artists, interior designers, and executives crafted with editorial restraint.',
     summary: 'Gallery-grade online portfolios designed for architects, artists, and creators who need their work to take center stage.',
-    heroImage: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/web-design/shikha-singh-luxury-model-portfolio.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80', caption: 'Architectural Portfolio Gallery View', tag: 'Portfolio' },
+          {
+                "url": "/portfolio/web-design/shikha-singh-luxury-model-portfolio.webp",
+                "caption": "Shikha Singh — Editorial Runway & Modeling Portfolio Flagship",
+                "tag": "Editorial Web"
+          },
+          {
+                "url": "/portfolio/web-design/greek-automata-techfest-website.webp",
+                "caption": "Greek Automata — Interactive College Festival Platform",
+                "tag": "Event Platform"
+          }
     ],
     deliverables: ['Fluid Image Grid & Detail Drawers', 'Zero-Lag Image Compression', 'Curated Project Case Study Layouts'],
     faqs: [{ q: 'Can I easily upload new projects myself?', a: 'Yes, we provide structured headless data schemas or admin interfaces for seamless publishing.' }],
@@ -504,9 +629,13 @@ export const SUB_SERVICES = {
     metaTitle: 'Ecommerce & Online Art Stores — Custom Web Platforms | HUNAR',
     metaDescription: 'High-conversion online art stores and luxury ecommerce platforms built with secure checkout and editorial storytelling.',
     summary: 'Luxury digital storefronts combining editorial visual storytelling with frictionless checkout, inventory syncing, and security.',
-    heroImage: 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/web-design/the-nadeems-gourmet-ordering-web.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80', caption: 'Online Art Gallery Storefront', tag: 'Ecommerce' },
+          {
+                "url": "/portfolio/web-design/the-nadeems-gourmet-ordering-web.webp",
+                "caption": "The Nadeems — Gourmet Dining & Food Delivery Web App",
+                "tag": "Ecommerce Web"
+          }
     ],
     deliverables: ['Secure Payment Gateway Integration', 'Dynamic Cart & Drawer Architecture', 'Tax, Currency and Shipping Rules Setup'],
     faqs: [{ q: 'Which payment gateways do you support?', a: 'We integrate Stripe, Razorpay, PayPal, Apple Pay, and standard international credit card processors.' }],
@@ -519,9 +648,13 @@ export const SUB_SERVICES = {
     metaTitle: 'High-Converting Campaign Landing Pages — MERN Stack | HUNAR',
     metaDescription: 'Performance-driven campaign landing pages designed for luxury launches, lead capture, and maximum conversion rates.',
     summary: 'Single-minded landing pages engineered for product launches, lead capture campaigns, and multi-touch attribution tracking.',
-    heroImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/web-design/greek-automata-techfest-website.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80', caption: 'Editorial Product Launch Experience', tag: 'Landing Page' },
+          {
+                "url": "/portfolio/web-design/greek-automata-techfest-website.webp",
+                "caption": "Greek Automata — Interactive College Festival Landing Page",
+                "tag": "High-Impact Page"
+          }
     ],
     deliverables: ['Sub-Second Load Time Optimization', 'Full UTM and Click ID Hidden Attribution', 'A/B Test Ready Architecture'],
     faqs: [{ q: 'Can the landing page connect to our CRM?', a: 'Yes, our built-in API routes capture and sync leads with our custom CRM or your external webhook.' }],
@@ -534,9 +667,13 @@ export const SUB_SERVICES = {
     metaTitle: 'Service Business & Agency Websites — Editorial Digital Flagships | HUNAR',
     metaDescription: 'High-prestige websites for consultancies, design studios, law firms, and creative agencies by HUNAR.',
     summary: 'Sophisticated web presences tailored for high-ticket service firms, consulting practices, and creative studios.',
-    heroImage: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/web-design/ah-properties-real-estate-portal.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80', caption: 'Consulting Practice Web Platform', tag: 'Agency' },
+          {
+                "url": "/portfolio/web-design/ah-properties-real-estate-portal.webp",
+                "caption": "A.H Properties — Corporate Real Estate & Investment Agency Portal",
+                "tag": "Agency Portal"
+          }
     ],
     deliverables: ['Service Division Architecture', 'Team & Leadership Bios', 'Interactive Case Studies'],
     faqs: [{ q: 'How long does a full agency web build take?', a: 'Typically 6 to 10 weeks from discovery to deployment.' }],
@@ -549,9 +686,13 @@ export const SUB_SERVICES = {
     metaTitle: 'Website Redesign & Performance Overhaul — MERN Upgrade | HUNAR',
     metaDescription: 'Transform outdated websites into fast, responsive, and editorial digital platforms with zero loss of existing SEO authority.',
     summary: 'Modernizing legacy websites to fix mobile overflow, slow load speeds, poor SEO, and outdated visual templates.',
-    heroImage: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/web-design/mirza-hajj-umrah-travel-portal.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80', caption: 'Before & After Architectural Digital Overhaul', tag: 'Redesign' },
+          {
+                "url": "/portfolio/web-design/mirza-hajj-umrah-travel-portal.webp",
+                "caption": "Mirza Hajj & Umrah — Full Platform Redesign & Optimization",
+                "tag": "Redesign"
+          }
     ],
     deliverables: ['301 Redirect Mapping & SEO Preservation', 'Full Mobile Overflow Remediation', 'Modern React Performance Architecture'],
     faqs: [{ q: 'Will our search rankings drop during a redesign?', a: 'We implement meticulous 301 redirect maps and URL matching to protect and enhance existing Google rankings.' }],
@@ -566,9 +707,13 @@ export const SUB_SERVICES = {
     metaTitle: 'Logo Animation & Brand Motion — Kinetic Identity | HUNAR',
     metaDescription: 'Elevate your mark with purposeful, cinematic logo animation and brand motion design crafted by HUNAR.',
     summary: 'Cinematic, subtle kinetic reveals of brand marks for video intros, digital sign-offs, and app splash screens.',
-    heroImage: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/stage-design/sir-jj-applied-art-stage-color-render.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80', caption: 'Kinetic Monogram Stinger Reveal', tag: 'Motion' },
+          {
+                "url": "/portfolio/stage-design/sir-jj-applied-art-stage-color-render.webp",
+                "caption": "88th Exhibition Stage Chromatic 3D Concept Rendering",
+                "tag": "3D Render"
+          }
     ],
     deliverables: ['Full 4K ProRes Video Masters', 'Transparent Alpha Channel Files (WebM & MOV)', 'Lottie / JSON Vector Animations for Web'],
     faqs: [{ q: 'Can the animation be embedded into our website code?', a: 'Yes, we output lightweight Lottie animations that run smoothly in pure SVG/code.' }],
@@ -581,9 +726,13 @@ export const SUB_SERVICES = {
     metaTitle: 'Animated Social Posts & Motion Content — HUNAR Atelier',
     metaDescription: 'Stop the scroll with elegant, restrained animated social posts and micro-vignettes designed for luxury brands.',
     summary: 'Restrained, art-directed motion vignettes for Instagram and LinkedIn that communicate sophistication without chaotic noise.',
-    heroImage: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/web-design/greek-automata-techfest-website.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80', caption: 'Editorial Carousel Motion Story', tag: 'Social Motion' },
+          {
+                "url": "/portfolio/web-design/greek-automata-techfest-website.webp",
+                "caption": "Greek Automata — Digital Festival Key Visuals & Grid Banners",
+                "tag": "Digital Graphics"
+          }
     ],
     deliverables: ['1:1 Square, 4:5 Portrait, and 9:16 Vertical Video Formats', 'Looping Seamless Cadence', 'Editable Project Source Files'],
     faqs: [{ q: 'Are these templates or bespoke animations?', a: 'Every motion vignette is custom created around your brand typography and photography.' }],
@@ -596,9 +745,13 @@ export const SUB_SERVICES = {
     metaTitle: 'Creative Campaign Concepts & Art Direction | HUNAR Studio',
     metaDescription: 'Concept ideation, creative storytelling, and visual art direction for seasonal and product launch campaigns.',
     summary: 'Overarching creative themes, mood boards, and narrative scripts that anchor multi-channel marketing campaigns.',
-    heroImage: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/murals/botanical-mural-concept-design.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&w=800&q=80', caption: 'Campaign Narrative Treatment & Storyboards', tag: 'Concept' },
+          {
+                "url": "/portfolio/murals/botanical-mural-concept-design.webp",
+                "caption": "Botanical Symphony Concept Drafting & Elevation Plan",
+                "tag": "Concept Art"
+          }
     ],
     deliverables: ['Comprehensive Campaign Lookbook & Treatment', 'Headline & Copywriting Direction', 'Production Shot Lists and Lighting References'],
     faqs: [{ q: 'Do you direct photoshoots as part of campaign work?', a: 'Yes, our directors provide on-set art direction or virtual pre-production guidance.' }],
@@ -611,9 +764,9 @@ export const SUB_SERVICES = {
     metaTitle: 'Content Planning & Visual Storytelling Systems — HUNAR',
     metaDescription: 'Structured visual content calendars, thematic pillars, and narrative sequencing for luxury and cultural brands.',
     summary: 'Strategic sequencing of brand narratives, editorial releases, and visual assets to maintain an artful digital presence.',
-    heroImage: 'https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/murals/botanical-mural-concept-design.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=800&q=80', caption: 'Curated 90-Day Content Framework', tag: 'Planning' },
+      { url: '/portfolio/calligraphy/gulzar-bosky-poem-devanagari-calligraphy.webp', caption: 'Curated 90-Day Content Framework', tag: 'Planning' },
     ],
     deliverables: ['90-Day Narrative Calendar', 'Content Pillar Definition', 'Visual Grid Composition Templates'],
     faqs: [{ q: 'Does this include publishing the posts?', a: 'We focus on content creation, architecture, and planning; publishing is managed by your internal team or agency partner.' }],
@@ -628,10 +781,23 @@ export const SUB_SERVICES = {
     metaTitle: 'Custom Wall Murals & Hand-Painted Walls — Architectural Art | HUNAR',
     metaDescription: 'Large-scale, hand-painted wall murals for luxury residences, boutique hotels, and restaurants by HUNAR Creative Studio.',
     summary: 'Site-specific architectural wall murals executed with mineral silicate pigments and lime washes directly on interior surfaces.',
-    heroImage: 'https://images.unsplash.com/photo-1561055657-b9e0bf0fa360?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/murals/staircase-monstera-botanical-mural.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80', caption: 'Basalt & Ochre Hotel Lobby Mural (40ft)', tag: 'Mural' },
-      { url: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80', caption: 'Textured Lime Plaster Surface Detail', tag: 'Material' },
+          {
+                "url": "/portfolio/murals/staircase-monstera-botanical-mural.webp",
+                "caption": "Botanical Ascent Staircase Mural (16ft × 20ft)",
+                "tag": "Interior Mural"
+          },
+          {
+                "url": "/portfolio/murals/rural-village-landscape-panoramic-mural.webp",
+                "caption": "Echoes of the Countryside Panoramic Boundary Mural (30ft × 8ft)",
+                "tag": "Exterior Mural"
+          },
+          {
+                "url": "/portfolio/murals/botanical-mural-concept-design.webp",
+                "caption": "Botanical Symphony Concept Drafting & Elevation Plan",
+                "tag": "Concept Art"
+          }
     ],
     deliverables: ['Laser Elevation Survey and Scale Renderings', 'Substrate Preparation & Silicate Priming', 'Protective Non-Reflective Matte Sealer', 'Care & Cleaning Documentation'],
     faqs: [
@@ -647,9 +813,18 @@ export const SUB_SERVICES = {
     metaTitle: 'Office & Commercial Art Installations — Corporate Art | HUNAR',
     metaDescription: 'Transform corporate headquarters and creative workspaces with bespoke spatial art installations and large-scale canvases.',
     summary: 'Permanent spatial art features, acoustic art panels, and curated gallery corridors designed for corporate innovation hubs.',
-    heroImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/glass-painting/diwali-front-desk-glass-diyas.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1561055657-b9e0bf0fa360?auto=format&fit=crop&w=800&q=80', caption: 'Corporate Atrium Spatial Art Feature', tag: 'Commercial' },
+          {
+                "url": "/portfolio/glass-painting/diwali-front-desk-glass-diyas.webp",
+                "caption": "Diwali Welcome Reception Glass Art Installation",
+                "tag": "Corporate Glass Art"
+          },
+          {
+                "url": "/portfolio/installations/independence-day-76th-mixed-media-installation.webp",
+                "caption": "76th Swatantrya Din 3D Assemblage Art Installation",
+                "tag": "3D Installation"
+          }
     ],
     deliverables: ['Acoustic and Fire Code Verified Materials', 'Engineered Hanging Brackets and Seismic Hardware', 'Artist Plaque Installation'],
     faqs: [{ q: 'Can installations incorporate our corporate brand narrative?', a: 'Yes, we translate company origins, regional geography, or technological patents into abstract visual statements.' }],
@@ -662,9 +837,18 @@ export const SUB_SERVICES = {
     metaTitle: 'Artwork Selection & Art Styling for Interiors — Curated Spaces | HUNAR',
     metaDescription: 'Curatorial consulting for architects, interior designers, and luxury homeowners seeking cohesive fine art collections.',
     summary: 'Full-service art curation, framing curation, and spatial placement guidance for architectural residences and luxury hotels.',
-    heroImage: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/glass-painting/merry-christmas-botanical-wreath-glass.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=800&q=80', caption: 'Residential Living Elevation Art Styling', tag: 'Styling' },
+          {
+                "url": "/portfolio/glass-painting/merry-christmas-botanical-wreath-glass.webp",
+                "caption": "Merry Christmas Botanical Glass Wreath Double Doors",
+                "tag": "Glass Wreath"
+          },
+          {
+                "url": "/portfolio/glass-painting/holiday-reindeer-christmas-window-painting.webp",
+                "caption": "Noël Woodland Holiday Storefront Window Display",
+                "tag": "Glass Art"
+          }
     ],
     deliverables: ['Full Architectural Floorplan Art Placement Schedule', 'Artwork Framing Specification Book', 'Procurement & Installation Oversight'],
     faqs: [{ q: 'Do you work alongside our interior designer?', a: 'Yes, we frequently collaborate with interior design firms during the finishes selection phase.' }],
@@ -677,9 +861,13 @@ export const SUB_SERVICES = {
     metaTitle: 'Resin & Sculptural Wall Installations — 3D Fine Art | HUNAR',
     metaDescription: 'Multi-dimensional sculptural wall installations combining crystal resin, hardwood, and brass inlays for architectural statements.',
     summary: 'Three-dimensional wall sculptures combining refractive clear resins, raw basalt stone, and polished brass inlays.',
-    heroImage: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/installations/flight-of-peace-paper-doves-sculpture.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1579783902614-a3fb3927b675?auto=format&fit=crop&w=800&q=80', caption: 'Bas-Relief Sculptural Resin Wall Element', tag: 'Sculptural' },
+          {
+                "url": "/portfolio/installations/flight-of-peace-paper-doves-sculpture.webp",
+                "caption": "Flight of Peace: Three-Dimensional Sculpted Paper Doves",
+                "tag": "Dimensional Art"
+          }
     ],
     deliverables: ['Structural Weight Assessment & Wall Anchor Engineering', 'Modular Multi-Panel Assembly', 'Direct Atelier Installation'],
     faqs: [{ q: 'How heavy are these sculptural installations?', a: 'We engineer lightweight honeycombed cores with structural aluminum cleats for safe drywall and masonry mounting.' }],
@@ -692,9 +880,18 @@ export const SUB_SERVICES = {
     metaTitle: 'Branded Wall Art & Visual Features — Architectural Branding | HUNAR',
     metaDescription: 'Subtle, artistic interpretations of corporate identity and brand values rendered as architectural wall features.',
     summary: 'Elevating corporate logos into fine art wall statements, combining bas-relief typography and textured plaster.',
-    heroImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/murals/rural-village-landscape-panoramic-mural.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1561055657-b9e0bf0fa360?auto=format&fit=crop&w=800&q=80', caption: 'Subtle Bas-Relief Plaster Brand Statement', tag: 'Branded Art' },
+          {
+                "url": "/portfolio/murals/rural-village-landscape-panoramic-mural.webp",
+                "caption": "Echoes of the Countryside Panoramic Boundary Mural",
+                "tag": "Exterior Mural"
+          },
+          {
+                "url": "/portfolio/calligraphy/swatantryotsav-monumental-calligraphy-board.webp",
+                "caption": "Swatantryotsav: Monumental Calligraphy Exhibition Board",
+                "tag": "Exhibition Board"
+          }
     ],
     deliverables: ['Material Swatch Submissions', 'Architectural Integration Mockups', 'Precision Hand-Painted or Cast Execution'],
     faqs: [{ q: 'Is this just a vinyl decal or sign?', a: 'Never. Our branded features are physical artworks crafted from plaster, brass, hardwood, and lime wash.' }],
@@ -707,9 +904,28 @@ export const SUB_SERVICES = {
     metaTitle: 'Event Backdrops & Live Art — Galas & Luxury Launches | HUNAR',
     metaDescription: 'Handcrafted photo backdrops and captivating live painting performances for luxury brand launches and cultural galas.',
     summary: 'Art-directed hand-painted canvas backdrops and live on-site painting performances during exclusive cultural galas.',
-    heroImage: 'https://images.unsplash.com/photo-1561055657-b9e0bf0fa360?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/stage-design/sir-jj-applied-art-winged-stage-finished.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80', caption: 'Monumental Event Backdrop on Heavy Linen', tag: 'Events' },
+          {
+                "url": "/portfolio/stage-design/sir-jj-applied-art-winged-stage-finished.webp",
+                "caption": "Sir J.J. Applied Art 88th Annual Exhibition Sculptural Stage (40ft × 20ft)",
+                "tag": "Theatrical Stage"
+          },
+          {
+                "url": "/portfolio/stage-design/sir-jj-applied-art-stage-color-render.webp",
+                "caption": "88th Exhibition Stage Chromatic 3D Concept Rendering",
+                "tag": "3D Render"
+          },
+          {
+                "url": "/portfolio/caricature/young-girl-live-watercolor-portrait-booth.webp",
+                "caption": "Live Caricature & Guest Portrait Pavilion Activation",
+                "tag": "Live Art"
+          },
+          {
+                "url": "/portfolio/face-body-art/spiderman-venom-split-mask-arm-art.webp",
+                "caption": "Live Event Body Art & Temporary Tattoos",
+                "tag": "Live Body Art"
+          }
     ],
     deliverables: ['Freestanding or Truss-Mounted Canvas Execution', 'Live Painting Performance by Senior Artists', 'Finished Piece Handover for Client Retention'],
     faqs: [{ q: 'Can the finished live painting be kept by the event host?', a: 'Yes, the completed artwork belongs to the client and can be hung permanently in their office or home.' }],
@@ -722,9 +938,18 @@ export const SUB_SERVICES = {
     metaTitle: 'Corporate Art Commissions & Gifting — Executive Editions | HUNAR',
     metaDescription: 'Curated original fine art gifts and serialized limited editions for executive VIPs, founders, and commemorative milestones.',
     summary: 'Commissioned fine art collections for board retirements, investor commemorations, and luxury corporate gifting.',
-    heroImage: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/face-body-art/shreya-peacock-feather-forearm-tattoo.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1582561424760-0321d75e81fa?auto=format&fit=crop&w=800&q=80', caption: 'Custom Gilded Executive Art Keepsake', tag: 'Executive Gift' },
+          {
+                "url": "/portfolio/face-body-art/shreya-peacock-feather-forearm-tattoo.webp",
+                "caption": "Shreya: Calligraphic Peacock Feather Arm Tattoo Showcase",
+                "tag": "Live Body Art"
+          },
+          {
+                "url": "/portfolio/caricature/live-family-caricature-portrait.webp",
+                "caption": "Live Event Caricature Portrait Keepsake",
+                "tag": "Caricature Gift"
+          }
     ],
     deliverables: ['Serialized Numbering with Company Inscription', 'Handcrafted Hardwood Presentation Box', 'Personalized Artist Provenance Certificate'],
     faqs: [{ q: 'What is the lead time for corporate volume gifting?', a: 'Volume orders of 25 to 100 units require 4 to 6 weeks for handcrafting and packaging.' }],
@@ -739,9 +964,13 @@ export const SUB_SERVICES = {
     metaTitle: 'Custom Merchandise & Printed Products — Artisanal Goods | HUNAR',
     metaDescription: 'Elevated studio merchandise: heavyweight textiles, custom stationery, and collectible art objects designed by HUNAR.',
     summary: 'High-end apparel and artisanal lifestyle goods designed with artistic integrity rather than generic corporate promo swag.',
-    heroImage: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/face-body-art/fairy-butterfly-shimmer-hand-art.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=800&q=80', caption: 'Heavyweight Screen-Printed Art Edition Apparel', tag: 'Merchandise' },
+          {
+                "url": "/portfolio/face-body-art/fairy-butterfly-shimmer-hand-art.webp",
+                "caption": "Shimmering Blue Butterfly Hand Art & Temporary Tattoo Badges",
+                "tag": "Hand Art"
+          }
     ],
     deliverables: ['Custom Textile and Material Sourcing', 'High-Density Screen Printing or Embroidery Specs', 'Custom Woven Label & Tag Architecture'],
     faqs: [{ q: 'What is the minimum run size?', a: 'Custom merchandise runs typically begin at 50 units per design to ensure artisanal quality.' }],
@@ -754,9 +983,13 @@ export const SUB_SERVICES = {
     metaTitle: 'Branded Tote Bags, Notebooks & Art Gifts | HUNAR Atelier',
     metaDescription: 'Organic canvas totes, linen-bound artist sketchbooks, and silkscreened stickers crafted for cultural brands.',
     summary: 'Organic heavyweight cotton totes, smyth-sewn linen notebooks, and silkscreened sticker sets made with tactile care.',
-    heroImage: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/installations/creative-tree-of-knowledge-sculpture.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=800&q=80', caption: 'Linen Bound Sketchbooks & Raw Canvas Totes', tag: 'Stationery' },
+          {
+                "url": "/portfolio/installations/creative-tree-of-knowledge-sculpture.webp",
+                "caption": "Creative Studio Sculptural Object & Keepsake",
+                "tag": "Product"
+          }
     ],
     deliverables: ['Organic 14oz Canvas Tote Construction', 'Smyth-Sewn Binding with Archival Paper Inners', 'Custom Foil Debossed Cover Detailing'],
     faqs: [{ q: 'Are your tote bags made from organic cotton?', a: 'Yes, we source 100% GOTS-certified unbleached organic canvas.' }],
@@ -769,9 +1002,9 @@ export const SUB_SERVICES = {
     metaTitle: 'Digital Invitations & Printable Art — Luxury Templates | HUNAR',
     metaDescription: 'Interactive digital invitations, curated wedding suites, and printable art downloads crafted with editorial aesthetics.',
     summary: 'Typographic wedding suites, responsive mobile digital invitations, and beautifully formatted printable desk planners.',
-    heroImage: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/calligraphy/gulzar-bosky-poem-devanagari-calligraphy.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=800&q=80', caption: 'Interactive Mobile Invitation Suite', tag: 'Invitations' },
+      { url: '/portfolio/calligraphy/shakespeare-sonnet-circular-calligraphy.webp', caption: 'Interactive Mobile Invitation Suite', tag: 'Invitations' },
     ],
     deliverables: ['Clickable Web/Mobile Invitation Landing Page', 'Print-Ready PDF Master Files', 'RSVP Automation Setup'],
     faqs: [{ q: 'Can the digital invitation track RSVPs?', a: 'Yes, our digital invitations can be paired with custom forms or online RSVP databases.' }],
@@ -784,9 +1017,9 @@ export const SUB_SERVICES = {
     metaTitle: 'Presentation Templates & Pitch Deck Design — Keynote & Figma | HUNAR',
     metaDescription: 'Editorial presentation templates and investor pitch decks designed with typographic discipline and clean data visualization.',
     summary: 'Investor pitch decks and keynote templates designed with architectural grids, bespoke charts, and crisp typography.',
-    heroImage: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/web-design/greek-automata-techfest-website.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80', caption: 'Keynote & PowerPoint Slide System', tag: 'Decks' },
+      { url: '/portfolio/web-design/greek-automata-techfest-website.webp', caption: 'Keynote & PowerPoint Slide System', tag: 'Decks' },
     ],
     deliverables: ['Keynote, Figma, and PowerPoint Master Templates', 'Custom Financial Chart and Data Icon Styles', 'Typography Licensing Guide'],
     faqs: [{ q: 'Are fonts easy to use for team members?', a: 'We design with system-available Google Fonts or provide exact licensed webfont files.' }],
@@ -799,9 +1032,9 @@ export const SUB_SERVICES = {
     metaTitle: 'Social Media Templates & Design Systems — Figma & Canva | HUNAR',
     metaDescription: 'Elevate your online grid with editable social media templates for luxury brands, architects, and creative founders.',
     summary: 'Editorial social media grid systems for Figma and Canva, allowing your internal team to publish on-brand content effortlessly.',
-    heroImage: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/web-design/shikha-singh-luxury-model-portfolio.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=800&q=80', caption: 'Modular Social Grid Component Library', tag: 'Social Kits' },
+      { url: '/portfolio/calligraphy/gulzar-bosky-poem-devanagari-calligraphy.webp', caption: 'Modular Social Grid Component Library', tag: 'Social Kits' },
     ],
     deliverables: ['30+ Modular Post and Story Component Templates', 'Figma and Canva Editable Master Links', 'Photography Crop and Text Overlay Guidelines'],
     faqs: [{ q: 'Can non-designers edit these templates in Canva?', a: 'Yes, we set up locked brand guidelines and user-friendly Canva team links.' }],
@@ -814,9 +1047,13 @@ export const SUB_SERVICES = {
     metaTitle: 'Downloadable Art & High-Resolution Digital Prints | HUNAR',
     metaDescription: 'Instant high-resolution art downloads formatted for standard international frame sizes (ISO A-series and US Imperial).',
     summary: 'Curated digital art files rendered at 300+ DPI, formatted for immediate printing on personal home printers or local print shops.',
-    heroImage: 'https://images.unsplash.com/photo-1582561424760-0321d75e81fa?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/calligraphy/gulzar-poetry-spiral-devanagari-calligraphy.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80', caption: 'High-Resolution 300 DPI Art Asset', tag: 'Download' },
+          {
+                "url": "/portfolio/calligraphy/gulzar-poetry-spiral-devanagari-calligraphy.webp",
+                "caption": "Gulzar: \"Waqt\" Devanagari Spiral Calligraphy Art Print",
+                "tag": "Calligraphy"
+          }
     ],
     deliverables: ['5 Ratio Sets (2:3, 3:4, 4:5, 11:14, ISO A1-A4)', 'Professional Paper Recommendation Guide', 'Personal Display License'],
     faqs: [{ q: 'What paper do you recommend printing these on?', a: 'We recommend matte cotton rag or heavy cardstock (250gsm+) for rich pigment representation.' }],
@@ -829,9 +1066,9 @@ export const SUB_SERVICES = {
     metaTitle: 'Custom Packaging Illustrations & Product Artwork | HUNAR',
     metaDescription: 'Bespoke hand-drawn illustrations and intricate patterns designed for retail packaging, box wraps, and labels.',
     summary: 'Hand-rendered botanical, landscape, and figurative illustrations crafted to wrap around boxes, bottles, and pouches.',
-    heroImage: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/calligraphy/gita-and-quran-harmony-devanagari-calligraphy.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?auto=format&fit=crop&w=800&q=80', caption: 'Hand-Drawn Botanical Pattern on Box Wrap', tag: 'Illustration' },
+      { url: '/portfolio/calligraphy/gita-and-quran-harmony-devanagari-calligraphy.webp', caption: 'Hand-Drawn Botanical Pattern on Box Wrap', tag: 'Illustration' },
     ],
     deliverables: ['Seamless Repeat Patterns in Vector Formats', 'Isolated High-Resolution Hero Illustrations', 'Full Commercial Packaging Reproduction Rights'],
     faqs: [{ q: 'Can illustrations be scaled without pixelation?', a: 'Yes, we provide master vector formats (AI, SVG, EPS) suitable for small cosmetic jars up to shipping cartons.' }],
@@ -844,9 +1081,13 @@ export const SUB_SERVICES = {
     metaTitle: 'Licensed Digital Artwork Collections — Commercial Licenses | HUNAR',
     metaDescription: 'License original artwork from the HUNAR studio archive for editorial publications, book covers, and product lines.',
     summary: 'Commercial licensing agreements permitting brands and publishers to reproduce studio paintings across media and textiles.',
-    heroImage: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=1200&q=80',
+    heroImage: '/portfolio/calligraphy/circular-marathi-calligraphy-sun-mandala.webp',
     galleryImages: [
-      { url: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=800&q=80', caption: 'Licensed Archive Painting on Book Jacket', tag: 'Licensing' },
+          {
+                "url": "/portfolio/calligraphy/circular-marathi-calligraphy-sun-mandala.webp",
+                "caption": "Sun Mandala: Radiating Marathi Calligraphy Licensed Study",
+                "tag": "Mandala Art"
+          }
     ],
     deliverables: ['Custom Tiered Commercial License Agreement', 'Color-Calibrated TIFF Master Files', 'Exclusivity Period Options'],
     faqs: [{ q: 'Can we license an artwork exclusively for our industry?', a: 'Yes, we offer category exclusivity riders for luxury, apparel, and publishing clients.' }],

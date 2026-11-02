@@ -17,9 +17,36 @@ const SUB_KEYS = [
 ];
 
 const GALLERY = [
-  { url: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80', caption: 'Full-Stack Digital Flagship Interface', tag: 'Web Platform' },
-  { url: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=80', caption: 'Editorial Architectural Portfolio Web System', tag: 'Portfolio' },
-  { url: 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=800&q=80', caption: 'Luxury Art Storefront & Checkout Flow', tag: 'Ecommerce' },
+  {
+    url: '/portfolio/web-design/shikha-singh-luxury-model-portfolio.webp',
+    caption: 'Shikha Singh — High-Fashion Luxury Model Digital Flagship',
+    tag: 'Luxury Web',
+    alt: 'Luxury model portfolio website design for Shikha Singh featuring runway fashion photography'
+  },
+  {
+    url: '/portfolio/web-design/the-nadeems-gourmet-ordering-web.webp',
+    caption: 'The Nadeems — Gourmet Dining & Food Delivery Web App',
+    tag: 'Ecommerce',
+    alt: 'Gourmet restaurant website design for The Nadeems with online food ordering'
+  },
+  {
+    url: '/portfolio/web-design/greek-automata-techfest-website.webp',
+    caption: 'Greek Automata — College Techfest Registration Platform',
+    tag: 'Event Platform',
+    alt: 'Dark modern tech festival website design for Greek Automata with glowing circuit graphics'
+  },
+  {
+    url: '/portfolio/web-design/ah-properties-real-estate-portal.webp',
+    caption: 'A.H Properties — Commercial & Residential Real Estate Portal',
+    tag: 'Real Estate',
+    alt: 'Real estate company website design for AH Properties showing property listings'
+  },
+  {
+    url: '/portfolio/web-design/mirza-hajj-umrah-travel-portal.webp',
+    caption: 'Mirza Hajj & Umrah — Sacred Pilgrimage Tour Portal',
+    tag: 'Travel Agency',
+    alt: 'Travel agency website design for Mirza Hajj and Umrah featuring tour package booking'
+  },
 ];
 
 export default function WebsiteService() {
@@ -65,7 +92,7 @@ export default function WebsiteService() {
                 Website Design & Development
               </h1>
               <p className="mt-6 text-base sm:text-lg text-charcoal/80 leading-relaxed font-light max-w-2xl">
-                For businesses, professionals, creators and online sellers. Web experiences designed to present services, build trust and help customers take action, engineered on high-performance full-stack architectures with zero bloat.
+                For businesses, professionals, creators and online sellers. Web experiences designed to present services, build trust and help customers take action, engineered on high-performance full-stack architectures with zero bloat and lightning load times.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
@@ -87,8 +114,10 @@ export default function WebsiteService() {
             <div className="lg:col-span-5">
               <div className="relative rounded overflow-hidden shadow-card border border-beige aspect-[4/3] bg-cream-dark">
                 <img
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1200&q=80"
-                  alt="Custom Web Architecture"
+                  src="/portfolio/web-design/shikha-singh-luxury-model-portfolio.webp"
+                  alt="Luxury model portfolio website design for Shikha Singh featuring runway fashion photography"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -122,6 +151,7 @@ export default function WebsiteService() {
                       src={sub.heroImage}
                       alt={sub.title}
                       loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>

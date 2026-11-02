@@ -23,7 +23,8 @@ export default function ArtClasses() {
       title: 'Material Alchemy & Traditional Pigment Grinding',
       duration: '4 Weeks',
       format: 'Live Studio Demos & Lab Kits',
-      image: 'https://images.unsplash.com/photo-1579783900882-c0d3dad7b119?auto=format&fit=crop&w=800&q=80',
+      image: '/portfolio/portraits/monochrome-charcoal-woman-montage.webp',
+      alt: 'Charcoal and graphite tonal study on archival paper',
       description: 'Sourcing natural earth pigments, grinding on granite mullers, testing egg tempera vs walnut oil binders, and substrate preparation on Belgian linen.',
     },
     {
@@ -31,7 +32,8 @@ export default function ArtClasses() {
       title: 'Atmospheric Glazing & Tonal Chiaroscuro',
       duration: '6 Weeks',
       format: 'Intimate Masterclass (Capped at 15 Patrons)',
-      image: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=800&q=80',
+      image: '/portfolio/portraits/vibrant-crimson-woman-oil-portrait.webp',
+      alt: 'Fine art oil portrait painting with rich glazes on linen canvas',
       description: 'Layering translucent glazes, understanding spectral refraction in oil mediums, and capturing subtle transitions of light and shadow.',
     },
     {
@@ -39,7 +41,8 @@ export default function ArtClasses() {
       title: 'Architectural Scale & Spatial Painting',
       duration: '4 Weeks',
       format: 'Case Studies & Virtual Studio Critique',
-      image: 'https://images.unsplash.com/photo-1561055657-b9e0bf0fa360?auto=format&fit=crop&w=800&q=80',
+      image: '/portfolio/murals/staircase-monstera-botanical-mural.webp',
+      alt: 'Architectural interior staircase botanical mural painting',
       description: 'Designing fine art for specific architectural elevations, working with interior lighting temperatures, and structural installation methodology.',
     },
   ];
@@ -77,8 +80,10 @@ export default function ArtClasses() {
             <div className="lg:col-span-5">
               <div className="relative rounded overflow-hidden shadow-card border border-beige aspect-[4/3] bg-cream-dark">
                 <img
-                  src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1200&q=80"
-                  alt="Fine Art Masterclass Studio Workshop"
+                  src="/portfolio/portraits/bearded-man-studio-easel-portrait.webp"
+                  alt="Fine art oil portrait painting on easel in HUNAR studio atelier"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -108,7 +113,13 @@ export default function ArtClasses() {
               >
                 <div>
                   <div className="aspect-[16/10] bg-cream-dark overflow-hidden">
-                    <img src={m.image} alt={m.title} className="w-full h-full object-cover" />
+                    <img
+                      src={m.image}
+                      alt={m.alt || m.title}
+                      loading="lazy"
+                      decoding="async"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div className="p-6">
                     <div className="flex items-center justify-between text-xs text-charcoal/60 font-mono mb-3">

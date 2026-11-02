@@ -10,16 +10,33 @@ import { ArrowUpRight } from 'lucide-react';
 const SUB_KEYS = [
   'original-paintings',
   'art-prints',
-  'resin-art',
-  'sculptures-handmade-art',
+  'mini-canvas-art',
+  'handmade-bookmarks',
+  'sculptures-installations',
+  'resin-art-products',
   'home-office-art',
   'seasonal-art-gifts',
 ];
 
 const GALLERY = [
-  { url: 'https://images.unsplash.com/photo-1582561424760-0321d75e81fa?auto=format&fit=crop&w=800&q=80', caption: 'Ochre & Basalt Pigment Study', tag: 'Original' },
-  { url: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?auto=format&fit=crop&w=800&q=80', caption: 'Hahnemühle 310gsm Archival Print Edition', tag: 'Print' },
-  { url: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80', caption: 'Tactile Ceramic Sculpture Object', tag: 'Sculpture' },
+  {
+    url: '/portfolio/installations/flight-of-peace-paper-doves-sculpture.webp',
+    caption: 'Flight of Peace: Dimensional Sculpted Paper Doves on Deckle Paper',
+    tag: 'Paper Sculpture',
+    alt: '3D paper craft sculpture of white doves perched on branches mounted on textured orange handmade paper'
+  },
+  {
+    url: '/portfolio/installations/creative-tree-of-knowledge-sculpture.webp',
+    caption: 'The Creative Tree of Knowledge Free-Standing Kinetic Sculpture',
+    tag: 'Sculpture',
+    alt: 'Freestanding colorful artistic tree sculpture featuring branches with camera, typography letters, and art tools'
+  },
+  {
+    url: '/portfolio/installations/tree-of-knowledge-blueprint-drawing.webp',
+    caption: 'Tree of Knowledge Architectural Blueprint & Structural Module Study',
+    tag: 'Blueprint',
+    alt: 'Colored technical blueprint drawing of the Tree of Knowledge sculpture with dimension measurements'
+  },
 ];
 
 export default function ArtProductsService() {
@@ -87,8 +104,10 @@ export default function ArtProductsService() {
             <div className="lg:col-span-5">
               <div className="relative rounded overflow-hidden shadow-card border border-beige aspect-[4/3] bg-cream-dark">
                 <img
-                  src="https://images.unsplash.com/photo-1582561424760-0321d75e81fa?auto=format&fit=crop&w=1200&q=80"
-                  alt="Original Art Collection"
+                  src="/portfolio/installations/flight-of-peace-paper-doves-sculpture.webp"
+                  alt="3D paper craft sculpture of white doves perched on branches mounted on textured orange handmade paper"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -122,6 +141,7 @@ export default function ArtProductsService() {
                       src={sub.heroImage}
                       alt={sub.title}
                       loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
@@ -132,12 +152,12 @@ export default function ArtProductsService() {
                     {sub.summary}
                   </p>
                 </div>
-                <div className="mt-6 pt-3 border-t border-beige/40 flex items-center justify-between">
+                <div className="mt-6 pt-3 border-t border-beige/40">
                   <Link
                     to={`/services/art-products/${sub.slug}`}
                     className="text-xs uppercase tracking-wider font-semibold text-emerald inline-flex items-center gap-1 hover:text-olive"
                   >
-                    Explore Edition <ArrowUpRight className="w-3.5 h-3.5 text-olive" />
+                    View Specs & Inquire <ArrowUpRight className="w-3.5 h-3.5 text-olive" />
                   </Link>
                 </div>
               </article>
@@ -147,7 +167,7 @@ export default function ArtProductsService() {
       </section>
 
       {/* Gallery */}
-      <ProjectGallery images={GALLERY} title="Original Art & Products Gallery" />
+      <ProjectGallery images={GALLERY} title="Original Creations & Sculptural Editions" />
 
       {/* Enquiry Form */}
       <section id="inquiry" className="py-24 bg-cream border-t border-beige/40">
@@ -156,7 +176,7 @@ export default function ArtProductsService() {
             defaultService="art-products"
             formId="form_service_art_products"
             title="Inquire on Original Art & Products"
-            subtitle="Let us know which artwork edition or commercial volume you wish to acquire."
+            subtitle="Let us know which limited prints, originals, or sculptures you wish to acquire."
           />
         </div>
       </section>

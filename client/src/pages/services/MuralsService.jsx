@@ -18,9 +18,42 @@ const SUB_KEYS = [
 ];
 
 const GALLERY = [
-  { url: 'https://images.unsplash.com/photo-1561055657-b9e0bf0fa360?auto=format&fit=crop&w=800&q=80', caption: 'Hand-Painted Mineral Silicate Hotel Mural (45ft)', tag: 'Mural' },
-  { url: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80', caption: 'Corporate Headquarters Spatial Art Feature', tag: 'Commercial' },
-  { url: 'https://images.unsplash.com/photo-1541701494587-cb58502866ab?auto=format&fit=crop&w=800&q=80', caption: 'Resin & Hardwood Dimensional Wall Sculpture', tag: 'Sculptural' },
+  {
+    url: '/portfolio/murals/staircase-monstera-botanical-mural.webp',
+    caption: 'Botanical Ascent Staircase Mural (16ft × 20ft)',
+    tag: 'Interior Mural',
+    alt: 'Interior wall mural painting of tropical monstera leaves and warm terracotta shapes along a wooden staircase'
+  },
+  {
+    url: '/portfolio/murals/rural-village-landscape-panoramic-mural.webp',
+    caption: 'Echoes of the Countryside Panoramic Boundary Mural (30ft × 8ft)',
+    tag: 'Exterior Mural',
+    alt: 'Panoramic outdoor wall mural of rural village cottages, green hills, and palm trees on a concrete boundary wall'
+  },
+  {
+    url: '/portfolio/stage-design/sir-jj-applied-art-winged-stage-finished.webp',
+    caption: 'Sir J.J. Applied Art 88th Annual Exhibition Sculptural Stage (40ft × 20ft)',
+    tag: 'Stage Set',
+    alt: 'Monumental architectural stage design with sculpted angel wings and fluted arches at Sir JJ Institute of Applied Art'
+  },
+  {
+    url: '/portfolio/glass-painting/holiday-reindeer-christmas-window-painting.webp',
+    caption: 'Noël Woodland Holiday Storefront Window Display',
+    tag: 'Glass Art',
+    alt: 'Hand-painted Christmas window art on glass entrance featuring white reindeer stags, Christmas tree, and snow'
+  },
+  {
+    url: '/portfolio/glass-painting/ganesh-chaturthi-showroom-glass-painting.webp',
+    caption: 'Lord Ganesha Festive Showroom Glass Installation (20ft × 10ft)',
+    tag: 'Showroom Glass',
+    alt: 'Hand-painted Lord Ganesha festival artwork on glass showroom facade with traditional Indian musicians and dhol'
+  },
+  {
+    url: '/portfolio/installations/independence-day-76th-mixed-media-installation.webp',
+    caption: '76th Swatantrya Din Assemblage Art Installation',
+    tag: 'Installation',
+    alt: '3D commemorative art installation for India 76th Independence Day with Ashoka pillar sculpture and newspaper collage'
+  },
 ];
 
 export default function MuralsService() {
@@ -43,7 +76,7 @@ export default function MuralsService() {
     <>
       <SEO
         title="Murals, Interior Art & Commercial Projects — Architectural Installations | HUNAR"
-        description="Hand-painted architectural wall murals, office art installations, and spatial art features designed for hotels, workspaces, and luxury interiors by HUNAR."
+        description="Hand-painted architectural wall murals, commercial glass painting, stage designs, and spatial art features by HUNAR Creative Studio."
         canonicalUrl="/services/murals-commercial-art"
         schema={serviceSchema}
       />
@@ -88,8 +121,10 @@ export default function MuralsService() {
             <div className="lg:col-span-5">
               <div className="relative rounded overflow-hidden shadow-card border border-beige aspect-[4/3] bg-cream-dark">
                 <img
-                  src="https://images.unsplash.com/photo-1561055657-b9e0bf0fa360?auto=format&fit=crop&w=1200&q=80"
-                  alt="Commercial Mural Project"
+                  src="/portfolio/murals/staircase-monstera-botanical-mural.webp"
+                  alt="Interior wall mural painting of tropical monstera leaves along a wooden staircase"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -102,12 +137,12 @@ export default function MuralsService() {
       <section id="offerings" className="py-20 bg-sage/15 border-y border-beige/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-2xl mb-12">
-            <span className="editorial-eyebrow">Architectural Offerings</span>
+            <span className="editorial-eyebrow">Spatial Disciplines</span>
             <h2 className="font-serif text-3xl sm:text-4xl text-emerald font-medium mt-2">
-              Spatial & Commercial Capabilities
+              Spaces Transformed by Hand
             </h2>
             <p className="mt-2 text-xs sm:text-sm text-charcoal/70 font-light">
-              From monumental hand-painted wall murals to corporate executive art collections.
+              From hand-painted interior murals to glass art, stage designs, and corporate installations.
             </p>
           </div>
 
@@ -123,6 +158,7 @@ export default function MuralsService() {
                       src={sub.heroImage}
                       alt={sub.title}
                       loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
@@ -138,7 +174,7 @@ export default function MuralsService() {
                     to={`/services/murals-commercial-art/${sub.slug}`}
                     className="text-xs uppercase tracking-wider font-semibold text-emerald inline-flex items-center gap-1 hover:text-olive"
                   >
-                    View Installation Specs <ArrowUpRight className="w-3.5 h-3.5 text-olive" />
+                    View Specs & Inquire <ArrowUpRight className="w-3.5 h-3.5 text-olive" />
                   </Link>
                 </div>
               </article>
@@ -148,7 +184,7 @@ export default function MuralsService() {
       </section>
 
       {/* Gallery */}
-      <ProjectGallery images={GALLERY} title="Murals & Architectural Installations" />
+      <ProjectGallery images={GALLERY} title="Spatial & Theatrical Installations" />
 
       {/* Enquiry Form */}
       <section id="inquiry" className="py-24 bg-cream border-t border-beige/40">
@@ -156,8 +192,8 @@ export default function MuralsService() {
           <EnquiryForm
             defaultService="murals"
             formId="form_service_murals"
-            title="Inquire on Murals & Spatial Art"
-            subtitle="Please share your space dimensions, architectural location, and target installation dates."
+            title="Inquire on Mural or Commercial Art"
+            subtitle="Tell us about your physical space, surface dimensions, and creative theme."
           />
         </div>
       </section>

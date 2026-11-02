@@ -10,18 +10,33 @@ import { ArrowUpRight } from 'lucide-react';
 const SUB_KEYS = [
   'logo-design',
   'brand-identity',
-  'brand-colour-typography',
-  'business-stationery',
-  'packaging-label-design',
-  'brand-naming',
-  'brand-guidelines',
-  'rebranding',
+  'rebranding-services',
+  'business-cards-stationery',
+  'packaging-labels',
+  'flyers-brochures',
+  'posters-banners',
+  'social-media-branding',
 ];
 
 const GALLERY = [
-  { url: 'https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=800&q=80', caption: 'Architectural Monogram & Identity System', tag: 'Identity' },
-  { url: 'https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?auto=format&fit=crop&w=800&q=80', caption: 'Blind Deboss Stationery on 600gsm Cotton', tag: 'Print' },
-  { url: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80', caption: 'Luxury Packaging & Label Architecture', tag: 'Packaging' },
+  {
+    url: '/portfolio/calligraphy/koshish-harivansh-rai-bachchan-calligraphy.webp',
+    caption: 'Harivansh Rai Bachchan: "Koshish" Calligraphy & Bespoke Type',
+    tag: 'Typography',
+    alt: 'Devanagari calligraphy of poem Koshish by Harivansh Rai Bachchan with illustrated mountain climber'
+  },
+  {
+    url: '/portfolio/calligraphy/shakespeare-sonnet-circular-calligraphy.webp',
+    caption: 'Shakespeare: "Time Waste" Concentric Calligraphy & Logotype Study',
+    tag: 'Custom Lettering',
+    alt: 'Concentric circular English calligraphy artwork of Shakespeare quote written in ochre and red ink'
+  },
+  {
+    url: '/portfolio/calligraphy/gulzar-bosky-poem-devanagari-calligraphy.webp',
+    caption: 'Gulzar: "Bosky" Poetic Calligraphic Manuscript',
+    tag: 'Editorial Type',
+    alt: 'Devanagari calligraphy sheet of Gulzar poem Bosky written in deep blue ink with emerald signature'
+  },
 ];
 
 export default function BrandingService() {
@@ -35,7 +50,7 @@ export default function BrandingService() {
       url: 'https://hunarstudio.com',
     },
     areaServed: 'Worldwide',
-    description: 'Visual systems that help a business present itself consistently across digital and physical touchpoints.',
+    description: 'Visual systems that help a business present itself consistently across digital and physical touchpoints with typographic rigor.',
   };
 
   const subServiceItems = SUB_KEYS.map((k) => SUB_SERVICES[k]).filter(Boolean);
@@ -43,8 +58,8 @@ export default function BrandingService() {
   return (
     <>
       <SEO
-        title="Branding & Visual Identity Studio — Logo Design & Brand Systems | HUNAR"
-        description="Comprehensive brand identity, logo design, packaging, and editorial guidelines crafted by HUNAR Creative Studio for startups and established enterprises."
+        title="Branding & Visual Identity — Logos, Guidelines & Typography | HUNAR"
+        description="Craft a timeless visual identity with HUNAR Creative Studio. Custom logo design, brand guidelines, bespoke calligraphy, stationery, and premium packaging."
         canonicalUrl="/services/branding-design"
         schema={serviceSchema}
       />
@@ -67,14 +82,14 @@ export default function BrandingService() {
                 Branding & Visual Identity
               </h1>
               <p className="mt-6 text-base sm:text-lg text-charcoal/80 leading-relaxed font-light max-w-2xl">
-                For startups, freelancers, small businesses and established companies. Visual systems that help a business present itself consistently across digital and physical touchpoints with typographic rigor and strategic depth.
+                For startups, freelancers, small businesses and established companies. Visual systems that help a business present itself consistently across digital and physical touchpoints, composed with custom calligraphy and typographic rigor.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <a
                   href="#offerings"
                   className="px-6 py-3 bg-emerald hover:bg-emerald-dark text-cream text-xs uppercase tracking-widest font-semibold rounded transition shadow-sm hover:shadow-emerald inline-flex items-center gap-2"
                 >
-                  Explore Offerings
+                  Explore Capabilities
                   <ArrowUpRight className="w-3.5 h-3.5 text-beige" />
                 </a>
                 <a
@@ -89,8 +104,10 @@ export default function BrandingService() {
             <div className="lg:col-span-5">
               <div className="relative rounded overflow-hidden shadow-card border border-beige aspect-[4/3] bg-cream-dark">
                 <img
-                  src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?auto=format&fit=crop&w=1200&q=80"
-                  alt="Brand Identity Collateral"
+                  src="/portfolio/calligraphy/koshish-harivansh-rai-bachchan-calligraphy.webp"
+                  alt="Devanagari calligraphy of poem Koshish by Harivansh Rai Bachchan with illustrated mountain climber"
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -124,22 +141,23 @@ export default function BrandingService() {
                       src={sub.heroImage}
                       alt={sub.title}
                       loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                   </div>
                   <h3 className="font-serif text-lg text-emerald font-medium group-hover:text-olive transition-colors">
                     {sub.title}
                   </h3>
-                  <p className="mt-1.5 text-xs text-charcoal/70 line-clamp-3 font-light leading-relaxed">
+                  <p className="mt-1.5 text-xs text-charcoal/70 leading-relaxed font-light line-clamp-2">
                     {sub.summary}
                   </p>
                 </div>
                 <div className="mt-4 pt-3 border-t border-beige/40">
                   <Link
                     to={`/services/branding-design/${sub.slug}`}
-                    className="text-[11px] uppercase tracking-wider font-semibold text-emerald inline-flex items-center gap-1 hover:text-olive"
+                    className="text-xs uppercase tracking-wider font-semibold text-emerald inline-flex items-center gap-1 hover:text-olive"
                   >
-                    View Offering <ArrowUpRight className="w-3.5 h-3.5 text-olive" />
+                    Specs <ArrowUpRight className="w-3 h-3 text-olive" />
                   </Link>
                 </div>
               </article>
@@ -149,7 +167,7 @@ export default function BrandingService() {
       </section>
 
       {/* Gallery */}
-      <ProjectGallery images={GALLERY} title="Branding & Design Portfolio Studies" />
+      <ProjectGallery images={GALLERY} title="Brand Systems & Typographic Studies" />
 
       {/* Enquiry Form */}
       <section id="inquiry" className="py-24 bg-cream border-t border-beige/40">
@@ -158,7 +176,7 @@ export default function BrandingService() {
             defaultService="branding"
             formId="form_service_branding"
             title="Inquire on Branding & Visual Identity"
-            subtitle="Tell us about your brand vision, target market, and upcoming launch timelines."
+            subtitle="Tell us about your brand vision, target patrons, and deliverables required."
           />
         </div>
       </section>
