@@ -88,10 +88,49 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Atelier Navigation */}
+          {/* Specialist Offerings */}
           <div>
             <h4 className="text-xs uppercase tracking-widest text-beige font-semibold mb-4">
-              Atelier
+              Specialist Offerings
+            </h4>
+            <ul className="space-y-2.5 text-xs text-cream/80 font-light">
+              <li>
+                <Link to="/services/custom-art/calligraphy-services" className="hover:text-white transition">
+                  Fine Art Calligraphy
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/murals-commercial-art/commercial-glass-painting" className="hover:text-white transition">
+                  Commercial Glass Painting
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/custom-art/live-wedding-painting-caricature" className="hover:text-white transition">
+                  Live Wedding Painting & Caricature
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/murals-commercial-art/event-tattoos-face-painting" className="hover:text-white transition">
+                  Live Tattoos & Face Painting
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/branding-design/advertising-campaigns" className="hover:text-white transition">
+                  Advertising & Brand Campaigns
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/murals-commercial-art/theatrical-stage-design" className="hover:text-white transition">
+                  Stage Sets & Exhibition Fabrication
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Atelier & Governance */}
+          <div>
+            <h4 className="text-xs uppercase tracking-widest text-beige font-semibold mb-4">
+              Atelier & Info
             </h4>
             <ul className="space-y-2.5 text-xs text-cream/80 font-light">
               <li>
@@ -122,34 +161,19 @@ export default function Footer() {
                   Contact & Inquiries
                 </Link>
               </li>
-            </ul>
-          </div>
-
-          {/* Legal & Governance */}
-          <div>
-            <h4 className="text-xs uppercase tracking-widest text-beige font-semibold mb-4">
-              Governance
-            </h4>
-            <ul className="space-y-2.5 text-xs text-cream/80 font-light">
-              <li>
-                <Link to="/privacy" className="hover:text-white transition">
+              <li className="pt-2 border-t border-emerald-dark">
+                <Link to="/privacy" className="hover:text-white transition text-[11px] text-cream/60">
                   Privacy Policy
                 </Link>
-              </li>
-              <li>
-                <Link to="/cookies" className="hover:text-white transition">
-                  Cookie Policy
+                <span className="text-cream/40 mx-1.5">·</span>
+                <Link to="/terms" className="hover:text-white transition text-[11px] text-cream/60">
+                  Terms
                 </Link>
               </li>
               <li>
-                <Link to="/terms" className="hover:text-white transition">
-                  Terms of Service
-                </Link>
-              </li>
-              <li className="pt-2">
                 <Link
                   to="/admin/login"
-                  className="inline-flex items-center gap-1.5 text-cream/60 hover:text-beige transition"
+                  className="inline-flex items-center gap-1.5 text-cream/60 hover:text-beige transition text-[11px]"
                 >
                   <Lock className="w-3 h-3 text-beige" />
                   <span>Admin CRM Portal</span>

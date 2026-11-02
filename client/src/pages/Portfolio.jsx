@@ -6,11 +6,12 @@ import { ArrowUpRight, Eye, X } from 'lucide-react';
 import { REAL_PORTFOLIO_ITEMS } from '../data/realPortfolioData';
 
 const CATEGORIES = [
-  { key: 'all', label: 'All Works (64)' },
-  { key: 'custom-art', label: 'Custom Art, Portraits & Calligraphy' },
-  { key: 'murals-commercial-art', label: 'Murals, Glass Painting & Stage' },
-  { key: 'website-development', label: 'Websites & Digital Platforms' },
-  { key: 'art-products', label: 'Sculptures & Installations' },
+  { key: 'all', label: `All Works (${REAL_PORTFOLIO_ITEMS.length})` },
+  { key: 'branding-design', label: 'Branding, Advertising & Campaigns' },
+  { key: 'custom-art', label: 'Portraits, Calligraphy & Fine Art' },
+  { key: 'murals-commercial-art', label: 'Murals, Glass Painting, Body Art & Sets' },
+  { key: 'website-development', label: 'Web Platforms & Digital' },
+  { key: 'art-products', label: 'Sculptures & Spatial Objects' },
 ];
 
 export default function Portfolio() {
@@ -26,14 +27,14 @@ export default function Portfolio() {
     '@type': 'CollectionPage',
     name: 'HUNAR Creative Studio Portfolio',
     url: 'https://hunarstudio.com/portfolio',
-    description: 'Curated archive of authentic fine art commissions, hand-painted portraits, architectural murals, glass art, stage designs, and high-performance websites by HUNAR Creative Studio.',
+    description: 'Curated archive of authentic advertising campaigns, brand identity systems, fine art commissions, hand-painted portraits, architectural murals, glass art, stage designs, and high-performance websites by HUNAR Creative Studio.',
   };
 
   return (
     <>
       <SEO
-        title="Portfolio & Selected Works — Fine Art, Murals, Calligraphy & Web | HUNAR"
-        description="Explore 60+ authentic works from HUNAR Creative Studio: bespoke oil portraits, hand-painted architectural murals, Devanagari calligraphy, glass painting, stage sets, and bespoke web apps."
+        title="Portfolio & Selected Works — Fine Art, Branding, Murals, Calligraphy & Web | HUNAR"
+        description="Explore 95+ authentic works from HUNAR Creative Studio: national advertising campaigns, brand identity systems, bespoke oil portraits, hand-painted murals, Devanagari calligraphy, glass painting, live body art, stage sets, and custom web apps."
         canonicalUrl="/portfolio"
         schema={portfolioSchema}
       />

@@ -73,6 +73,8 @@ app.get('/sitemap.xml', (req, res) => {
     '/cookies',
     '/terms',
     // Custom Art & Commissions Sub-Services
+    '/services/custom-art/calligraphy-services',
+    '/services/custom-art/live-wedding-painting-caricature',
     '/services/custom-art/custom-portraits',
     '/services/custom-art/couple-portraits',
     '/services/custom-art/family-portraits',
@@ -92,6 +94,7 @@ app.get('/sitemap.xml', (req, res) => {
     '/services/art-products/home-office-art',
     '/services/art-products/seasonal-art-gifts',
     // Branding & Visual Identity Sub-Services
+    '/services/branding-design/advertising-campaigns',
     '/services/branding-design/logo-design',
     '/services/branding-design/brand-identity',
     '/services/branding-design/brand-colour-typography',
@@ -113,6 +116,9 @@ app.get('/sitemap.xml', (req, res) => {
     '/services/digital-content/campaign-concepts',
     '/services/digital-content/content-planning',
     // Murals, Interior Art & Commercial Projects Sub-Services
+    '/services/murals-commercial-art/commercial-glass-painting',
+    '/services/murals-commercial-art/event-tattoos-face-painting',
+    '/services/murals-commercial-art/theatrical-stage-design',
     '/services/murals-commercial-art/wall-murals',
     '/services/murals-commercial-art/office-art-installations',
     '/services/murals-commercial-art/interior-art-styling',

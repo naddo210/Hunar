@@ -8,34 +8,65 @@ import { SUB_SERVICES } from '../../data/servicesCatalogue';
 import { ArrowUpRight } from 'lucide-react';
 
 const SUB_KEYS = [
+  'advertising-campaigns',
   'logo-design',
   'brand-identity',
-  'rebranding-services',
-  'business-cards-stationery',
-  'packaging-labels',
-  'flyers-brochures',
-  'posters-banners',
-  'social-media-branding',
+  'brand-colour-typography',
+  'packaging-label-design',
+  'business-stationery',
+  'brand-naming',
+  'brand-guidelines',
+  'rebranding',
 ];
 
 const GALLERY = [
   {
-    url: '/portfolio/calligraphy/koshish-harivansh-rai-bachchan-calligraphy.webp',
-    caption: 'Harivansh Rai Bachchan: "Koshish" Calligraphy & Bespoke Type',
-    tag: 'Typography',
-    alt: 'Devanagari calligraphy of poem Koshish by Harivansh Rai Bachchan with illustrated mountain climber'
+    url: '/portfolio/brand-identity/saga-ratna/sagar-ratna-brand-identity-concept-cover.webp',
+    caption: 'Sagar Ratna: Comprehensive Brand Identity & Visual System Manual',
+    tag: 'Brand Identity',
+    alt: 'Sagar Ratna brand identity presentation cover featuring new logo icon, green and gold brand colors'
   },
   {
-    url: '/portfolio/calligraphy/shakespeare-sonnet-circular-calligraphy.webp',
-    caption: 'Shakespeare: "Time Waste" Concentric Calligraphy & Logotype Study',
-    tag: 'Custom Lettering',
-    alt: 'Concentric circular English calligraphy artwork of Shakespeare quote written in ochre and red ink'
+    url: '/portfolio/brand-identity/levis/levis-desert-heat-polar-bear.webp',
+    caption: 'Levi\'s: "Feel the Desert Heat in Winter" Polar Bear Campaign',
+    tag: 'Fashion Advertising',
+    alt: 'Levi\'s winter campaign ad featuring a polar bear wearing denim jacket relaxing on ice under warm sunlight'
   },
   {
-    url: '/portfolio/calligraphy/gulzar-bosky-poem-devanagari-calligraphy.webp',
-    caption: 'Gulzar: "Bosky" Poetic Calligraphic Manuscript',
-    tag: 'Editorial Type',
-    alt: 'Devanagari calligraphy sheet of Gulzar poem Bosky written in deep blue ink with emerald signature'
+    url: '/portfolio/brand-identity/royal-enfield/royal-enfield-live-royal-ride-royal-cover.webp',
+    caption: 'Royal Enfield: "Live Royal, Ride Royal" Campaign Key Visual',
+    tag: 'Cultural Campaign',
+    alt: 'Royal Enfield Live Royal Ride Royal campaign headline with traditional Indian pagadi and helmet'
+  },
+  {
+    url: '/portfolio/brand-identity/tag-heuer/tag-heuer-devanagari-wordmark-presentation.webp',
+    caption: 'TAG Heuer: Devanagari Luxury Wordmark System & Typographic Grid',
+    tag: 'Multilingual Brand',
+    alt: 'TAG Heuer luxury brandmark re-imagined in bold Devanagari script with iconic green and red shield'
+  },
+  {
+    url: '/portfolio/campaigns/wwf/wwf-rhino-horn-poaching-child-print-ad.webp',
+    caption: 'WWF Anti-Poaching: "The Torn Horn — Our Children\'s Future Matters"',
+    tag: 'Advocacy Campaign',
+    alt: 'WWF anti-poaching print ad showing little girl crying while holding a stuffed rhino toy with its horn ripped off'
+  },
+  {
+    url: '/portfolio/brand-identity/packaging/brambles-swan-duck-food-packaging-flat.webp',
+    caption: 'Brambles Swan & Duck Food: Primary Carton Die-Line Design',
+    tag: 'Structural Packaging',
+    alt: 'Flat packaging die-line design for Brambles Swan and Duck food box with swan graphics'
+  },
+  {
+    url: '/portfolio/logo-designs/master-identity-trilogy-typodday-tukaram-alumni.webp',
+    caption: 'Master Brandmark Trilogy: TYPODAY 2025, Sant Tukaram & JJ Alumni',
+    tag: 'Logo Design',
+    alt: 'Three distinct studio logo designs displayed together including TypoDay cinema logo and spiritual monogram'
+  },
+  {
+    url: '/portfolio/advertising/boat-rockerz-luxury-of-sound-poster.webp',
+    caption: 'boAt Rockerz: "The Luxury of Sound" Cosmic Audio Poster',
+    tag: 'Print Advertising',
+    alt: 'boAt Rockerz advertising poster featuring dynamic drummer playing on headphones in deep space'
   },
 ];
 

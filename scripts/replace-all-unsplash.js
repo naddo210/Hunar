@@ -24,3 +24,4 @@ for (const [target, repl] of replacements) {
 
 fs.writeFileSync(catPath, content, 'utf-8');
 console.log('Cleaned all remaining unsplash references in servicesCatalogue.js');
+

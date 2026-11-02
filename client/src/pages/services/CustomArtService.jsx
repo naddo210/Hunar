@@ -8,6 +8,8 @@ import { SUB_SERVICES } from '../../data/servicesCatalogue';
 import { ArrowUpRight } from 'lucide-react';
 
 const SUB_KEYS = [
+  'calligraphy-services',
+  'live-wedding-painting-caricature',
   'custom-portraits',
   'couple-portraits',
   'family-portraits',

@@ -9,6 +9,9 @@ import { ArrowUpRight } from 'lucide-react';
 
 const SUB_KEYS = [
   'wall-murals',
+  'commercial-glass-painting',
+  'event-tattoos-face-painting',
+  'theatrical-stage-design',
   'office-art-installations',
   'interior-art-styling',
   'resin-sculptural-installations',
@@ -25,10 +28,10 @@ const GALLERY = [
     alt: 'Interior wall mural painting of tropical monstera leaves and warm terracotta shapes along a wooden staircase'
   },
   {
-    url: '/portfolio/murals/rural-village-landscape-panoramic-mural.webp',
-    caption: 'Echoes of the Countryside Panoramic Boundary Mural (30ft × 8ft)',
-    tag: 'Exterior Mural',
-    alt: 'Panoramic outdoor wall mural of rural village cottages, green hills, and palm trees on a concrete boundary wall'
+    url: '/portfolio/glass-painting/lord-ganesha-entrance-glass-painting.webp',
+    caption: 'Auspicious Welcome: Lord Ganesha Festive Glass Art',
+    tag: 'Glass Painting',
+    alt: 'Intricate white glass painting of Lord Ganesha with floral garland on glass entrance door'
   },
   {
     url: '/portfolio/stage-design/sir-jj-applied-art-winged-stage-finished.webp',
@@ -37,16 +40,22 @@ const GALLERY = [
     alt: 'Monumental architectural stage design with sculpted angel wings and fluted arches at Sir JJ Institute of Applied Art'
   },
   {
-    url: '/portfolio/glass-painting/holiday-reindeer-christmas-window-painting.webp',
-    caption: 'Noël Woodland Holiday Storefront Window Display',
-    tag: 'Glass Art',
-    alt: 'Hand-painted Christmas window art on glass entrance featuring white reindeer stags, Christmas tree, and snow'
+    url: '/portfolio/face-body-art/corporate-event-peacock-tattoo-showcase.webp',
+    caption: 'Royal Peacock: Live Temporary Body Art for Corporate Gala',
+    tag: 'Body Art',
+    alt: 'Intricate peacock temporary tattoo painted on woman arm with glitter accents at gala event'
   },
   {
-    url: '/portfolio/glass-painting/ganesh-chaturthi-showroom-glass-painting.webp',
-    caption: 'Lord Ganesha Festive Showroom Glass Installation (20ft × 10ft)',
-    tag: 'Showroom Glass',
-    alt: 'Hand-painted Lord Ganesha festival artwork on glass showroom facade with traditional Indian musicians and dhol'
+    url: '/portfolio/glass-painting/cafe-bistro-reindeer-night-window.webp',
+    caption: 'The Bistro: Evening Reindeer Storefront Window Art',
+    tag: 'Storefront Glass',
+    alt: 'Illuminated night view of hand-painted reindeer and winter scenery on cafe window'
+  },
+  {
+    url: '/portfolio/murals/rural-village-landscape-panoramic-mural.webp',
+    caption: 'Echoes of the Countryside Panoramic Boundary Mural (30ft × 8ft)',
+    tag: 'Exterior Mural',
+    alt: 'Panoramic outdoor wall mural of rural village cottages, green hills, and palm trees on a concrete boundary wall'
   },
   {
     url: '/portfolio/installations/independence-day-76th-mixed-media-installation.webp',
