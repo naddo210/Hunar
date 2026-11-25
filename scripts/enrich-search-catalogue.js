@@ -89,3 +89,4 @@ if (content.includes(oldResin)) {
 
 fs.writeFileSync(targetPath, content, 'utf-8');
 console.log('Finished updating servicesCatalogue.js');
+

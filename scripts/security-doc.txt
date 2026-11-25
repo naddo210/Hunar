@@ -1,0 +1,377 @@
+
+Untitled document
+The Ultimate Vibe Coding Security Audit Guide
+30 Security Vulnerabilities, Prevention Methods & AI Audit Prompts
+1. Introduction
+AI-powered development tools such as Cursor, Lovable, Bolt, Replit and Google Antigravity make application development faster. However, generating a functional application does not guarantee that it is secure.
+This document covers 30 security vulnerabilities that developers should audit before deploying an application into production, including the original 18 vulnerabilities and 12 additional security checks.
+Each vulnerability includes a potential security risk, a recommended solution and a ready-to-use AI audit prompt.
+2. Security Vulnerability Checklist
+No.
+Vulnerability
+Potential Risk
+Recommended Fix
+1
+Broken Access Control
+Unauthorized access to restricted routes
+Server-side authorization
+2
+IDOR / BOLA
+Access another user’s private data
+Resource ownership validation
+3
+Exposed API Keys
+Theft of secret API keys
+Backend secret management
+4
+Price Manipulation
+Unauthorized price modification
+Server-side price calculation
+5
+Negative Quantity Exploit
+Manipulated transaction totals
+Strict input validation
+6
+Fake Payment
+Orders without successful payment
+Server-side payment verification
+7
+Coupon & Reward Abuse
+Multiple unauthorized redemptions
+Atomic redemption and usage limits
+8
+Privilege Escalation
+Unauthorized administrator access
+Server-controlled role assignment
+9
+Authentication & OTP Bypass
+Unauthorized account access
+Rate limits and single-use OTPs
+10
+Prompt Injection
+Unauthorized AI actions
+Restricted AI tool permissions
+11
+Cross-Site Scripting
+Malicious browser script execution
+Output encoding and CSP
+12
+Malicious File Upload
+Upload of dangerous files
+File validation and isolated storage
+13
+Environment Variable Exposure
+Exposure of database credentials
+Secret scanning and rotation
+14
+SQL / NoSQL Injection
+Unauthorized database operations
+Parameterized queries
+15
+JWT Vulnerabilities
+Authentication token forgery
+Signature and claims verification
+16
+Rate Limit Bypass & DoS
+Application downtime
+Distributed rate limiting
+17
+Row-Level Security Bypass
+Unauthorized database access
+Secure RLS policies
+18
+Predictable Security Tokens
+Predictable reset or session tokens
+Secure random generators
+19
+Cross-Site Request Forgery
+Unauthorized actions through user sessions
+CSRF protection
+20
+CORS Misconfiguration
+Unauthorized cross-origin data access
+Trusted origin allowlist
+21
+Server-Side Request Forgery
+Unauthorized internal network access
+Outbound request restrictions
+22
+Insecure Session Management
+Session theft or misuse
+Secure cookies and session rotation
+23
+OAuth / SSO Vulnerabilities
+Unauthorized identity verification
+Secure OAuth and SSO validation
+24
+Prototype Pollution
+Unauthorized object modification
+Safe object handling
+25
+Regular Expression DoS
+Server resource exhaustion
+Safe regular expressions
+26
+WebSocket Hijacking
+Unauthorized real-time communication
+Origin and session validation
+27
+Server-Side Template Injection
+Unauthorized server-side execution
+Safe template rendering
+28
+Dependency Vulnerabilities
+Exploitation of insecure packages
+Dependency scanning and updates
+29
+Mass Assignment
+Modification of protected database fields
+Explicit field allowlists
+30
+Security Misconfiguration
+Exposure of internal systems and information
+Production security hardening
+3. Individual Security Audit Prompts
+Copy the relevant prompt into your AI coding assistant while working on your own application or an authorized codebase.
+01. Broken Access Control
+Risk: Users may access restricted pages, APIs or administrative features without sufficient permissions.
+AI Audit Prompt:
+Audit my entire application for broken access control. Review frontend routes, backend endpoints, middleware and administrative functionality. Ensure that authentication and authorization are enforced server-side. Implement deny-by-default access control and add regression tests for unauthorized requests.
+02. IDOR / BOLA
+Risk: Users may access resources belonging to other accounts by modifying resource identifiers.
+AI Audit Prompt:
+Review all endpoints that accept user IDs, order IDs, document IDs or other resource identifiers. Ensure that every request validates resource ownership and access permissions. Implement object-level authorization and add cross-account isolation tests.
+03. Exposed API Keys
+Risk: Secret API keys may be exposed through frontend code, browser bundles or network requests.
+AI Audit Prompt:
+Scan my frontend, backend, configuration files and production build for exposed API keys and credentials. Distinguish public configuration keys from confidential secrets. Move confidential credentials to secure backend services, recommend rotation of exposed keys and prevent future leakage.
+04. Price Manipulation
+Risk: Client-controlled prices may allow unauthorized changes to product prices or checkout totals.
+AI Audit Prompt:
+Audit the complete checkout and pricing workflow. Ensure that product prices, taxes, discounts and final totals are calculated using trusted server-side data. Reject unauthorized pricing changes and add automated tests for transaction integrity.
+05. Negative Quantity Exploit
+Risk: Invalid quantities may manipulate inventory, order totals or refunds.
+AI Audit Prompt:
+Review all cart, checkout, inventory and refund endpoints. Implement strict server-side validation for quantities, ensuring that purchase quantities are positive integers within permitted limits. Add appropriate database constraints and boundary-value tests.
+06. Fake Payment
+Risk: An application may mark orders as paid without receiving verified payment.
+AI Audit Prompt:
+Audit my payment integration. Ensure that payment status is verified directly with the payment provider on the backend. Validate webhook signatures, transaction amounts, currencies and order identifiers. Implement idempotency and prevent order fulfillment until payment is confirmed.
+07. Coupon & Reward Abuse
+Risk: Users may redeem coupons, referral bonuses or rewards beyond their intended limits.
+AI Audit Prompt:
+Review coupon, referral, loyalty and reward redemption workflows. Implement atomic database transactions, redemption limits, expiration checks and uniqueness constraints. Ensure concurrent requests cannot cause duplicate redemptions.
+08. Privilege Escalation
+Risk: Ordinary users may obtain administrative privileges through insecure role management.
+AI Audit Prompt:
+Audit registration, profile updates, role management and administrative endpoints. Ensure roles and permissions are assigned exclusively through trusted server-side logic. Prevent unauthorized modification of privileged fields and implement role-based authorization tests.
+09. Authentication & OTP Bypass
+Risk: Weak authentication controls may allow unauthorized account access.
+AI Audit Prompt:
+Review login, registration, OTP verification, two-factor authentication and account recovery. Implement secure attempt limits, short OTP expiration, single-use verification, secure session handling and replay protection. Add authentication regression tests.
+10. Prompt Injection
+Risk: An AI-powered application may be manipulated into exposing information or performing unauthorized actions.
+AI Audit Prompt:
+Audit all AI integrations, system instructions, retrieved documents, tool calls and user inputs. Treat external content as untrusted data. Enforce least-privilege tool permissions, independent authorization, structured output validation and explicit confirmation for sensitive operations.
+11. Cross-Site Scripting (XSS)
+Risk: Untrusted content may execute malicious JavaScript in another user’s browser.
+AI Audit Prompt:
+Review all user-generated content, HTML rendering, DOM operations and dynamic templates for reflected, stored and DOM-based XSS risks. Implement context-aware output encoding, safe rendering, appropriate HTML sanitization and a restrictive Content Security Policy.
+12. Malicious File Upload
+Risk: Unsafe uploads may expose users or servers to malicious content.
+AI Audit Prompt:
+Audit all file upload and download functionality. Validate file signatures, allowed formats, file sizes and filenames on the server. Store uploads in isolated, non-executable storage. Implement access controls and malware scanning where appropriate.
+13. Environment Variable Exposure
+Risk: Sensitive credentials may be exposed through Git repositories, logs or build artifacts.
+AI Audit Prompt:
+Review environment files, Git history, configuration files, CI/CD pipelines, logs and deployment artifacts for exposed secrets. Configure secret scanning and secure environment management. Recommend immediate rotation of any compromised credentials without displaying their values.
+14. SQL / NoSQL Injection
+Risk: Unsafe database queries may allow unauthorized access or modification of records.
+AI Audit Prompt:
+Audit all database queries, ORM operations, filters and user-controlled search parameters. Replace unsafe query construction with parameterized queries or safe ORM methods. Enforce strict input schemas, restrict database privileges and add injection-prevention regression tests.
+15. JWT Vulnerabilities
+Risk: Improper token verification may allow unauthorized authentication.
+AI Audit Prompt:
+Review JWT generation, signing, verification, expiration and refresh workflows. Enforce an explicit allowlist of trusted signing algorithms. Validate signatures, issuer, audience, expiration and token purpose. Implement secure key management and refresh-token rotation where appropriate.
+16. Rate Limit Bypass & Denial of Service
+Risk: Excessive requests may exhaust application resources and cause downtime.
+AI Audit Prompt:
+Audit API rate limiting, reverse proxy configuration, request processing and resource consumption. Implement distributed rate limits, trusted proxy configuration, request size restrictions, timeouts and concurrency limits. Review HTTP/2 infrastructure and ensure relevant security patches are installed.
+17. Row-Level Security (RLS) Bypass
+Risk: Incorrect database policies may expose private records belonging to other users.
+AI Audit Prompt:
+Review database RLS policies, views, functions, storage permissions and privileged service accounts. Ensure users can access only authorized records. Verify that views and database functions preserve intended access restrictions. Add cross-user and cross-tenant isolation tests.
+18. Predictable Security Tokens
+Risk: Insecure random number generation may produce predictable authentication or recovery tokens.
+AI Audit Prompt:
+Audit all session identifiers, password reset tokens, verification codes and security-sensitive random values. Replace non-cryptographic random generators with cryptographically secure alternatives. Enforce sufficient entropy, expiration, secure storage and single-use behavior where required.
+4. Additional 12 Advanced Security Audit Prompts
+19. Cross-Site Request Forgery (CSRF)
+Risk: A malicious website may trigger unauthorized actions using an authenticated user’s session.
+AI Audit Prompt:
+Audit all state-changing endpoints for CSRF vulnerabilities. Implement appropriate CSRF tokens, secure SameSite cookie settings and origin validation. Ensure GET requests do not perform sensitive state-changing operations.
+20. CORS Misconfiguration
+Risk: Untrusted websites may gain unauthorized access to application responses.
+AI Audit Prompt:
+Review CORS configuration across all APIs and environments. Replace unnecessarily permissive policies with explicit trusted-origin allowlists. Restrict allowed methods, headers and credentialed requests according to application requirements.
+21. Server-Side Request Forgery (SSRF)
+Risk: User-controlled URLs may cause servers to access unauthorized internal resources.
+AI Audit Prompt:
+Review all URL fetching, webhook, image proxy, import and external integration functionality. Implement destination validation, outbound network restrictions and safe redirect handling. Prevent unauthorized access to internal services and cloud metadata endpoints.
+22. Insecure Session Management
+Risk: Weak session handling may expose accounts to session theft or unauthorized reuse.
+AI Audit Prompt:
+Audit session creation, storage, expiration, logout and invalidation. Implement Secure, HttpOnly and appropriate SameSite cookie attributes. Rotate session identifiers after authentication or privilege changes and invalidate sessions when required.
+23. OAuth / SSO Vulnerabilities
+Risk: Improper third-party authentication validation may result in account takeover.
+AI Audit Prompt:
+Review all Google, Microsoft, GitHub, OAuth, OpenID Connect and SAML integrations where applicable. Validate identity-provider responses, issuer, audience, redirect URIs, signatures, state and nonce. Implement PKCE where applicable and secure account-linking procedures.
+24. Prototype Pollution
+Risk: Unsafe JavaScript object manipulation may modify application behavior or security controls.
+AI Audit Prompt:
+Audit object merging, recursive assignment, configuration parsing and user-controlled object properties. Implement strict object schemas, safe merge operations and protected property handling. Review dependencies for known prototype pollution vulnerabilities.
+25. Regular Expression Denial of Service (ReDoS)
+Risk: Inefficient regular expressions may consume excessive processing resources.
+AI Audit Prompt:
+Review regular expressions used in validation, search, parsing and request processing. Identify potentially excessive computational complexity. Replace unsafe patterns with bounded alternatives and implement input-length restrictions and execution safeguards.
+26. WebSocket Hijacking
+Risk: Unauthorized clients may access private real-time communication channels.
+AI Audit Prompt:
+Audit WebSocket connections, authentication, subscriptions and message handlers. Validate trusted origins, authenticate connections and enforce authorization for individual channels and messages. Implement connection limits, message validation and session expiration.
+27. Server-Side Template Injection (SSTI)
+Risk: Unsafe template rendering may expose sensitive information or allow unauthorized execution.
+AI Audit Prompt:
+Review all server-side templates, dynamic rendering and email generation functionality. Ensure user-controlled content is treated as data rather than executable template expressions. Enable appropriate escaping and restrict template capabilities.
+28. Dependency Vulnerabilities
+Risk: Outdated or compromised third-party packages may introduce security vulnerabilities.
+AI Audit Prompt:
+Audit all direct and transitive dependencies, package manifests and lockfiles. Identify known security vulnerabilities and unsupported packages. Recommend compatible patched versions, remove unnecessary dependencies and configure automated dependency security scanning.
+29. Mass Assignment
+Risk: Users may modify protected fields that should only be controlled by the backend.
+AI Audit Prompt:
+Review all create and update endpoints for unrestricted assignment of request data to database models. Implement explicit field allowlists and strict request schemas. Protect administrative roles, account balances, payment status, ownership and other sensitive fields.
+30. Security Misconfiguration
+Risk: Incorrect production settings may expose sensitive information or internal functionality.
+AI Audit Prompt:
+Audit production configuration, HTTP security headers, debug settings, database permissions, cloud storage, administrative endpoints and error handling. Disable unnecessary services, enforce HTTPS, apply least-privilege permissions and prevent sensitive information from appearing in error responses.
+5. Master AI Security Audit Prompt
+Use this single prompt to perform a comprehensive security review of your application instead of running all 30 prompts individually.
+Complete Security Audit Prompt
+Copy prompt
+Act as a senior cybersecurity engineer, application security architect and full-stack developer.
+Perform a comprehensive defensive security audit of my authorized application and its complete codebase.
+Audit the following 30 security categories:
+Broken Access Control
+IDOR / BOLA
+Exposed API Keys
+Price Manipulation
+Negative Quantity Exploit
+Fake Payment
+Coupon & Reward Abuse
+Privilege Escalation
+Authentication & OTP Bypass
+Prompt Injection
+Cross-Site Scripting (XSS)
+Malicious File Upload
+Environment Variable Exposure
+SQL / NoSQL Injection
+JWT Vulnerabilities
+Rate Limit Bypass & DoS
+Row-Level Security Bypass
+Predictable Security Tokens
+Cross-Site Request Forgery
+CORS Misconfiguration
+Server-Side Request Forgery
+Insecure Session Management
+OAuth / SSO Vulnerabilities
+Prototype Pollution
+Regular Expression DoS
+WebSocket Hijacking
+Server-Side Template Injection
+Dependency Vulnerabilities
+Mass Assignment
+Security Misconfiguration
+Review the frontend, backend, APIs, database, authentication, middleware, payment integrations, AI integrations, environment variables, dependencies and deployment configuration.
+Phase 1: Architecture Analysis
+Understand the application architecture and identify security trust boundaries.
+Phase 2: Vulnerability Detection
+Identify vulnerabilities and document evidence, affected files, line numbers, severity, impact and recommended fixes. Mark irrelevant checks as not applicable and unverified checks as unverified.
+Phase 3: Remediation Planning
+Present a remediation plan before modifying code.
+Phase 4: Security Implementation
+After approval, implement fixes without unnecessarily changing existing UI, UX or business logic. Never hardcode secrets or weaken authentication.
+Phase 5: Security Testing
+Add security regression tests and run existing tests in an authorized local or staging environment. Do not perform destructive tests or load tests against production.
+Phase 6: Final Security Report
+Generate a final report containing findings, fixes, modified files, test results, remaining risks and deployment recommendations.
+Do not fabricate vulnerabilities or claim that untested features are secure. Do not expose credential values. Do not deploy changes without approval. Prioritize secure, maintainable, production-ready code.
+6. Security Audit Report Format
+The AI coding assistant should generate its findings using the following structure.
+Field
+Required Information
+Vulnerability
+Name of the identified security issue
+Severity
+Critical, High, Medium or Low
+Affected File
+File path and line number
+Description
+Explanation of the vulnerability
+Evidence
+Code or configuration supporting the finding
+Impact
+Potential consequences
+Recommended Fix
+Proposed security solution
+Test Result
+Verification and regression test results
+Status
+Fixed, Pending, Not Applicable or Unverified
+7. Pre-Deployment Security Checklist
+Deployment readiness
+0 of 15 completed
+All API endpoints have appropriate authorization.
+Resource ownership is validated.
+No confidential API keys are exposed.
+Prices and payments are verified server-side.
+Authentication and OTP systems are secured.
+User inputs are validated on the backend.
+Database queries are protected against injection.
+File uploads are securely handled.
+JWT and session security is implemented.
+Rate limiting and resource protection are enabled.
+Database access policies are verified.
+AI tools have restricted permissions.
+Dependencies are scanned for vulnerabilities.
+Production configurations are hardened.
+Security regression tests have passed.
+8. Supported Development Platforms
+Platform
+Applicable
+Google Antigravity
+Yes
+Cursor
+Yes
+Lovable
+Yes
+Bolt.new
+Yes
+Replit
+Yes
+Claude Code
+Yes
+OpenAI Codex
+Yes
+GitHub Copilot
+Yes
+Windsurf
+Yes
+ChatGPT
+Yes
+The prompts can be adapted to MERN Stack, Next.js, React, Node.js, Python, Django, Flask, Firebase, Supabase, PostgreSQL, MongoDB and other development technologies.
+9. Conclusion
+Vibe coding makes software development faster, but security remains a fundamental responsibility. An application that looks professional and functions correctly may still contain serious security vulnerabilities.
+Use these 30 security audit prompts throughout development and before production deployment.
+AI-generated security fixes should be reviewed and independently tested. Not every vulnerability applies to every application, and completing this checklist does not guarantee complete security.
+Build fast. Build smart. Build secure.
+Document format: Google Docs-ready content with headings, tables and individual prompts. The 12 additional vulnerabilities were selected for their relevance to modern web applications. This is a copy-ready document, not a live Google Docs file.

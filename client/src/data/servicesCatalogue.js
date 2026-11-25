@@ -30,7 +30,7 @@ export const DIVISIONS = {
     tagline: 'For startups, freelancers, small businesses and established companies',
     description: 'Visual systems that help a business present itself consistently across digital and physical touchpoints with typographic rigor.',
     path: '/services/branding-design',
-    heroImage: '/portfolio/calligraphy/koshish-harivansh-rai-bachchan-calligraphy.webp',
+    heroImage: '/portfolio/brand-identity/saga-ratna/sagar-ratna-brand-identity-concept-cover.webp',
     accent: '03',
   },
   'website-development': {

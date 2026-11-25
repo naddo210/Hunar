@@ -34,6 +34,7 @@ export default function Navigation() {
   const location = useLocation();
 
   const divisionsList = Object.values(DIVISIONS);
+  const closeMobile = () => setMobileMenuOpen(false);
 
   // Close menus on route change
   useEffect(() => {
@@ -49,13 +50,16 @@ export default function Navigation() {
     } else {
       document.body.style.overflow = 'unset';
     }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
   }, [mobileMenuOpen]);
 
   return (
-    <header className="sticky top-0 z-40 bg-cream/95 backdrop-blur-md border-b border-beige/50 transition-all">
+    <header className={`sticky top-0 z-50 border-b border-beige/50 transition-all ${mobileMenuOpen ? 'bg-cream-pure shadow-sm' : 'bg-cream/95 backdrop-blur-md'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Clickable Logo */}
-        <Link to="/" className="flex flex-col group" aria-label="HUNAR Creative Studio Home">
+        <Link to="/" onClick={closeMobile} className="flex flex-col group" aria-label="HUNAR Creative Studio Home">
           <span className="font-serif text-2xl sm:text-3xl tracking-wide text-emerald group-hover:text-olive transition-colors font-medium">
             HUNAR
           </span>
@@ -222,7 +226,7 @@ export default function Navigation() {
 
       {/* Luxury Redesigned Mobile Menu Drawer */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 top-20 z-50 flex flex-col bg-cream-pure/98 backdrop-blur-lg border-t border-beige/60 overflow-hidden animate-fadeIn">
+        <div className="fixed inset-x-0 top-20 bottom-0 h-[calc(100dvh-5rem)] z-50 flex flex-col bg-cream-pure border-t border-beige/60 overflow-hidden shadow-2xl animate-fadeIn">
           {/* Scrollable Container */}
           <div className="flex-1 overflow-y-auto px-6 py-6 space-y-7">
             
@@ -236,6 +240,7 @@ export default function Navigation() {
               </div>
               <Link
                 to="/contact"
+                onClick={closeMobile}
                 className="px-3 py-1.5 bg-emerald text-cream text-[11px] uppercase tracking-wider font-semibold rounded hover:bg-emerald-dark transition flex items-center gap-1"
               >
                 Inquire
@@ -251,6 +256,7 @@ export default function Navigation() {
               
               <Link
                 to="/"
+                onClick={closeMobile}
                 className={`flex items-center justify-between py-2.5 px-3 rounded-md transition ${location.pathname === '/' ? 'bg-emerald text-cream font-medium' : 'text-charcoal hover:bg-white hover:text-emerald'}`}
               >
                 <span className="font-serif text-lg">Home</span>
@@ -259,6 +265,7 @@ export default function Navigation() {
 
               <Link
                 to="/about"
+                onClick={closeMobile}
                 className={`flex items-center justify-between py-2.5 px-3 rounded-md transition ${location.pathname === '/about' ? 'bg-emerald text-cream font-medium' : 'text-charcoal hover:bg-white hover:text-emerald'}`}
               >
                 <span className="font-serif text-lg">About the Atelier</span>
@@ -267,6 +274,7 @@ export default function Navigation() {
 
               <Link
                 to="/portfolio"
+                onClick={closeMobile}
                 className={`flex items-center justify-between py-2.5 px-3 rounded-md transition ${location.pathname === '/portfolio' ? 'bg-emerald text-cream font-medium' : 'text-charcoal hover:bg-white hover:text-emerald'}`}
               >
                 <div className="flex items-center gap-2">
@@ -280,6 +288,7 @@ export default function Navigation() {
 
               <Link
                 to="/services"
+                onClick={closeMobile}
                 className={`flex items-center justify-between py-2.5 px-3 rounded-md transition ${location.pathname === '/services' ? 'bg-emerald text-cream font-medium' : 'text-charcoal hover:bg-white hover:text-emerald'}`}
               >
                 <div className="flex items-center gap-2">
@@ -293,6 +302,7 @@ export default function Navigation() {
 
               <Link
                 to="/art-classes"
+                onClick={closeMobile}
                 className={`flex items-center justify-between py-2.5 px-3 rounded-md transition ${location.pathname === '/art-classes' ? 'bg-emerald text-cream font-medium' : 'text-charcoal hover:bg-white hover:text-emerald'}`}
               >
                 <div className="flex items-center gap-2">
@@ -306,6 +316,7 @@ export default function Navigation() {
 
               <Link
                 to="/faq"
+                onClick={closeMobile}
                 className={`flex items-center justify-between py-2.5 px-3 rounded-md transition ${location.pathname === '/faq' ? 'bg-emerald text-cream font-medium' : 'text-charcoal hover:bg-white hover:text-emerald'}`}
               >
                 <span className="font-serif text-lg">FAQ & Process</span>
@@ -314,6 +325,7 @@ export default function Navigation() {
 
               <Link
                 to="/contact"
+                onClick={closeMobile}
                 className={`flex items-center justify-between py-2.5 px-3 rounded-md transition ${location.pathname === '/contact' ? 'bg-emerald text-cream font-medium' : 'text-charcoal hover:bg-white hover:text-emerald'}`}
               >
                 <span className="font-serif text-lg">Contact & Inquiries</span>
@@ -335,6 +347,7 @@ export default function Navigation() {
                   <Link
                     key={idx}
                     to={s.path}
+                    onClick={closeMobile}
                     className="p-2.5 rounded border border-beige/60 bg-cream/40 hover:bg-emerald hover:text-cream hover:border-emerald transition group flex flex-col justify-between"
                   >
                     <span className="text-xs font-semibold text-emerald group-hover:text-cream leading-tight">
@@ -371,6 +384,7 @@ export default function Navigation() {
                     <Link
                       key={div.id}
                       to={div.path}
+                      onClick={closeMobile}
                       className="block p-2.5 text-xs text-charcoal hover:text-emerald hover:bg-cream/40 rounded transition"
                     >
                       <span className="font-semibold block text-emerald">{div.title}</span>
@@ -385,11 +399,11 @@ export default function Navigation() {
             <div className="pt-2 text-xs text-charcoal/70 space-y-2 border-t border-beige/60">
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-olive flex-shrink-0" />
-                <a href="mailto:inquiries@hunarstudio.com" className="hover:text-emerald">inquiries@hunarstudio.com</a>
+                <a href="mailto:inquiries@hunarstudio.com" onClick={closeMobile} className="hover:text-emerald">inquiries@hunarstudio.com</a>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-olive flex-shrink-0" />
-                <a href="tel:+919876543210" className="hover:text-emerald">+91 98765 43210</a>
+                <a href="tel:+919876543210" onClick={closeMobile} className="hover:text-emerald">+91 98765 43210</a>
               </div>
             </div>
           </div>
@@ -398,6 +412,7 @@ export default function Navigation() {
           <div className="p-4 bg-white border-t border-beige/70 space-y-2 shadow-lg">
             <Link
               to="/contact"
+              onClick={closeMobile}
               className="w-full inline-flex items-center justify-center gap-2 py-3 bg-emerald hover:bg-emerald-dark text-cream font-sans text-xs uppercase tracking-widest font-semibold rounded-md shadow-md transition"
             >
               Initiate Studio Commission
@@ -406,7 +421,7 @@ export default function Navigation() {
 
             <div className="flex items-center justify-between text-[11px] text-charcoal/60 px-1 pt-1">
               <span>Bengaluru & New Delhi</span>
-              <Link to="/admin/login" className="inline-flex items-center gap-1 hover:text-emerald text-[11px]">
+              <Link to="/admin/login" onClick={closeMobile} className="inline-flex items-center gap-1 hover:text-emerald text-[11px]">
                 <Lock className="w-3 h-3 text-beige-dark" />
                 <span>Admin Login</span>
               </Link>

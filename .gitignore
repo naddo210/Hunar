@@ -34,4 +34,14 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+.gemini/
+hunar-video/
+overlays/
+renders/
+preview_video.html
+skills/
+scripts/portfolio-bundle.js
+
+
+
 

@@ -40,11 +40,11 @@ const login = async (req, res, next) => {
     user.lastLogin = new Date();
     await user.save();
 
-    // Sign JWT
+    // Sign JWT with explicit HS256 algorithm
     const token = jwt.sign(
       { id: user._id, email: user.email, role: user.role, fullName: user.fullName },
       JWT_SECRET,
-      { expiresIn: '7d' }
+      { expiresIn: '7d', algorithm: 'HS256' }
     );
 
     // Set secure cookie

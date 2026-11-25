@@ -3,7 +3,7 @@
  * Auto-generated from optimized client reference assets.
  * 100% genuine studio commissions, fine art studies, and architectural projects.
  * Featured items (best: true) are prioritized first for peak visual impact.
- * Total authentic studio works: 95
+ * Total authentic studio works: 98
  */
 
 export const REAL_PORTFOLIO_ITEMS = [
@@ -89,7 +89,15 @@ export const REAL_PORTFOLIO_ITEMS = [
     "description": "Editorial digital portfolio for fashion model Shikha Singh with runway video hero, golden typography, and curated looks gallery.",
     "alt": "Luxury model portfolio website design for Shikha Singh featuring runway fashion photography and gold typography",
     "tag": "Fashion Web",
-    "best": true
+    "best": true,
+    "demoLink": "",
+    "sourceLink": "https://github.com/naddo210",
+    "technologies": [
+      "React",
+      "Tailwind CSS",
+      "Vite",
+      "Editorial UI"
+    ]
   },
   {
     "id": "greek-automata-techfest-website",
@@ -103,7 +111,15 @@ export const REAL_PORTFOLIO_ITEMS = [
     "description": "High-energy college festival portal featuring glowing circuit graphics, department event registries, and dynamic schedules.",
     "alt": "Dark modern tech festival website design for Greek Automata at SPDT College with glowing microchip graphics",
     "tag": "Event Web",
-    "best": true
+    "best": true,
+    "demoLink": "https://xgreek-automata.vercel.app/",
+    "sourceLink": "https://github.com/naddo210",
+    "technologies": [
+      "React",
+      "GSAP",
+      "Tailwind CSS",
+      "Google Forms"
+    ]
   },
   {
     "id": "the-nadeems-gourmet-ordering-web",
@@ -117,7 +133,15 @@ export const REAL_PORTFOLIO_ITEMS = [
     "description": "Bespoke restaurant website with fluid online food ordering, culinary storytelling, dish exploration, and mobile app links.",
     "alt": "Gourmet restaurant website design for The Nadeems with online food ordering and culinary storytelling",
     "tag": "Ecommerce",
-    "best": true
+    "best": true,
+    "demoLink": "https://food-res-1frontend1.onrender.com/",
+    "sourceLink": "https://github.com/naddo210/nadeemp1",
+    "technologies": [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "Express"
+    ]
   },
   {
     "id": "holiday-reindeer-christmas-window-painting",
@@ -537,7 +561,15 @@ export const REAL_PORTFOLIO_ITEMS = [
     "description": "Trusted tour agency web portal for Makkah & Madina pilgrimage packages with direct customer inquiry automation.",
     "alt": "Travel agency website design for Mirza Hajj and Umrah featuring sacred Kaaba imagery and tour package booking",
     "tag": "Travel Web",
-    "best": false
+    "best": false,
+    "demoLink": "https://www.mirza-hajj-umrah-tours.in/",
+    "sourceLink": "https://github.com/naddo210/MirzaT",
+    "technologies": [
+      "React",
+      "Node.js",
+      "MongoDB",
+      "GSAP"
+    ]
   },
   {
     "id": "ah-properties-real-estate-portal",
@@ -551,7 +583,14 @@ export const REAL_PORTFOLIO_ITEMS = [
     "description": "Commercial & residential real estate agency portal designed for rapid property search, project highlights, and lead conversions.",
     "alt": "Real estate company website design for A.H Properties showing luxury hotel suites and property listings",
     "tag": "Real Estate",
-    "best": false
+    "best": false,
+    "demoLink": "https://www.ahproperties.in/",
+    "sourceLink": "https://github.com/naddo210/property-advisor",
+    "technologies": [
+      "HTML5",
+      "CSS3",
+      "JavaScript"
+    ]
   },
   {
     "id": "lord-ganesha-entrance-glass-painting",
@@ -1336,5 +1375,70 @@ export const REAL_PORTFOLIO_ITEMS = [
     "alt": "Three distinct studio logo designs displayed together including TypoDay cinema logo and spiritual monogram",
     "tag": "Brandmark System",
     "best": true
+  },
+  {
+    "id": "vidtube-video-streaming-platform",
+    "title": "VidTube — Video Streaming & Media Discovery Platform",
+    "category": "website-development",
+    "categoryLabel": "Interactive Web Application",
+    "year": "2025",
+    "image": "/portfolio/web-design/vidtube-video-streaming-platform.webp",
+    "medium": "Full-stack React & Node.js video streaming platform with YouTube API integration and custom media player",
+    "dimensions": "Responsive Web Application",
+    "description": "Responsive video streaming platform featuring dynamic category feeds, instant search suggestions, custom video playback, and responsive sidebar navigation.",
+    "alt": "VidTube modern video streaming web application interface with responsive video feed and search bar",
+    "tag": "Video Streaming",
+    "best": true,
+    "demoLink": "https://ytclone-ktoy-nbk736dpe-naddo210s-projects.vercel.app/",
+    "sourceLink": "https://github.com/naddo210/ytclone",
+    "technologies": [
+      "React",
+      "Node.js",
+      "YouTube API",
+      "Tailwind CSS"
+    ]
+  },
+  {
+    "id": "islamic-quiz-app-portal",
+    "title": "Islamic Heritage & Culture Interactive Quiz Platform",
+    "category": "website-development",
+    "categoryLabel": "Educational Web Application",
+    "year": "2025",
+    "image": "/portfolio/web-design/islamic-quiz-app-portal.webp",
+    "medium": "Interactive educational quiz engine with multi-tiered difficulty, real-time timer, and score analytics",
+    "dimensions": "Interactive Web Application",
+    "description": "Interactive educational portal celebrating Islamic history and culture with timed quiz modules, instant feedback scoring, and progress tracking.",
+    "alt": "Islamic Quiz App web application interface with interactive questions and progress tracking",
+    "tag": "Quiz App",
+    "best": true,
+    "demoLink": "https://islamic-quiz-786m.netlify.app/",
+    "sourceLink": "https://github.com/naddo210",
+    "technologies": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Responsive UI"
+    ]
+  },
+  {
+    "id": "nadeem-salmani-portfolio-v1",
+    "title": "Nadeem Salmani — Studio Developer Portfolio V1",
+    "category": "website-development",
+    "categoryLabel": "Personal Flagship Portfolio",
+    "year": "2024",
+    "image": "/portfolio/web-design/nadeem-salmani-portfolio-v1.webp",
+    "medium": "Minimalist portfolio website highlighting developer projects, technical skills, and client inquiries",
+    "dimensions": "Responsive Portfolio Web",
+    "description": "Creative developer portfolio featuring project showcases, responsive work cards, technical skill matrices, and direct contact integration.",
+    "alt": "Nadeem Salmani personal developer portfolio website homepage showcasing projects and contact section",
+    "tag": "Portfolio Web",
+    "best": false,
+    "demoLink": "https://nadeport.netlify.app/",
+    "sourceLink": "https://github.com/naddo210",
+    "technologies": [
+      "HTML5",
+      "CSS3",
+      "JavaScript"
+    ]
   }
 ];

@@ -19,14 +19,15 @@ const getLeads = async (req, res, next) => {
 
     const query = {};
 
-    // Search query across name, email, leadNumber, organization
-    if (search.trim()) {
-      const escapedSearch = search.trim();
+    // Search query across name, email, leadNumber, organization (Sanitized against ReDoS & NoSQL regex injection)
+    if (search && search.trim()) {
+      const sanitizedSearch = search.trim().slice(0, 100);
+      const safePattern = sanitizedSearch.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
       query.$or = [
-        { fullName: { $regex: escapedSearch, $options: 'i' } },
-        { email: { $regex: escapedSearch, $options: 'i' } },
-        { leadNumber: { $regex: escapedSearch, $options: 'i' } },
-        { organization: { $regex: escapedSearch, $options: 'i' } },
+        { fullName: { $regex: safePattern, $options: 'i' } },
+        { email: { $regex: safePattern, $options: 'i' } },
+        { leadNumber: { $regex: safePattern, $options: 'i' } },
+        { organization: { $regex: safePattern, $options: 'i' } },
       ];
     }
 
@@ -286,7 +287,11 @@ const exportLeadsCSV = async (req, res, next) => {
 
     const escapeCSV = (val) => {
       if (val === null || val === undefined) return '""';
-      const str = String(val).replace(/"/g, '""');
+      let str = String(val).replace(/"/g, '""');
+      // CSV Injection (Formula Injection) prevention: neutralize dangerous spreadsheet execution triggers
+      if (/^[=+\-@\t\r]/.test(str)) {
+        str = `'${str}`;
+      }
       return `"${str}"`;
     };
 

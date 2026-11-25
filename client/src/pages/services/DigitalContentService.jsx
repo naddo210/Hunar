@@ -24,10 +24,22 @@ const GALLERY = [
     alt: 'Dark modern tech festival website design for Greek Automata with glowing circuit graphics'
   },
   {
+    url: '/portfolio/web-design/vidtube-video-streaming-platform.webp',
+    caption: 'VidTube — Video Streaming Media Platform & Dynamic UI',
+    tag: 'Streaming Media',
+    alt: 'VidTube modern video streaming web application interface with responsive video feed'
+  },
+  {
     url: '/portfolio/stage-design/sir-jj-applied-art-stage-color-render.webp',
     caption: '88th Exhibition Stage Chromatic 3D Concept Rendering',
     tag: '3D Render',
     alt: 'Color concept rendering of the Sir JJ Institute stage with teal facets and gold accents'
+  },
+  {
+    url: '/portfolio/web-design/islamic-quiz-app-portal.webp',
+    caption: 'Islamic Heritage — Interactive Quiz & Educational Portal',
+    tag: 'Interactive Web',
+    alt: 'Islamic Quiz App web application interface with interactive questions and progress tracking'
   },
   {
     url: '/portfolio/murals/botanical-mural-concept-design.webp',

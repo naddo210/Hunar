@@ -12,9 +12,22 @@ const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:3000';
 // Connect to MongoDB
 connectDB();
 
-// Security Middlewares
+// Security Middlewares & Header Hardening
+app.disable('x-powered-by');
+
 app.use(helmet({
-  contentSecurityPolicy: false, // Allows flexible integration with React client & external fonts
+  contentSecurityPolicy: process.env.NODE_ENV === 'production' ? {
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: ["'self'", "'unsafe-inline'"],
+      styleSrc: ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
+      fontSrc: ["'self'", 'https://fonts.gstatic.com', 'data:'],
+      imgSrc: ["'self'", 'data:', 'https:', 'blob:'],
+      connectSrc: ["'self'", CLIENT_URL],
+      objectSrc: ["'none'"],
+      upgradeInsecureRequests: [],
+    },
+  } : false,
   crossOriginResourcePolicy: { policy: 'cross-origin' },
 }));
 

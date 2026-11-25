@@ -136,6 +136,17 @@ export default function Portfolio() {
                       Inquire on Similar Commission
                       <ArrowUpRight className="w-3.5 h-3.5 text-olive" />
                     </Link>
+                    {item.demoLink && (
+                      <a
+                        href={item.demoLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-xs font-semibold text-olive hover:text-emerald inline-flex items-center gap-1 transition"
+                      >
+                        Live Demo
+                        <ArrowUpRight className="w-3.5 h-3.5" />
+                      </a>
+                    )}
                   </div>
                 </div>
               </article>
@@ -185,6 +196,17 @@ export default function Portfolio() {
                 <span className="text-[10px] uppercase font-mono px-2 py-1 bg-cream rounded text-emerald border border-beige/60">
                   {lightboxImage.categoryLabel}
                 </span>
+                {lightboxImage.demoLink && (
+                  <a
+                    href={lightboxImage.demoLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[11px] uppercase tracking-wider font-semibold px-3 py-1 bg-olive text-cream rounded hover:bg-olive-dark transition inline-flex items-center gap-1"
+                  >
+                    Live Demo
+                    <ArrowUpRight className="w-3 h-3 text-cream" />
+                  </a>
+                )}
                 <Link
                   to={`/services/${lightboxImage.category}`}
                   className="text-[11px] uppercase tracking-wider font-semibold px-3 py-1 bg-emerald text-cream rounded hover:bg-emerald-dark transition inline-flex items-center gap-1"

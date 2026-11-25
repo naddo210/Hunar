@@ -369,6 +369,22 @@ async function runTests() {
       csvRes.status === 200 && csvText.includes('Lead Number') && csvText.includes('Traffic Category'),
       'Authorized CSV export generated with complete attribution columns'
     );
+
+    // 14. Security Hardening Regression Tests (Google Doc 30-Category Verification)
+    console.log('\n--- 14. Defensive Security Hardening Regression Tests ---');
+    
+    // Test A: ReDoS & Regex Metacharacters Injection Defense
+    const maliciousPattern = '.*+?^${}()|[]\\';
+    const regexRes = await fetch(`${BASE_URL}/api/admin/leads?search=${encodeURIComponent(maliciousPattern)}`, { headers: authHeaders });
+    const regexData = await regexRes.json();
+    assert(regexRes.status === 200 && Array.isArray(regexData.leads), 'ReDoS & unescaped regex characters safely handled without server crash or hang');
+
+    // Test B: JWT Algorithm Substitution Defense ('none' algorithm attack)
+    const forgedNoneToken = 'eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJpZCI6IjAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMCJ9.';
+    const fakeAuthRes = await fetch(`${BASE_URL}/api/admin/stats`, {
+      headers: { Authorization: `Bearer ${forgedNoneToken}` },
+    });
+    assert(fakeAuthRes.status === 401, 'Unsigned/none-algorithm JWT rejected with 401 Unauthorized');
   } catch (err) {
     assert(false, `Admin CRM test error: ${err.message}`);
   }
