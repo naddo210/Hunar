@@ -57,6 +57,28 @@ export default function AdminLogin() {
             </p>
           </div>
 
+          {/* Studio Admin Credentials Helper Card */}
+          <div className="mb-6 p-3.5 bg-cream/60 border border-beige/80 rounded-md text-xs text-charcoal/80 flex items-center justify-between shadow-subtle">
+            <div>
+              <span className="text-[10px] uppercase font-mono tracking-wider text-olive font-bold block">
+                Studio Admin Access
+              </span>
+              <span className="font-mono text-[11px] text-charcoal/70">
+                admin@hunarstudio.com
+              </span>
+            </div>
+            <button
+              type="button"
+              onClick={() => {
+                setEmail('admin@hunarstudio.com');
+                setPassword('HunarStudio2026!Admin');
+              }}
+              className="px-3 py-1.5 bg-white hover:bg-emerald hover:text-cream border border-beige/80 hover:border-emerald rounded text-[11px] font-medium text-emerald transition shadow-subtle inline-flex items-center gap-1"
+            >
+              Fill Credentials
+            </button>
+          </div>
+
           {errorMessage && (
             <div className="mb-6 p-3.5 rounded bg-red-50 border border-red-200 text-red-700 text-xs flex items-start gap-2.5">
               <AlertCircle className="w-4 h-4 flex-shrink-0 mt-0.5 text-red-500" />

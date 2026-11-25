@@ -12,6 +12,19 @@ const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:3000';
 // Connect to MongoDB
 connectDB();
 
+// Auto-reconnect DB on serverless invocations
+const mongoose = require('mongoose');
+app.use(async (req, res, next) => {
+  if (mongoose.connection.readyState !== 1) {
+    try {
+      await connectDB();
+    } catch (err) {
+      console.warn('[MongoDB Reconnect Warning]:', err.message);
+    }
+  }
+  next();
+});
+
 // Security Middlewares & Header Hardening
 app.disable('x-powered-by');
 
@@ -205,7 +218,7 @@ app.use((err, req, res, next) => {
   });
 });
 
-if (process.env.NODE_ENV !== 'test') {
+if (require.main === module && process.env.NODE_ENV !== 'test' && !process.env.VERCEL) {
   app.listen(PORT, () => {
     console.log(`[HUNAR Server] Running on http://localhost:${PORT} in ${process.env.NODE_ENV || 'development'} mode.`);
   });
