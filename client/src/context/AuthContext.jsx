@@ -59,6 +59,36 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const changePassword = async (currentPassword, newPassword) => {
+    const res = await fetch('/api/auth/change-password', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ currentPassword, newPassword }),
+    });
+
+    const data = await res.json();
+    if (!res.ok) {
+      throw new Error(data.message || 'Failed to update password.');
+    }
+    return data;
+  };
+
+  const resetPassword = async (email, newPassword) => {
+    const res = await fetch('/api/auth/reset-password', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      credentials: 'include',
+      body: JSON.stringify({ email, newPassword }),
+    });
+
+    const data = await res.json();
+    if (!res.ok) {
+      throw new Error(data.message || 'Failed to reset password.');
+    }
+    return data;
+  };
+
   return (
     <AuthContext.Provider
       value={{
@@ -67,6 +97,8 @@ export const AuthProvider = ({ children }) => {
         isAuthenticated: Boolean(user),
         login,
         logout,
+        changePassword,
+        resetPassword,
       }}
     >
       {children}
