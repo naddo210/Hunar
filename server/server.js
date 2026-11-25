@@ -44,8 +44,23 @@ app.use(helmet({
   crossOriginResourcePolicy: { policy: 'cross-origin' },
 }));
 
+const allowedOrigins = [
+  CLIENT_URL,
+  'https://hunar-omega.vercel.app',
+  'https://hunarstudio.com',
+  'http://localhost:3000',
+  'http://127.0.0.1:3000',
+  'http://localhost:5050',
+];
+
 app.use(cors({
-  origin: [CLIENT_URL, 'http://localhost:3000', 'http://127.0.0.1:3000'],
+  origin: function (origin, callback) {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) !== -1 || origin.endsWith('.vercel.app')) {
+      return callback(null, true);
+    }
+    return callback(null, true);
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
@@ -56,8 +71,21 @@ app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: true, limit: '1mb' }));
 app.use(cookieParser());
 
+// URL Normalizer for Vercel Serverless Function rewrites
+app.use((req, res, next) => {
+  if (!req.url.startsWith('/api') && (
+    req.url.startsWith('/auth') || 
+    req.url.startsWith('/leads') || 
+    req.url.startsWith('/admin') || 
+    req.url.startsWith('/health')
+  )) {
+    req.url = '/api' + req.url;
+  }
+  next();
+});
+
 // Health Check
-app.get('/api/health', (req, res) => {
+app.get(['/api/health', '/health'], (req, res) => {
   res.status(200).json({
     status: 'healthy',
     timestamp: new Date().toISOString(),
@@ -184,12 +212,17 @@ const authRoutes = require('./routes/authRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 
 app.use('/api/leads', leadRoutes);
+app.use('/leads', leadRoutes);
+
 app.use('/api/auth', authRoutes);
+app.use('/auth', authRoutes);
+
 app.use('/api/admin', adminRoutes);
+app.use('/admin-api', adminRoutes);
 
 // 404 handler for API routes
-app.use('/api/*', (req, res) => {
-  res.status(404).json({ success: false, message: 'API endpoint not found.' });
+app.use(['/api/*', '/auth/*', '/leads/*', '/admin/*'], (req, res) => {
+  res.status(404).json({ success: false, message: `API endpoint not found: ${req.originalUrl || req.url}` });
 });
 
 // Serve frontend build in production or standalone

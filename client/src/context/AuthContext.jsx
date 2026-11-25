@@ -2,6 +2,27 @@ import React, { createContext, useContext, useState, useEffect } from 'react';
 
 const AuthContext = createContext(null);
 
+/**
+ * Safely parse API response to prevent unhandled "Unexpected token < in JSON" crashes
+ */
+async function parseApiResponse(res) {
+  const text = await res.text();
+  try {
+    return text ? JSON.parse(text) : {};
+  } catch (err) {
+    if (res.status === 405) {
+      throw new Error('API server is updating. Please refresh the page in a moment.');
+    }
+    if (res.status === 404) {
+      throw new Error('API endpoint not found. Please ensure backend is reachable.');
+    }
+    if (res.status >= 500) {
+      throw new Error(`Server temporarily unavailable (Status ${res.status}).`);
+    }
+    throw new Error(`Server response error (${res.status}): ${text.slice(0, 100)}`);
+  }
+}
+
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -10,14 +31,21 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     const checkAuth = async () => {
       try {
+        const storedToken = localStorage.getItem('hunar_admin_token');
+        const headers = storedToken ? { Authorization: `Bearer ${storedToken}` } : {};
+
         const res = await fetch('/api/auth/me', {
           credentials: 'include',
+          headers,
         });
+
         if (res.ok) {
-          const data = await res.json();
+          const data = await parseApiResponse(res);
           if (data.success && data.user) {
             setUser(data.user);
           }
+        } else if (res.status === 401) {
+          localStorage.removeItem('hunar_admin_token');
         }
       } catch (err) {
         console.warn('Auth check skipped or failed:', err.message);
@@ -37,37 +65,51 @@ export const AuthProvider = ({ children }) => {
       body: JSON.stringify({ email, password }),
     });
 
-    const data = await res.json();
+    const data = await parseApiResponse(res);
     if (!res.ok) {
       throw new Error(data.message || 'Login failed.');
     }
 
+    if (data.token) {
+      localStorage.setItem('hunar_admin_token', data.token);
+    }
     setUser(data.user);
     return data;
   };
 
   const logout = async () => {
     try {
+      const storedToken = localStorage.getItem('hunar_admin_token');
+      const headers = storedToken ? { Authorization: `Bearer ${storedToken}` } : {};
+
       await fetch('/api/auth/logout', {
         method: 'POST',
+        headers,
         credentials: 'include',
       });
     } catch (e) {
       console.warn('Logout network error:', e);
     } finally {
+      localStorage.removeItem('hunar_admin_token');
       setUser(null);
     }
   };
 
   const changePassword = async (currentPassword, newPassword) => {
+    const storedToken = localStorage.getItem('hunar_admin_token');
+    const headers = {
+      'Content-Type': 'application/json',
+      ...(storedToken && { Authorization: `Bearer ${storedToken}` }),
+    };
+
     const res = await fetch('/api/auth/change-password', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers,
       credentials: 'include',
       body: JSON.stringify({ currentPassword, newPassword }),
     });
 
-    const data = await res.json();
+    const data = await parseApiResponse(res);
     if (!res.ok) {
       throw new Error(data.message || 'Failed to update password.');
     }
@@ -82,7 +124,7 @@ export const AuthProvider = ({ children }) => {
       body: JSON.stringify({ email, newPassword }),
     });
 
-    const data = await res.json();
+    const data = await parseApiResponse(res);
     if (!res.ok) {
       throw new Error(data.message || 'Failed to reset password.');
     }

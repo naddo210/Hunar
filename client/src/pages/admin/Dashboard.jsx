@@ -105,13 +105,25 @@ export default function AdminDashboard() {
     }
   }, [authLoading, isAuthenticated, navigate]);
 
+  const getAuthHeaders = (customHeaders = {}) => {
+    const token = localStorage.getItem('hunar_admin_token');
+    return {
+      ...customHeaders,
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+    };
+  };
+
   // Fetch KPI Stats
   const fetchStats = async () => {
     try {
-      const res = await fetch('/api/admin/stats', { credentials: 'include' });
+      const res = await fetch('/api/admin/stats', {
+        credentials: 'include',
+        headers: getAuthHeaders(),
+      });
       if (res.ok) {
-        const data = await res.json();
-        setStats(data.stats);
+        const text = await res.text();
+        const data = text ? JSON.parse(text) : {};
+        if (data.stats) setStats(data.stats);
       }
     } catch (e) {
       console.warn('Error fetching stats:', e);
@@ -131,9 +143,11 @@ export default function AdminDashboard() {
       });
       const res = await fetch(`/api/admin/leads?${params.toString()}`, {
         credentials: 'include',
+        headers: getAuthHeaders(),
       });
       if (res.ok) {
-        const data = await res.json();
+        const text = await res.text();
+        const data = text ? JSON.parse(text) : {};
         setLeads(data.leads || []);
         setPagination(data.pagination || { total: 0, pages: 1 });
       }
@@ -167,12 +181,13 @@ export default function AdminDashboard() {
     try {
       const res = await fetch(`/api/admin/leads/${selectedLead._id}/status`, {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getAuthHeaders({ 'Content-Type': 'application/json' }),
         credentials: 'include',
         body: JSON.stringify({ status: newStatus, reason: statusReason }),
       });
       if (res.ok) {
-        const data = await res.json();
+        const text = await res.text();
+        const data = text ? JSON.parse(text) : {};
         setSelectedLead(data.lead);
         setStatusReason('');
         fetchLeads();
@@ -193,12 +208,13 @@ export default function AdminDashboard() {
     try {
       const res = await fetch(`/api/admin/leads/${selectedLead._id}/notes`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getAuthHeaders({ 'Content-Type': 'application/json' }),
         credentials: 'include',
         body: JSON.stringify({ content: noteContent }),
       });
       if (res.ok) {
-        const data = await res.json();
+        const text = await res.text();
+        const data = text ? JSON.parse(text) : {};
         setSelectedLead(data.lead);
         setNoteContent('');
         fetchLeads();
@@ -217,12 +233,13 @@ export default function AdminDashboard() {
     try {
       const res = await fetch(`/api/admin/leads/${selectedLead._id}/follow-up`, {
         method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
+        headers: getAuthHeaders({ 'Content-Type': 'application/json' }),
         credentials: 'include',
         body: JSON.stringify({ followUpDate }),
       });
       if (res.ok) {
-        const data = await res.json();
+        const text = await res.text();
+        const data = text ? JSON.parse(text) : {};
         setSelectedLead(data.lead);
         fetchLeads();
       }

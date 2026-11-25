@@ -10,7 +10,8 @@ const connectDB = async () => {
     return cached.conn;
   }
 
-  const uri = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/hunar_studio';
+  const ATLAS_FALLBACK_URI = 'mongodb+srv://nadex0210_db_user:rRGmeKKvwCyHYGps@hunar.fga6k3e.mongodb.net/hunar_studio?retryWrites=true&w=majority';
+  const uri = process.env.MONGODB_URI || ATLAS_FALLBACK_URI;
   
   if (!cached.promise) {
     cached.promise = mongoose.connect(uri, {
