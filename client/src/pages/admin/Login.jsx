@@ -72,6 +72,8 @@ export default function AdminLogin() {
               onClick={() => {
                 setEmail('admin@hunarstudio.com');
                 setPassword('HunarStudio2026!Admin');
+                setErrorMessage('');
+                setStatus('idle');
               }}
               className="px-3 py-1.5 bg-white hover:bg-emerald hover:text-cream border border-beige/80 hover:border-emerald rounded text-[11px] font-medium text-emerald transition shadow-subtle inline-flex items-center gap-1"
             >
