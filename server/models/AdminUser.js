@@ -50,5 +50,5 @@ adminUserSchema.statics.hashPassword = async function (password) {
   return await bcrypt.hash(password, salt);
 };
 
-const AdminUser = mongoose.model('AdminUser', adminUserSchema);
+const AdminUser = mongoose.models?.AdminUser || mongoose.model('AdminUser', adminUserSchema);
 module.exports = AdminUser;

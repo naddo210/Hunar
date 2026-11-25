@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 5050;
 const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:3000';
 
 // Connect to MongoDB
-connectDB();
+connectDB().catch((err) => console.warn('[MongoDB Initial Connect Warning]:', err.message));
 
 // Auto-reconnect DB on serverless invocations
 const mongoose = require('mongoose');

@@ -42,7 +42,7 @@ const AdminUserSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const AdminUser = mongoose.models.AdminUser || mongoose.model('AdminUser', AdminUserSchema);
+const AdminUser = (mongoose.models && mongoose.models.AdminUser) ? mongoose.models.AdminUser : mongoose.model('AdminUser', AdminUserSchema);
 
 const LeadSchema = new mongoose.Schema(
   {
@@ -65,7 +65,7 @@ const LeadSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const Lead = mongoose.models.Lead || mongoose.model('Lead', LeadSchema);
+const Lead = (mongoose.models && mongoose.models.Lead) ? mongoose.models.Lead : mongoose.model('Lead', LeadSchema);
 
 // Middleware
 app.use(cors({
