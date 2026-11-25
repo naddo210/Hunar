@@ -1,14 +1,14 @@
 /**
- * HUNAR Creative Studio - Vercel Serverless Function Catch-All Handler
- * Handles all /api/* requests on Vercel deployment (supports Root Directory = client or root).
+ * HUNAR Creative Studio - Vercel Serverless Function Catch-All Handler (ESM)
+ * Handles all /api/* requests on Vercel deployment.
  */
 
-const express = require('express');
-const cors = require('cors');
-const cookieParser = require('cookie-parser');
-const mongoose = require('mongoose');
-const bcrypt = require('bcryptjs');
-const jwt = require('jsonwebtoken');
+import express from 'express';
+import cors from 'cors';
+import cookieParser from 'cookie-parser';
+import mongoose from 'mongoose';
+import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 const app = express();
 const JWT_SECRET = process.env.JWT_SECRET || 'hunar_studio_jwt_secure_secret_key_2026_dev';
@@ -114,6 +114,15 @@ app.get(['/api/health', '/health'], (req, res) => {
     timestamp: new Date().toISOString(),
     service: 'HUNAR Creative Studio Serverless API',
     database: mongoose.connection.readyState === 1 ? 'connected' : 'offline',
+  });
+});
+
+// Direct test endpoint
+app.get(['/api/test', '/test'], (req, res) => {
+  res.status(200).json({
+    status: 'ok',
+    message: 'HUNAR Serverless API is online and functional!',
+    time: new Date().toISOString(),
   });
 });
 
@@ -356,12 +365,10 @@ app.post(['/api/leads', '/leads'], async (req, res) => {
       return res.status(400).json({ success: false, message: 'Please provide name, email, and project brief.' });
     }
 
-    const leadCount = mongoose.connection.readyState === 1 ? await Lead.countDocuments() : 0;
     const leadNumber = `HNR-2026-${Math.random().toString(36).substring(2, 7).toUpperCase()}`;
 
-    let lead = null;
     if (mongoose.connection.readyState === 1) {
-      lead = await Lead.create({
+      await Lead.create({
         leadNumber,
         fullName,
         email,
@@ -394,4 +401,4 @@ app.all('*', (req, res) => {
   });
 });
 
-module.exports = app;
+export default app;
