@@ -83,7 +83,7 @@ export default function Navigation() {
           >
             Our Work
             <span className="text-[10px] font-mono px-1.5 py-0.2 bg-emerald/10 text-emerald rounded font-bold">
-              95+
+              98
             </span>
           </Link>
 
@@ -280,7 +280,7 @@ export default function Navigation() {
                 <div className="flex items-center gap-2">
                   <span className="font-serif text-lg">Selected Works</span>
                   <span className="text-[10px] font-mono px-1.5 py-0.5 bg-olive/20 text-olive rounded font-bold">
-                    95 Works
+                    98 Works
                   </span>
                 </div>
                 <ChevronRight className="w-4 h-4 opacity-60" />

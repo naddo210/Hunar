@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
+import AgencyHero from '../components/AgencyHero';
 import { 
   ArrowUpRight, 
   Search, 
@@ -241,58 +242,11 @@ export default function Home() {
         schema={homeSchema}
       />
 
-      {/* Hero Section with Editorial Art Direction */}
-      <section className="relative pt-20 pb-20 sm:pt-28 sm:pb-28 overflow-hidden bg-cream">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-7">
-              <span className="editorial-eyebrow">Creative Studio & Atelier</span>
-              {/* Every page has an explicit h1 */}
-              <h1 className="mt-4 font-serif text-4xl sm:text-6xl lg:text-7xl text-emerald font-normal leading-[1.1] tracking-tight">
-                Where fine art craftsmanship meets spatial design and brand architecture.
-              </h1>
-              <p className="mt-6 text-base sm:text-lg text-charcoal/80 leading-relaxed font-light max-w-2xl">
-                HUNAR is an interdisciplinary creative studio. We partner with visionaries, architects, retailers, and founders to create original art pieces, bespoke visual identities, decorative glass paintings, and enduring digital platforms.
-              </p>
-
-              <div className="mt-10 flex flex-wrap items-center gap-4">
-                <Link
-                  to="/services"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 bg-emerald hover:bg-emerald-dark text-cream text-xs uppercase tracking-widest font-semibold rounded shadow-sm hover:shadow-emerald transition"
-                >
-                  Explore 56 Offerings
-                  <ArrowUpRight className="w-4 h-4 text-beige" />
-                </Link>
-                <Link
-                  to="/portfolio"
-                  className="inline-flex items-center gap-2 px-7 py-3.5 border border-charcoal/30 hover:border-emerald text-charcoal hover:text-emerald text-xs uppercase tracking-widest font-semibold rounded transition"
-                >
-                  View Selected Works (95+)
-                </Link>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5">
-              <div className="relative rounded-lg overflow-hidden shadow-elevated border border-beige aspect-[4/5] bg-cream-dark group">
-                <img
-                  src="/portfolio/brand-identity/saga-ratna/sagar-ratna-brand-identity-concept-cover.webp"
-                  alt="Sagar Ratna restaurant brand identity manual and corporate visual system by HUNAR Studio"
-                  fetchPriority="high"
-                  decoding="async"
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
-                <div className="absolute bottom-4 left-4 right-4 p-4 bg-white/95 backdrop-blur-md rounded border border-beige/60 text-xs shadow-subtle">
-                  <p className="font-serif text-sm text-emerald font-medium">Sagar Ratna: Brand Identity Manual</p>
-                  <p className="text-[11px] text-olive font-mono mt-0.5">Corporate Brandmark Architecture & Typography</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Unforgettable Cinematic Creative Studio Hero Experience */}
+      <AgencyHero />
 
       {/* Interactive Service Search & Keyword Intent Hub */}
-      <section className="py-12 bg-white border-y border-beige/60">
+      <section id="intent-search" className="py-12 bg-white border-y border-beige/60">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl mx-auto text-center mb-8">
             <span className="text-[10px] uppercase font-mono tracking-[0.25em] text-emerald font-bold block mb-1">
