@@ -304,6 +304,23 @@ app.post(['/api/auth/change-password', '/auth/change-password'], requireAuth, as
   }
 });
 
+// Silent session check for frontend initialization
+app.get(['/api/auth/session', '/auth/session'], async (req, res) => {
+  try {
+    let token = req.cookies?.hunar_admin_token;
+    if (!token && req.headers.authorization && req.headers.authorization.startsWith('Bearer ')) {
+      token = req.headers.authorization.split(' ')[1];
+    }
+    if (!token) {
+      return res.status(200).json({ success: true, authenticated: false, user: null });
+    }
+    const decoded = jwt.verify(token, JWT_SECRET, { algorithms: ['HS256'] });
+    return res.status(200).json({ success: true, authenticated: true, user: decoded });
+  } catch {
+    return res.status(200).json({ success: true, authenticated: false, user: null });
+  }
+});
+
 // Get Current User (Session check)
 app.get(['/api/auth/me', '/auth/me'], requireAuth, (req, res) => {
   return res.status(200).json({

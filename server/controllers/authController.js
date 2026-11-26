@@ -132,13 +132,58 @@ const logout = async (req, res) => {
 };
 
 /**
- * Current Authenticated User Session
+ * Current Authenticated User Session (strict 401 when unauthenticated)
  */
 const getMe = async (req, res) => {
   return res.status(200).json({
     success: true,
     user: req.adminUser,
   });
+};
+
+/**
+ * Silent session check for frontend initialization (returns authenticated: false instead of 401)
+ */
+const getSession = async (req, res) => {
+  try {
+    let token = req.cookies?.hunar_admin_token;
+    if (!token && req.headers.authorization && req.headers.authorization.startsWith('Bearer ')) {
+      token = req.headers.authorization.split(' ')[1];
+    }
+
+    if (!token) {
+      return res.status(200).json({ success: true, authenticated: false, user: null });
+    }
+
+    const decoded = jwt.verify(token, JWT_SECRET, { algorithms: ['HS256'] });
+    let user = null;
+
+    if (decoded.id && mongoose.connection.readyState === 1) {
+      user = await AdminUser.findById(decoded.id).select('-passwordHash');
+    }
+
+    if (!user) {
+      if (decoded.role === 'super_admin' || decoded.role === 'admin') {
+        user = {
+          _id: decoded.id,
+          email: decoded.email,
+          role: decoded.role,
+          fullName: decoded.fullName || 'HUNAR Studio Director',
+          isActive: true,
+        };
+      } else {
+        return res.status(200).json({ success: true, authenticated: false, user: null });
+      }
+    }
+
+    if (user.isActive === false) {
+      return res.status(200).json({ success: true, authenticated: false, user: null });
+    }
+
+    return res.status(200).json({ success: true, authenticated: true, user });
+  } catch {
+    return res.status(200).json({ success: true, authenticated: false, user: null });
+  }
 };
 
 /**
@@ -264,4 +309,4 @@ const resetForgotPassword = async (req, res, next) => {
   }
 };
 
-module.exports = { login, logout, getMe, changePassword, resetForgotPassword };
+module.exports = { login, logout, getMe, getSession, changePassword, resetForgotPassword };

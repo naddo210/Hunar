@@ -7,25 +7,32 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Check active session on initial load
+  // Check active session on initial load without triggering 401 console errors
   useEffect(() => {
     const checkAuth = async () => {
       try {
         const storedToken = localStorage.getItem('hunar_admin_token');
-        const headers = storedToken ? { Authorization: `Bearer ${storedToken}` } : {};
+        const isAdminRoute = window.location.pathname.startsWith('/admin');
 
-        const res = await fetch(apiUrl('/api/auth/me'), {
+        // Skip network round-trip on public pages when no local token is stored
+        if (!storedToken && !isAdminRoute) {
+          setLoading(false);
+          return;
+        }
+
+        const headers = storedToken ? { Authorization: `Bearer ${storedToken}` } : {};
+        const res = await fetch(apiUrl('/api/auth/session'), {
           credentials: 'include',
           headers,
         });
 
         if (res.ok) {
           const data = await parseApiResponse(res);
-          if (data.success && data.user) {
+          if (data.authenticated && data.user) {
             setUser(data.user);
+          } else {
+            localStorage.removeItem('hunar_admin_token');
           }
-        } else if (res.status === 401) {
-          localStorage.removeItem('hunar_admin_token');
         }
       } catch (err) {
         console.warn('Auth check skipped or failed:', err.message);
