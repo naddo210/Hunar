@@ -1,0 +1,42 @@
+name: Keep Render Backend Awake
+
+on:
+  # Runs every 12 minutes (under Render's 15-minute free-tier idle timeout),
+  # staggered away from :00 to avoid GitHub Actions top-of-hour queue delays.
+  schedule:
+    - cron: '4,16,28,40,52 * * * *'
+  workflow_dispatch:
+    inputs:
+      backend_url:
+        description: 'Optional Render backend base URL to ping right now (e.g. https://hunar-backend.onrender.com)'
+        required: false
+        type: string
+
+jobs:
+  ping-backend:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Ping Render /api/health endpoint
+        env:
+          TARGET_URL: ${{ inputs.backend_url || vars.RENDER_BACKEND_URL }}
+        run: |
+          if [ -z "$TARGET_URL" ]; then
+            echo "RENDER_BACKEND_URL repository variable is not set yet."
+            echo "Add it in GitHub: Settings -> Secrets and variables -> Actions -> Variables -> New repository variable (Name: RENDER_BACKEND_URL, Value: https://your-service.onrender.com)"
+            exit 0
+          fi
+
+          CLEAN_URL="${TARGET_URL%/}"
+          HEALTH_URL="${CLEAN_URL}/api/health"
+          echo "Pinging ${HEALTH_URL} at $(date -u +%Y-%m-%dT%H:%M:%SZ)..."
+
+          HTTP_CODE=$(curl -sS -o /tmp/health.json -w "%{http_code}" --max-time 60 --retry 1 --retry-delay 5 "$HEALTH_URL" || echo "000")
+          echo "HTTP Status: ${HTTP_CODE}"
+          cat /tmp/health.json 2>/dev/null || true
+          echo ""
+
+          if [ "$HTTP_CODE" -lt 200 ] || [ "$HTTP_CODE" -ge 300 ]; then
+            echo "::warning::Health ping returned HTTP ${HTTP_CODE}. Check Render service logs."
+            exit 1
+          fi

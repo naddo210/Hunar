@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useAttribution } from '../context/AttributionContext';
+import { apiUrl, parseApiResponse } from '../utils/api';
 import { Send, CheckCircle2, AlertCircle, Loader2 } from 'lucide-react';
 
 const SERVICE_OPTIONS = [
@@ -113,13 +114,13 @@ export default function EnquiryForm({
         },
       };
 
-      const res = await fetch('/api/leads', {
+      const res = await fetch(apiUrl('/api/leads'), {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
       });
 
-      const data = await res.json();
+      const data = await parseApiResponse(res);
 
       if (!res.ok) {
         throw new Error(data.message || (data.errors ? data.errors.join(' ') : 'Unable to submit enquiry.'));

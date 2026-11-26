@@ -89,12 +89,12 @@ const login = async (req, res, next) => {
       { expiresIn: '7d', algorithm: 'HS256' }
     );
 
-    // Set secure cookie
+    // Set secure cookie (sameSite: 'none' in production supports Vercel frontend <-> Render backend)
     const isProduction = process.env.NODE_ENV === 'production';
     res.cookie('hunar_admin_token', token, {
       httpOnly: true,
       secure: isProduction,
-      sameSite: isProduction ? 'strict' : 'lax',
+      sameSite: isProduction ? 'none' : 'lax',
       maxAge: 7 * 24 * 60 * 60 * 1000, // 7 days
     });
 
@@ -119,9 +119,11 @@ const login = async (req, res, next) => {
  * Admin Logout
  */
 const logout = async (req, res) => {
+  const isProduction = process.env.NODE_ENV === 'production';
   res.clearCookie('hunar_admin_token', {
     httpOnly: true,
-    sameSite: process.env.NODE_ENV === 'production' ? 'strict' : 'lax',
+    secure: isProduction,
+    sameSite: isProduction ? 'none' : 'lax',
   });
   return res.status(200).json({
     success: true,

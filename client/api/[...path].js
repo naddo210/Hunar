@@ -16,15 +16,19 @@ const ATLAS_URI = process.env.MONGODB_URI || 'mongodb+srv://nadex0210_db_user:rR
 
 // DB connection caching for serverless environments
 let isConnected = false;
+let lastFailedAt = 0;
 async function connectDB() {
   if (isConnected && mongoose.connection.readyState === 1) return;
+  if (lastFailedAt && Date.now() - lastFailedAt < 15000) return;
   try {
     await mongoose.connect(ATLAS_URI, {
-      serverSelectionTimeoutMS: 15000,
+      serverSelectionTimeoutMS: 5000,
       autoIndex: false,
     });
     isConnected = true;
+    lastFailedAt = 0;
   } catch (err) {
+    lastFailedAt = Date.now();
     console.warn('[Serverless DB Connect Warning]:', err.message);
   }
 }
@@ -79,6 +83,18 @@ app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: true, limit: '1mb' }));
 app.use(cookieParser());
 
+// Non-blocking health check (prevents 5-15s wait when DB is offline)
+app.get(['/api/health', '/health', '/api/ping', '/ping'], (req, res) => {
+  const dbReady = mongoose.connection.readyState === 1;
+  if (!dbReady) connectDB().catch(() => {});
+  res.status(200).json({
+    status: 'healthy',
+    timestamp: new Date().toISOString(),
+    service: 'HUNAR Creative Studio Serverless API',
+    database: dbReady ? 'connected' : 'offline',
+  });
+});
+
 // Auto DB connect middleware
 app.use(async (req, res, next) => {
   await connectDB();
@@ -106,16 +122,6 @@ const requireAuth = (req, res, next) => {
 };
 
 // ================= ROUTES =================
-
-// Health check
-app.get(['/api/health', '/health'], (req, res) => {
-  res.status(200).json({
-    status: 'healthy',
-    timestamp: new Date().toISOString(),
-    service: 'HUNAR Creative Studio Serverless API',
-    database: mongoose.connection.readyState === 1 ? 'connected' : 'offline',
-  });
-});
 
 // Direct test endpoint
 app.get(['/api/test', '/test'], (req, res) => {

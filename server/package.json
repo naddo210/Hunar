@@ -4,6 +4,9 @@
   "description": "HUNAR Creative Studio - Node/Express Backend API & Lead Management",
   "main": "server.js",
   "type": "commonjs",
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "start": "node server.js",
     "dev": "node --watch server.js",

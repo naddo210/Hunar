@@ -9,21 +9,13 @@ const app = express();
 const PORT = process.env.PORT || 5050;
 const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:3000';
 
-// Connect to MongoDB
+// Trust Render / Vercel reverse proxy so rate-limiting and IP/protocol detection work accurately
+app.set('trust proxy', 1);
+
+// Connect to MongoDB (non-fatal on startup so server stays up even before Atlas IP whitelist is added)
 connectDB().catch((err) => console.warn('[MongoDB Initial Connect Warning]:', err.message));
 
-// Auto-reconnect DB on serverless invocations
 const mongoose = require('mongoose');
-app.use(async (req, res, next) => {
-  if (mongoose.connection.readyState !== 1) {
-    try {
-      await connectDB();
-    } catch (err) {
-      console.warn('[MongoDB Reconnect Warning]:', err.message);
-    }
-  }
-  next();
-});
 
 // Security Middlewares & Header Hardening
 app.disable('x-powered-by');
@@ -36,7 +28,7 @@ app.use(helmet({
       styleSrc: ["'self'", "'unsafe-inline'", 'https://fonts.googleapis.com'],
       fontSrc: ["'self'", 'https://fonts.gstatic.com', 'data:'],
       imgSrc: ["'self'", 'data:', 'https:', 'blob:'],
-      connectSrc: ["'self'", CLIENT_URL],
+      connectSrc: ["'self'", CLIENT_URL, 'https://hunar-omega.vercel.app', 'https://*.onrender.com', 'https://*.vercel.app'],
       objectSrc: ["'none'"],
       upgradeInsecureRequests: [],
     },
@@ -44,8 +36,9 @@ app.use(helmet({
   crossOriginResourcePolicy: { policy: 'cross-origin' },
 }));
 
+const configuredOrigins = CLIENT_URL.split(',').map((u) => u.trim()).filter(Boolean);
 const allowedOrigins = [
-  CLIENT_URL,
+  ...configuredOrigins,
   'https://hunar-omega.vercel.app',
   'https://hunarstudio.com',
   'http://localhost:3000',
@@ -56,15 +49,50 @@ const allowedOrigins = [
 app.use(cors({
   origin: function (origin, callback) {
     if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) !== -1 || origin.endsWith('.vercel.app')) {
+    if (
+      allowedOrigins.includes(origin) ||
+      origin.endsWith('.vercel.app') ||
+      origin.endsWith('.onrender.com') ||
+      process.env.NODE_ENV !== 'production'
+    ) {
       return callback(null, true);
     }
-    return callback(null, true);
+    return callback(new Error('Origin not allowed by CORS'));
   },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With'],
 }));
+
+// Health & Keep-Alive Endpoints (placed before blocking DB middleware for instant <5ms Render/cron responses)
+app.get(['/api/health', '/health', '/api/ping', '/ping'], (req, res) => {
+  const isDbConnected = mongoose.connection.readyState === 1;
+  // Trigger a non-blocking reconnect attempt in the background if currently offline
+  if (!isDbConnected) {
+    connectDB().catch(() => {});
+  }
+  const dbState = global.__hunarDbState || {};
+  res.status(200).json({
+    status: 'healthy',
+    timestamp: new Date().toISOString(),
+    service: 'HUNAR Creative Studio API',
+    uptime: Math.round(process.uptime()),
+    database: isDbConnected ? 'connected' : 'disconnected',
+    ...( !isDbConnected && dbState.error ? { databaseHint: dbState.error } : {} ),
+  });
+});
+
+// Auto-reconnect DB on data/auth API invocations (with cooldown inside connectDB)
+app.use(async (req, res, next) => {
+  if (mongoose.connection.readyState !== 1) {
+    try {
+      await connectDB();
+    } catch (err) {
+      console.warn('[MongoDB Reconnect Warning]:', err.message);
+    }
+  }
+  next();
+});
 
 // Body parsers
 app.use(express.json({ limit: '1mb' }));
@@ -77,21 +105,12 @@ app.use((req, res, next) => {
     req.url.startsWith('/auth') || 
     req.url.startsWith('/leads') || 
     req.url.startsWith('/admin') || 
-    req.url.startsWith('/health')
+    req.url.startsWith('/health') ||
+    req.url.startsWith('/ping')
   )) {
     req.url = '/api' + req.url;
   }
   next();
-});
-
-// Health Check
-app.get(['/api/health', '/health'], (req, res) => {
-  res.status(200).json({
-    status: 'healthy',
-    timestamp: new Date().toISOString(),
-    service: 'HUNAR Creative Studio API',
-    uptime: process.uptime(),
-  });
 });
 
 // Dynamic Robots.txt
@@ -254,6 +273,27 @@ app.use((err, req, res, next) => {
 if (require.main === module && process.env.NODE_ENV !== 'test' && !process.env.VERCEL) {
   app.listen(PORT, () => {
     console.log(`[HUNAR Server] Running on http://localhost:${PORT} in ${process.env.NODE_ENV || 'development'} mode.`);
+
+    // Built-in Render keep-alive pinger (runs alongside GitHub Actions external cron)
+    const keepAliveBase = (process.env.KEEP_ALIVE_URL || process.env.RENDER_EXTERNAL_URL || '').replace(/\/+$/, '');
+    if (keepAliveBase) {
+      const KEEP_ALIVE_INTERVAL_MS = 10 * 60 * 1000; // Every 10 minutes (< 15 min Render spindown)
+      const pingExternal = async () => {
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), 10000);
+        try {
+          const r = await fetch(`${keepAliveBase}/api/health`, { signal: controller.signal });
+          console.log(`[Keep-Alive Self-Ping] ${r.status} @ ${new Date().toISOString()}`);
+        } catch (err) {
+          console.warn(`[Keep-Alive Self-Ping Warning]: ${err.message}`);
+        } finally {
+          clearTimeout(timer);
+        }
+      };
+      const interval = setInterval(pingExternal, KEEP_ALIVE_INTERVAL_MS);
+      if (typeof interval.unref === 'function') interval.unref();
+      console.log(`[Keep-Alive] Self-ping armed every 10m -> ${keepAliveBase}/api/health`);
+    }
   });
 }
 

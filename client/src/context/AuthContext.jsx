@@ -1,27 +1,7 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
+import { apiUrl, parseApiResponse } from '../utils/api';
 
 const AuthContext = createContext(null);
-
-/**
- * Safely parse API response to prevent unhandled "Unexpected token < in JSON" crashes
- */
-async function parseApiResponse(res) {
-  const text = await res.text();
-  try {
-    return text ? JSON.parse(text) : {};
-  } catch (err) {
-    if (res.status === 405) {
-      throw new Error('API server is updating. Please refresh the page in a moment.');
-    }
-    if (res.status === 404) {
-      throw new Error('API endpoint not found. Please ensure backend is reachable.');
-    }
-    if (res.status >= 500) {
-      throw new Error(`Server temporarily unavailable (Status ${res.status}).`);
-    }
-    throw new Error(`Server response error (${res.status}): ${text.slice(0, 100)}`);
-  }
-}
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -34,7 +14,7 @@ export const AuthProvider = ({ children }) => {
         const storedToken = localStorage.getItem('hunar_admin_token');
         const headers = storedToken ? { Authorization: `Bearer ${storedToken}` } : {};
 
-        const res = await fetch('/api/auth/me', {
+        const res = await fetch(apiUrl('/api/auth/me'), {
           credentials: 'include',
           headers,
         });
@@ -58,7 +38,7 @@ export const AuthProvider = ({ children }) => {
   }, []);
 
   const login = async (email, password) => {
-    const res = await fetch('/api/auth/login', {
+    const res = await fetch(apiUrl('/api/auth/login'), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
@@ -82,7 +62,7 @@ export const AuthProvider = ({ children }) => {
       const storedToken = localStorage.getItem('hunar_admin_token');
       const headers = storedToken ? { Authorization: `Bearer ${storedToken}` } : {};
 
-      await fetch('/api/auth/logout', {
+      await fetch(apiUrl('/api/auth/logout'), {
         method: 'POST',
         headers,
         credentials: 'include',
@@ -102,7 +82,7 @@ export const AuthProvider = ({ children }) => {
       ...(storedToken && { Authorization: `Bearer ${storedToken}` }),
     };
 
-    const res = await fetch('/api/auth/change-password', {
+    const res = await fetch(apiUrl('/api/auth/change-password'), {
       method: 'POST',
       headers,
       credentials: 'include',
@@ -117,7 +97,7 @@ export const AuthProvider = ({ children }) => {
   };
 
   const resetPassword = async (email, newPassword) => {
-    const res = await fetch('/api/auth/reset-password', {
+    const res = await fetch(apiUrl('/api/auth/reset-password'), {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',

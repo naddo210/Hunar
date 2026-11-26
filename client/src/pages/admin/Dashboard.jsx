@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import { apiUrl, parseApiResponse } from '../../utils/api';
 import SEO from '../../components/SEO';
 import {
   Users,
@@ -116,13 +117,12 @@ export default function AdminDashboard() {
   // Fetch KPI Stats
   const fetchStats = async () => {
     try {
-      const res = await fetch('/api/admin/stats', {
+      const res = await fetch(apiUrl('/api/admin/stats'), {
         credentials: 'include',
         headers: getAuthHeaders(),
       });
       if (res.ok) {
-        const text = await res.text();
-        const data = text ? JSON.parse(text) : {};
+        const data = await parseApiResponse(res);
         if (data.stats) setStats(data.stats);
       }
     } catch (e) {
@@ -141,13 +141,12 @@ export default function AdminDashboard() {
         page: String(page),
         limit: '20',
       });
-      const res = await fetch(`/api/admin/leads?${params.toString()}`, {
+      const res = await fetch(apiUrl(`/api/admin/leads?${params.toString()}`), {
         credentials: 'include',
         headers: getAuthHeaders(),
       });
       if (res.ok) {
-        const text = await res.text();
-        const data = text ? JSON.parse(text) : {};
+        const data = await parseApiResponse(res);
         setLeads(data.leads || []);
         setPagination(data.pagination || { total: 0, pages: 1 });
       }
@@ -179,15 +178,14 @@ export default function AdminDashboard() {
     if (!selectedLead || !newStatus) return;
     setSavingAction(true);
     try {
-      const res = await fetch(`/api/admin/leads/${selectedLead._id}/status`, {
+      const res = await fetch(apiUrl(`/api/admin/leads/${selectedLead._id}/status`), {
         method: 'PATCH',
         headers: getAuthHeaders({ 'Content-Type': 'application/json' }),
         credentials: 'include',
         body: JSON.stringify({ status: newStatus, reason: statusReason }),
       });
       if (res.ok) {
-        const text = await res.text();
-        const data = text ? JSON.parse(text) : {};
+        const data = await parseApiResponse(res);
         setSelectedLead(data.lead);
         setStatusReason('');
         fetchLeads();
@@ -206,15 +204,14 @@ export default function AdminDashboard() {
     if (!selectedLead || !noteContent.trim()) return;
     setSavingAction(true);
     try {
-      const res = await fetch(`/api/admin/leads/${selectedLead._id}/notes`, {
+      const res = await fetch(apiUrl(`/api/admin/leads/${selectedLead._id}/notes`), {
         method: 'POST',
         headers: getAuthHeaders({ 'Content-Type': 'application/json' }),
         credentials: 'include',
         body: JSON.stringify({ content: noteContent }),
       });
       if (res.ok) {
-        const text = await res.text();
-        const data = text ? JSON.parse(text) : {};
+        const data = await parseApiResponse(res);
         setSelectedLead(data.lead);
         setNoteContent('');
         fetchLeads();
@@ -231,15 +228,14 @@ export default function AdminDashboard() {
     if (!selectedLead) return;
     setSavingAction(true);
     try {
-      const res = await fetch(`/api/admin/leads/${selectedLead._id}/follow-up`, {
+      const res = await fetch(apiUrl(`/api/admin/leads/${selectedLead._id}/follow-up`), {
         method: 'PATCH',
         headers: getAuthHeaders({ 'Content-Type': 'application/json' }),
         credentials: 'include',
         body: JSON.stringify({ followUpDate }),
       });
       if (res.ok) {
-        const text = await res.text();
-        const data = text ? JSON.parse(text) : {};
+        const data = await parseApiResponse(res);
         setSelectedLead(data.lead);
         fetchLeads();
       }
@@ -250,9 +246,29 @@ export default function AdminDashboard() {
     }
   };
 
-  // CSV Export
-  const handleExportCSV = () => {
-    window.location.href = '/api/admin/leads/export';
+  // CSV Export (authenticated fetch so Bearer token works cleanly across Render/Vercel)
+  const handleExportCSV = async () => {
+    try {
+      const res = await fetch(apiUrl('/api/admin/leads/export'), {
+        credentials: 'include',
+        headers: getAuthHeaders(),
+      });
+      if (!res.ok) {
+        console.warn('CSV export failed with status:', res.status);
+        return;
+      }
+      const blob = await res.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = `HUNAR_Leads_Export_${new Date().toISOString().split('T')[0]}.csv`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.URL.revokeObjectURL(url);
+    } catch (e) {
+      console.warn('CSV export error:', e);
+    }
   };
 
   if (authLoading || !isAuthenticated) {
