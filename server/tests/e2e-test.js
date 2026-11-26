@@ -393,6 +393,9 @@ async function runTests() {
   console.log(` RESULTS: ${passed} PASSED, ${failed} FAILED`);
   console.log('======================================================\n');
 
+  // Remove test leads so test runs never leave dummy records in the database
+  await Lead.deleteMany({ email: { $regex: /test.*@example\.com|patron.*@example\.com/ } });
+
   if (server) {
     await new Promise((resolve) => server.close(resolve));
   }

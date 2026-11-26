@@ -97,32 +97,6 @@ export default function AdminLogin() {
             </p>
           </div>
 
-          {/* Quick Credential Fill (Only on Login mode) */}
-          {mode === 'login' && (
-            <div className="mb-6 p-3.5 bg-cream/60 border border-beige/80 rounded-md text-xs text-charcoal/80 flex items-center justify-between shadow-subtle">
-              <div>
-                <span className="text-[10px] uppercase font-mono tracking-wider text-olive font-bold block">
-                  Studio Admin Access
-                </span>
-                <span className="font-mono text-[11px] text-charcoal/70">
-                  admin@hunarstudio.com
-                </span>
-              </div>
-              <button
-                type="button"
-                onClick={() => {
-                  setEmail('admin@hunarstudio.com');
-                  setPassword('HunarStudio2026!Admin');
-                  setErrorMessage('');
-                  setStatus('idle');
-                }}
-                className="px-3 py-1.5 bg-white hover:bg-emerald hover:text-cream border border-beige/80 hover:border-emerald rounded text-[11px] font-medium text-emerald transition shadow-subtle inline-flex items-center gap-1"
-              >
-                Fill Credentials
-              </button>
-            </div>
-          )}
-
           {/* Success Banner */}
           {successMessage && (
             <div className="mb-6 p-3.5 rounded bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-start gap-2.5">
@@ -151,7 +125,7 @@ export default function AdminLogin() {
                     id="email"
                     type="email"
                     required
-                    placeholder="admin@hunarstudio.com"
+                    placeholder="Enter studio admin email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="w-full pl-9 pr-3.5 py-2.5 text-sm bg-cream/30 border border-beige/70 text-charcoal rounded focus:border-emerald focus:bg-white focus:outline-none"
@@ -220,7 +194,7 @@ export default function AdminLogin() {
                     id="reset-email"
                     type="email"
                     required
-                    placeholder="admin@hunarstudio.com"
+                    placeholder="Enter studio admin email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     className="w-full pl-9 pr-3.5 py-2.5 text-sm bg-cream/30 border border-beige/70 text-charcoal rounded focus:border-emerald focus:bg-white focus:outline-none"
@@ -297,12 +271,6 @@ export default function AdminLogin() {
               </div>
             </form>
           )}
-
-          <div className="mt-8 pt-6 border-t border-beige/40 text-center">
-            <p className="text-[11px] text-charcoal/60">
-              Default Seed: <code className="bg-cream border border-beige/60 px-1 py-0.5 rounded font-mono text-emerald">admin@hunarstudio.com</code>
-            </p>
-          </div>
         </div>
       </section>
     </>

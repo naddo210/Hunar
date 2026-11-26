@@ -165,14 +165,10 @@ app.post(['/api/auth/login', '/auth/login'], async (req, res) => {
 
       if (user && user.isActive) {
         isMatch = await bcrypt.compare(cleanPassword, user.passwordHash);
-        if (!isMatch && (cleanPassword === 'HunarStudio2026!Admin' || cleanPassword === 'admin123')) {
-          isMatch = true;
-        }
       }
-    } else {
-      // Offline fallback
-      if ((cleanEmail === 'admin@hunarstudio.com' || cleanEmail === 'admin') &&
-          (cleanPassword === 'HunarStudio2026!Admin' || cleanPassword === 'admin123')) {
+    } else if (process.env.NODE_ENV !== 'production') {
+      const devPassword = process.env.ADMIN_DEFAULT_PASSWORD || 'HunarStudio2026!Admin';
+      if ((cleanEmail === 'admin@hunarstudio.com' || cleanEmail === 'admin') && cleanPassword === devPassword) {
         user = {
           _id: '6ad51cdc972f8ba6482f9eff',
           fullName: 'HUNAR Studio Director',
@@ -182,6 +178,11 @@ app.post(['/api/auth/login', '/auth/login'], async (req, res) => {
         };
         isMatch = true;
       }
+    } else {
+      return res.status(503).json({
+        success: false,
+        message: 'Database connection unavailable. Please try again shortly.',
+      });
     }
 
     if (!user || !isMatch) {
@@ -284,8 +285,7 @@ app.post(['/api/auth/change-password', '/auth/change-password'], requireAuth, as
 
       if (currentPassword) {
         const isMatch = await bcrypt.compare(String(currentPassword).trim(), user.passwordHash);
-        const isMaster = (String(currentPassword).trim() === 'HunarStudio2026!Admin' || String(currentPassword).trim() === 'admin123');
-        if (!isMatch && !isMaster) {
+        if (!isMatch) {
           return res.status(400).json({ success: false, message: 'Current password does not match.' });
         }
       }

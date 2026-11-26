@@ -46,17 +46,12 @@ const login = async (req, res, next) => {
       }
 
       if (user && user.isActive) {
-        // Compare with stored hash first (e.g. updated password)
         isMatch = await user.comparePassword(cleanPassword);
-        // Fallback for default studio credentials
-        if (!isMatch && (cleanPassword === 'HunarStudio2026!Admin' || cleanPassword === 'admin123')) {
-          isMatch = true;
-        }
       }
-    } else {
-      // 2. Fallback for offline DB / serverless preview environment
-      if ((cleanEmail === 'admin@hunarstudio.com' || cleanEmail === 'admin') && 
-          (cleanPassword === 'HunarStudio2026!Admin' || cleanPassword === 'admin123')) {
+    } else if (process.env.NODE_ENV !== 'production') {
+      // Dev/test-only fallback when local MongoDB is temporarily offline
+      const devPassword = process.env.ADMIN_DEFAULT_PASSWORD || 'HunarStudio2026!Admin';
+      if ((cleanEmail === 'admin@hunarstudio.com' || cleanEmail === 'admin') && cleanPassword === devPassword) {
         user = {
           _id: '6ad51cdc972f8ba6482f9eff',
           fullName: 'HUNAR Studio Director',
@@ -67,6 +62,11 @@ const login = async (req, res, next) => {
         };
         isMatch = true;
       }
+    } else {
+      return res.status(503).json({
+        success: false,
+        message: 'Database connection unavailable. Please try again shortly.',
+      });
     }
 
     if (!user || !isMatch) {
@@ -171,11 +171,10 @@ const changePassword = async (req, res, next) => {
         });
       }
 
-      // If current password provided, verify it
+      // If current password provided, verify strictly against stored hash
       if (currentPassword) {
         const isMatch = await user.comparePassword(String(currentPassword).trim());
-        const isMaster = (String(currentPassword).trim() === 'HunarStudio2026!Admin' || String(currentPassword).trim() === 'admin123');
-        if (!isMatch && !isMaster) {
+        if (!isMatch) {
           return res.status(400).json({
             success: false,
             message: 'Current password does not match.',
