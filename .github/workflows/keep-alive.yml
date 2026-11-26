@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Ping Render /api/health endpoint
         env:
-          TARGET_URL: ${{ inputs.backend_url || vars.RENDER_BACKEND_URL }}
+          TARGET_URL: ${{ inputs.backend_url || vars.RENDER_BACKEND_URL || 'https://hunar-aa1o.onrender.com' }}
         run: |
           if [ -z "$TARGET_URL" ]; then
             echo "RENDER_BACKEND_URL repository variable is not set yet."

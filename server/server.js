@@ -275,7 +275,11 @@ if (require.main === module && process.env.NODE_ENV !== 'test' && !process.env.V
     console.log(`[HUNAR Server] Running on http://localhost:${PORT} in ${process.env.NODE_ENV || 'development'} mode.`);
 
     // Built-in Render keep-alive pinger (runs alongside GitHub Actions external cron)
-    const keepAliveBase = (process.env.KEEP_ALIVE_URL || process.env.RENDER_EXTERNAL_URL || '').replace(/\/+$/, '');
+    const keepAliveBase = (
+      process.env.KEEP_ALIVE_URL ||
+      process.env.RENDER_EXTERNAL_URL ||
+      (process.env.RENDER ? 'https://hunar-aa1o.onrender.com' : '')
+    ).replace(/\/+$/, '');
     if (keepAliveBase) {
       const KEEP_ALIVE_INTERVAL_MS = 10 * 60 * 1000; // Every 10 minutes (< 15 min Render spindown)
       const pingExternal = async () => {

@@ -2,11 +2,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/api/[...path]"
-    },
-    {
-      "source": "/api",
-      "destination": "/api/[...path]"
+      "destination": "https://hunar-aa1o.onrender.com/api/$1"
     },
     {
       "source": "/((?!api/).*)",

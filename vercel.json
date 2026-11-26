@@ -2,19 +2,10 @@
   "version": 2,
   "buildCommand": "npm run build:client",
   "outputDirectory": "client/dist",
-  "functions": {
-    "api/index.js": {
-      "includeFiles": "server/**"
-    }
-  },
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "/api"
-    },
-    {
-      "source": "/api",
-      "destination": "/api"
+      "destination": "https://hunar-aa1o.onrender.com/api/$1"
     },
     {
       "source": "/((?!api/).*)",

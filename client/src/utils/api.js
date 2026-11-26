@@ -1,9 +1,13 @@
 /**
  * Centralized API URL builder & safe JSON parser.
- * Set VITE_API_URL in Vercel (e.g. https://your-service.onrender.com) to route requests to Render.
- * Leave unset for local dev proxy (/api) or same-origin serverless functions.
+ * Production builds default to the Render backend (https://hunar-aa1o.onrender.com)
+ * unless overridden by VITE_API_URL. Local dev uses relative /api via Vite proxy.
  */
-const RAW_API_BASE = (import.meta.env.VITE_API_URL || '').trim().replace(/\/+$/, '');
+const DEFAULT_PROD_API_URL = 'https://hunar-aa1o.onrender.com';
+const RAW_API_BASE = (
+  import.meta.env.VITE_API_URL ||
+  (import.meta.env.PROD ? DEFAULT_PROD_API_URL : '')
+).trim().replace(/\/+$/, '');
 
 export function apiUrl(path) {
   const normalizedPath = path.startsWith('/') ? path : `/${path}`;
