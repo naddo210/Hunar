@@ -259,7 +259,7 @@ export default function EnquiryForm({
               id="phone"
               name="phone"
               type="tel"
-              placeholder="+91 98765 43210"
+              placeholder="+91 98XXX XXXXX"
               value={formData.phone}
               onChange={handleChange}
               className="w-full px-3.5 py-2.5 text-sm bg-cream/30 text-charcoal border border-beige rounded transition placeholder:text-charcoal/40 focus:border-emerald focus:bg-white focus:ring-1 focus:ring-emerald focus:outline-none"

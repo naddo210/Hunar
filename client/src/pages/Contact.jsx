@@ -2,15 +2,29 @@ import React from 'react';
 import SEO from '../components/SEO';
 import Breadcrumbs from '../components/Breadcrumbs';
 import EnquiryForm from '../components/EnquiryForm';
-import { Mail, Phone, MapPin, Clock } from 'lucide-react';
+import { STUDIO_CONTACT } from '../constants/studioContact';
+import { Mail, Phone, MapPin, Clock, MessageCircle, Instagram, ArrowUpRight } from 'lucide-react';
 
 export default function Contact() {
   const contactSchema = {
     '@context': 'https://schema.org',
     '@type': 'ContactPage',
-    name: 'Contact HUNAR Creative Studio',
+    name: `Contact ${STUDIO_CONTACT.studioName}`,
     url: 'https://hunarstudio.com/contact',
-    description: 'Get in touch with the creative directors at HUNAR Creative Studio for fine art commissions, brand systems, and web projects.',
+    description: 'Get in touch with the creative directors at HUNAR Creative Studio in Mumbai for fine art commissions, brand systems, and web projects.',
+    mainEntity: {
+      '@type': 'LocalBusiness',
+      name: STUDIO_CONTACT.studioName,
+      telephone: STUDIO_CONTACT.phoneDisplay,
+      email: STUDIO_CONTACT.email,
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: STUDIO_CONTACT.city,
+        addressRegion: 'Maharashtra',
+        addressCountry: 'IN',
+      },
+      sameAs: [STUDIO_CONTACT.instagramUrl],
+    },
   };
 
   return (
@@ -45,10 +59,10 @@ export default function Contact() {
               <div className="p-8 bg-white border border-beige/70 rounded shadow-card space-y-6">
                 <div>
                   <h2 className="font-serif text-2xl text-emerald font-medium">
-                    Atelier Locations
+                    Mumbai Atelier
                   </h2>
                   <p className="mt-2 text-xs sm:text-sm text-charcoal/70 leading-relaxed font-light">
-                    Visits are hosted by appointment for collectors, architects, and collaborating founders.
+                    Visits and studio consultations in Mumbai are hosted by appointment for collectors, architects, and collaborating founders.
                   </p>
                 </div>
 
@@ -56,42 +70,58 @@ export default function Contact() {
                   <div className="flex items-start gap-3">
                     <MapPin className="w-4 h-4 text-olive flex-shrink-0 mt-1" />
                     <div>
-                      <p className="font-medium text-emerald">Bengaluru Atelier</p>
+                      <p className="font-medium text-emerald">{STUDIO_CONTACT.city} Creative Studio</p>
                       <p className="text-charcoal/70 text-xs font-light mt-0.5">
-                        Indiranagar Arts Quarter, Bengaluru, Karnataka 560038
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="flex items-start gap-3">
-                    <MapPin className="w-4 h-4 text-olive flex-shrink-0 mt-1" />
-                    <div>
-                      <p className="font-medium text-emerald">New Delhi Design Studio</p>
-                      <p className="text-charcoal/70 text-xs font-light mt-0.5">
-                        Hauz Khas Studio Complex, New Delhi 110016
+                        {STUDIO_CONTACT.locationFull}
                       </p>
                     </div>
                   </div>
                 </div>
 
-                <div className="space-y-3 pt-4 border-t border-beige/40 text-sm">
+                <div className="space-y-3.5 pt-4 border-t border-beige/40 text-sm">
                   <div className="flex items-center gap-3">
                     <Mail className="w-4 h-4 text-olive flex-shrink-0" />
                     <a
-                      href="mailto:inquiries@hunarstudio.com"
+                      href={`mailto:${STUDIO_CONTACT.email}`}
                       className="text-charcoal/80 hover:text-emerald transition font-medium text-xs sm:text-sm"
                     >
-                      inquiries@hunarstudio.com
+                      {STUDIO_CONTACT.email}
                     </a>
                   </div>
 
                   <div className="flex items-center gap-3">
                     <Phone className="w-4 h-4 text-olive flex-shrink-0" />
                     <a
-                      href="tel:+919876543210"
+                      href={STUDIO_CONTACT.phoneHref}
                       className="text-charcoal/80 hover:text-emerald transition font-medium text-xs sm:text-sm"
                     >
-                      +91 98765 43210
+                      {STUDIO_CONTACT.phoneDisplay}
+                    </a>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    <MessageCircle className="w-4 h-4 text-emerald flex-shrink-0" />
+                    <a
+                      href={STUDIO_CONTACT.whatsappChatUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-emerald hover:text-olive transition font-medium text-xs sm:text-sm"
+                    >
+                      <span>WhatsApp · {STUDIO_CONTACT.phoneDisplay}</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
+                    </a>
+                  </div>
+
+                  <div className="flex items-center gap-3">
+                    <Instagram className="w-4 h-4 text-olive flex-shrink-0" />
+                    <a
+                      href={STUDIO_CONTACT.instagramUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-charcoal/80 hover:text-emerald transition font-medium text-xs sm:text-sm"
+                    >
+                      <span>Instagram · {STUDIO_CONTACT.instagramHandle}</span>
+                      <ArrowUpRight className="w-3.5 h-3.5" />
                     </a>
                   </div>
 
@@ -99,6 +129,19 @@ export default function Contact() {
                     <Clock className="w-4 h-4 text-olive flex-shrink-0" />
                     <span>Monday – Friday, 10:00 AM – 7:00 PM IST</span>
                   </div>
+                </div>
+
+                {/* Direct WhatsApp Quick-Chat CTA */}
+                <div className="pt-2">
+                  <a
+                    href={STUDIO_CONTACT.whatsappChatUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full inline-flex items-center justify-center gap-2 py-2.5 px-4 bg-emerald hover:bg-emerald-dark text-cream text-xs uppercase tracking-widest font-semibold rounded transition shadow-sm"
+                  >
+                    <MessageCircle className="w-4 h-4 text-beige" />
+                    <span>Message Us on WhatsApp</span>
+                  </a>
                 </div>
               </div>
 

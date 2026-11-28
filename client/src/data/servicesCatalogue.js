@@ -330,7 +330,7 @@ export const SUB_SERVICES = {
           }
     ],
     deliverables: ['Signed Original Artwork', 'Certificate of Authenticity with Studio Stamp', 'Exhibition Provenance Sheet'],
-    faqs: [{ q: 'Can I view the original in person before purchasing?', a: 'Studio viewings are available by appointment at our Bengaluru and New Delhi ateliers.' }],
+    faqs: [{ q: 'Can I view the original in person before purchasing?', a: 'Studio viewings are available by appointment at our Mumbai atelier.' }],
   },
   'art-prints': {
     division: 'art-products',

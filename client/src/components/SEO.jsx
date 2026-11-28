@@ -1,9 +1,10 @@
 import React from 'react';
 import { Helmet } from 'react-helmet-async';
+import { STUDIO_CONTACT } from '../constants/studioContact';
 
 export default function SEO({
   title = 'HUNAR Creative Studio — Bespoke Art, Branding & Digital Production',
-  description = 'HUNAR is a premier creative studio offering bespoke art commissions, brand identity design, custom web development, murals, and creative digital products.',
+  description = 'HUNAR is a premier creative studio in Mumbai offering bespoke art commissions, brand identity design, custom web development, murals, and creative digital products.',
   canonicalUrl,
   schema,
   ogType = 'website',
@@ -15,12 +16,20 @@ export default function SEO({
   const defaultOrgSchema = {
     '@context': 'https://schema.org',
     '@type': 'Organization',
-    name: 'HUNAR Creative Studio',
+    name: STUDIO_CONTACT.studioName,
     url: siteUrl,
     logo: `${siteUrl}/logo.png`,
-    description: 'Premier creative atelier offering bespoke artwork, brand design, web development, and architectural murals.',
+    telephone: STUDIO_CONTACT.phoneDisplay,
+    email: STUDIO_CONTACT.email,
+    address: {
+      '@type': 'PostalAddress',
+      addressLocality: STUDIO_CONTACT.city,
+      addressRegion: 'Maharashtra',
+      addressCountry: 'IN',
+    },
+    description: 'Premier creative atelier in Mumbai offering bespoke artwork, brand design, web development, and architectural murals.',
     sameAs: [
-      'https://instagram.com/hunarstudio',
+      STUDIO_CONTACT.instagramUrl,
       'https://linkedin.com/company/hunar-creative-studio',
     ],
   };

@@ -18,8 +18,8 @@ const FAQS = [
     a: 'We never use generic pre-built templates or rigid drag-and-drop page builders. Our digital platforms are custom engineered using modern full-stack architectures (React, Node.js, Express, MongoDB). Every layout, typographic rhythm, and responsive breakpoint is crafted with bespoke attention to performance and 100/100 Core Web Vitals.',
   },
   {
-    q: 'Do you execute commercial murals outside of Bengaluru and New Delhi?',
-    a: 'Yes. Our mural execution team regularly travels across India and internationally. For distant projects, we conduct initial laser surveys and elevation planning virtually, followed by on-site substrate preparation and hand-painting over a 1 to 3 week installation period.',
+    q: 'Do you execute commercial murals outside of Mumbai?',
+    a: 'Yes. Based out of Mumbai, our mural execution team regularly travels across India and internationally. For distant projects, we conduct initial laser surveys and elevation planning virtually, followed by on-site substrate preparation and hand-painting over a 1 to 3 week installation period.',
   },
   {
     q: 'Who owns the intellectual property and copyright of commissioned works?',

@@ -60,7 +60,7 @@ export default function AgencyHero() {
 
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-olive animate-pulse" />
-            <span className="text-charcoal/80 font-medium">BENGALURU 12°58'N · NEW DELHI 28°36'N</span>
+            <span className="text-charcoal/80 font-medium">MUMBAI ATELIER · 19°04'N 72°52'E</span>
           </div>
 
           <div className="hidden md:flex items-center gap-3">

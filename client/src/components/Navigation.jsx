@@ -13,9 +13,12 @@ import {
   Calendar, 
   Phone, 
   Mail, 
-  Lock 
+  Lock,
+  MessageCircle,
+  Instagram 
 } from 'lucide-react';
 import { DIVISIONS } from '../data/servicesCatalogue';
+import { STUDIO_CONTACT } from '../constants/studioContact';
 
 const SPECIALIST_SERVICES = [
   { label: 'Commercial Glass Painting', path: '/services/murals-commercial-art/commercial-glass-painting', tag: 'Storefront & Facades' },
@@ -399,11 +402,33 @@ export default function Navigation() {
             <div className="pt-2 text-xs text-charcoal/70 space-y-2 border-t border-beige/60">
               <div className="flex items-center gap-2">
                 <Mail className="w-3.5 h-3.5 text-olive flex-shrink-0" />
-                <a href="mailto:inquiries@hunarstudio.com" onClick={closeMobile} className="hover:text-emerald">inquiries@hunarstudio.com</a>
+                <a href={`mailto:${STUDIO_CONTACT.email}`} onClick={closeMobile} className="hover:text-emerald">{STUDIO_CONTACT.email}</a>
               </div>
               <div className="flex items-center gap-2">
                 <Phone className="w-3.5 h-3.5 text-olive flex-shrink-0" />
-                <a href="tel:+919876543210" onClick={closeMobile} className="hover:text-emerald">+91 98765 43210</a>
+                <a href={STUDIO_CONTACT.phoneHref} onClick={closeMobile} className="hover:text-emerald">{STUDIO_CONTACT.phoneDisplay}</a>
+              </div>
+              <div className="flex flex-wrap items-center gap-2 pt-1">
+                <a
+                  href={STUDIO_CONTACT.whatsappChatUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={closeMobile}
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1.5 bg-emerald/10 text-emerald hover:bg-emerald hover:text-cream rounded font-medium text-[11px] transition"
+                >
+                  <MessageCircle className="w-3.5 h-3.5" />
+                  <span>WhatsApp</span>
+                </a>
+                <a
+                  href={STUDIO_CONTACT.instagramUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={closeMobile}
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1.5 bg-olive/10 text-olive hover:bg-olive hover:text-cream rounded font-medium text-[11px] transition"
+                >
+                  <Instagram className="w-3.5 h-3.5" />
+                  <span>Instagram</span>
+                </a>
               </div>
             </div>
           </div>
@@ -420,7 +445,7 @@ export default function Navigation() {
             </Link>
 
             <div className="flex items-center justify-between text-[11px] text-charcoal/60 px-1 pt-1">
-              <span>Bengaluru & New Delhi</span>
+              <span>{STUDIO_CONTACT.locationShort}</span>
               <Link to="/admin/login" onClick={closeMobile} className="inline-flex items-center gap-1 hover:text-emerald text-[11px]">
                 <Lock className="w-3 h-3 text-beige-dark" />
                 <span>Admin Login</span>

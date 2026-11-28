@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin, ArrowUpRight, Lock } from 'lucide-react';
+import { STUDIO_CONTACT } from '../constants/studioContact';
+import { Mail, Phone, MapPin, Lock, MessageCircle, Instagram, ArrowUpRight } from 'lucide-react';
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -24,22 +25,42 @@ export default function Footer() {
             </p>
             <div className="pt-2 flex flex-col space-y-2 text-xs text-cream/80">
               <a
-                href="mailto:inquiries@hunarstudio.com"
-                className="inline-flex items-center gap-2 hover:text-beige transition"
+                href={`mailto:${STUDIO_CONTACT.email}`}
+                className="inline-flex items-center gap-2 hover:text-beige transition w-fit"
               >
                 <Mail className="w-3.5 h-3.5 text-beige" />
-                <span>inquiries@hunarstudio.com</span>
+                <span>{STUDIO_CONTACT.email}</span>
               </a>
               <a
-                href="tel:+919876543210"
-                className="inline-flex items-center gap-2 hover:text-beige transition"
+                href={STUDIO_CONTACT.phoneHref}
+                className="inline-flex items-center gap-2 hover:text-beige transition w-fit"
               >
                 <Phone className="w-3.5 h-3.5 text-beige" />
-                <span>+91 98765 43210</span>
+                <span>{STUDIO_CONTACT.phoneDisplay}</span>
+              </a>
+              <a
+                href={STUDIO_CONTACT.whatsappChatUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 hover:text-beige transition w-fit"
+              >
+                <MessageCircle className="w-3.5 h-3.5 text-beige" />
+                <span>WhatsApp: {STUDIO_CONTACT.phoneDisplay}</span>
+                <ArrowUpRight className="w-3 h-3 text-beige/80" />
+              </a>
+              <a
+                href={STUDIO_CONTACT.instagramUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 hover:text-beige transition w-fit"
+              >
+                <Instagram className="w-3.5 h-3.5 text-beige" />
+                <span>Instagram ({STUDIO_CONTACT.instagramHandle})</span>
+                <ArrowUpRight className="w-3 h-3 text-beige/80" />
               </a>
               <div className="inline-flex items-center gap-2 text-cream/70">
                 <MapPin className="w-3.5 h-3.5 text-beige" />
-                <span>Bengaluru & New Delhi, India</span>
+                <span>{STUDIO_CONTACT.locationShort}</span>
               </div>
             </div>
           </div>
